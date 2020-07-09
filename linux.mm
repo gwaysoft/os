@@ -176,8 +176,7 @@
       yum install net-tools.x86_64
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1551773125052" ID="ID_1513391005" MODIFIED="1551776304296" TEXT="reslove">
 <node CREATED="1551773157259" ID="ID_457293659" MODIFIED="1562555406803" TEXT="ifconfig: command not found">
@@ -427,8 +426,7 @@
       --permanent&#160;&#160;&#160;#&#27704;&#20037;&#29983;&#25928;&#65292;&#27809;&#26377;&#27492;&#21442;&#25968;&#37325;&#21551;&#21518;&#22833;&#25928;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1593671043019" ID="ID_587616149" MODIFIED="1593671055302" TEXT="systemctl">
 <node CREATED="1593671055762" ID="ID_287788206" MODIFIED="1593671110150">
 <richcontent TYPE="NODE"><html>
@@ -446,8 +444,7 @@
       systemctl start firewalld
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1593671113040" ID="ID_1836935536" MODIFIED="1593671118685" TEXT="view">
@@ -464,8 +461,7 @@
       firewall-cmd --list-ports
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1593671150561" ID="ID_831689938" MODIFIED="1593671156294" TEXT="add ports">
@@ -482,8 +478,7 @@
       systemctl restart firewalld
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -866,8 +861,7 @@
       
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1593585080788" ID="ID_440088584" MODIFIED="1593585097337" TEXT="x: delete current cursor letter"/>
 <node CREATED="1593586912300" ID="ID_317657363" MODIFIED="1593586920064" TEXT="yanked">
 <node CREATED="1593586837980" ID="ID_716677280" MODIFIED="1593587070920" TEXT="yy"/>
@@ -923,8 +917,7 @@
       
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1593584981135" ID="ID_1214650100" MODIFIED="1593584982587" TEXT="i"/>
 </node>
 <node CREATED="1593584756261" ID="ID_1327283196" MODIFIED="1593585489827" TEXT="last line mode">
@@ -958,8 +951,7 @@
       :h # help
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1593584771260" ID="ID_550170264" MODIFIED="1593584775008" TEXT=":wq"/>
 <node CREATED="1593585492236" ID="ID_1179366055" MODIFIED="1593585563105" TEXT=":q!"/>
 <node CREATED="1593587599058" ID="ID_98053837" MODIFIED="1593587603862" TEXT=":set nu">
@@ -980,8 +972,7 @@
       r + char -- replace char
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1593587348409" ID="ID_582471903" MODIFIED="1593587360071" TEXT="insert twice">
 <node CREATED="1593587361210" ID="ID_503311004" MODIFIED="1593587364047" TEXT="replace"/>
 </node>
@@ -1038,8 +1029,7 @@
       vi{w|s|p} -- select word, sentence, paragraph
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1593587433009" ID="ID_1089762464" MODIFIED="1593587437303" TEXT="v"/>
 <node CREATED="1593587439226" ID="ID_378445995" MODIFIED="1593587451414" TEXT="select cursor letter"/>
 </node>
@@ -1097,8 +1087,7 @@
       vi /etc/vimrc | ~/.vimrc
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1552901364679" ID="ID_1076795549" MODIFIED="1562555407099" TEXT="vimrc">
 <richcontent TYPE="NOTE"><html>
@@ -1326,8 +1315,7 @@
       Ctrl + ww -- move cursor
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -1378,8 +1366,9 @@
 <node CREATED="1593592348265" ID="ID_1611325026" MODIFIED="1593592359741" TEXT="save encryption password"/>
 </node>
 </node>
-<node CREATED="1551776347099" FOLDED="true" ID="ID_1963052222" MODIFIED="1593681047328" TEXT="install">
+<node CREATED="1551776347099" ID="ID_1963052222" MODIFIED="1594261948797" TEXT="install">
 <node CREATED="1552632696645" ID="ID_290708277" MODIFIED="1593658692857" TEXT="rpm">
+<node CREATED="1594262000356" ID="ID_126897313" MODIFIED="1594262004705" TEXT="jdk">
 <node CREATED="1593658496974" ID="ID_843482478" MODIFIED="1593673069622" TEXT="rpm -aq| grep jdk">
 <node CREATED="1593658513279" ID="ID_603592712" MODIFIED="1593658530900" TEXT="verify installed status"/>
 </node>
@@ -1395,13 +1384,14 @@
       --nodeps&#160;&#160;do not verify package dependencies
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
+</node>
 </node>
 </node>
 </node>
 <node CREATED="1593597511861" ID="ID_1845833762" MODIFIED="1593672885789" TEXT="tar">
-<node CREATED="1593672994754" ID="ID_1030607800" MODIFIED="1593672997095" TEXT="tar -vrx jdk-11.0.7_linux-x64_bin.tar.gz"/>
+<node CREATED="1594261974916" ID="ID_1583229652" MODIFIED="1594262014258" TEXT="jdk">
+<node CREATED="1593672994754" ID="ID_1030607800" MODIFIED="1594261996985" TEXT="tar -vrx jdk-11.0.7_linux-x64_bin.tar.gz"/>
 <node CREATED="1593672887237" ID="ID_561873694" MODIFIED="1593672977517">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -1430,8 +1420,8 @@
       source /etc/profile
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
+</node>
 </node>
 </node>
 <node CREATED="1551773629156" ID="ID_371840669" MODIFIED="1593655553533" TEXT="yum">
@@ -1472,8 +1462,7 @@
       test: yum search ifconfig
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1552271544174" ID="ID_1360267149" MODIFIED="1562555406977" TEXT="command">
 <richcontent TYPE="NOTE"><html>
@@ -1636,7 +1625,7 @@
 <node CREATED="1593681004561" ID="ID_176514606" MODIFIED="1593681009854" TEXT="env"/>
 </node>
 </node>
-<node CREATED="1551948235253" ID="ID_428878726" MODIFIED="1593761705153" TEXT="service">
+<node CREATED="1551948235253" ID="ID_428878726" MODIFIED="1594261924934" TEXT="service">
 <node CREATED="1551945820801" ID="ID_408963751" MODIFIED="1562555407338" TEXT="bind">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -1879,13 +1868,28 @@
       ./shutdown.sh
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1593676831634" ID="ID_1011357513" MODIFIED="1593676835563" TEXT="docker">
+<node CREATED="1594261778905" ID="ID_804632477" MODIFIED="1594261801858" TEXT="docker_k8s.mm"/>
 <node CREATED="1593681520937" ID="ID_1486945840" MODIFIED="1593681522620" TEXT="https://docs.docker.com/engine/install/centos/"/>
-<node CREATED="1593748209808" ID="ID_1924469814" MODIFIED="1593748215656" TEXT="https://www.cnblogs.com/jpfss/p/10937575.html"/>
+<node CREATED="1593748209808" ID="ID_1924469814" MODIFIED="1594261915738">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      https://www.bilibili.com/video/BV187411y7hF?p=17
+    </p>
+    <p>
+      https://www.cnblogs.com/jpfss/p/10937575.html
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 <node CREATED="1593681098050" ID="ID_20438048" MODIFIED="1593681114717" TEXT="cat /etc/redhat-release"/>
 <node CREATED="1593681451698" ID="ID_796741152" MODIFIED="1593681497062" TEXT="prerequisite">
 <node CREATED="1593681353440" ID="ID_725478848" MODIFIED="1593681417100" TEXT="yum list installed | grep gcc"/>
@@ -1914,8 +1918,7 @@
       yum makecache fast
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1593746815312" ID="ID_1398871815" MODIFIED="1593746821997" TEXT="install">
@@ -1935,8 +1938,7 @@
       systemctl start docker
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1593746899943" ID="ID_1638547135" MODIFIED="1593746916836" TEXT="verify">
@@ -1977,8 +1979,7 @@
       docker rm|start|stop containerId
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -2054,8 +2055,7 @@
       hostname newname
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1588214575171" ID="ID_511620140" MODIFIED="1588214603699" TEXT="vi /etc/hostname"/>
 </node>
 <node CREATED="1588214593969" ID="ID_1160864701" MODIFIED="1588214597310" TEXT="reboot"/>
@@ -2121,8 +2121,7 @@
       echo -e &quot;\e[1;35m David Way \e[1;0m&quot;
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1552293625571" ID="ID_364845061" MODIFIED="1562555407436" TEXT="bracket">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -2258,8 +2257,7 @@
       &#160;&#160;&#160;Default Gateway . . . . . . . . . : 192.168.2.2
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -2286,8 +2284,7 @@
       subnet mask: 255.255.255.0
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
