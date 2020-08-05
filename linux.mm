@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1588039771152" ID="ID_1986969131" MODIFIED="1588039781690" TEXT="linux">
+<node CREATED="1588039771152" ID="ID_1986969131" MODIFIED="1596108988646" TEXT="linux">
 <node CREATED="1551771403043" ID="ID_762738337" MODIFIED="1593498420668" POSITION="right" TEXT="CentOS">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -16,7 +16,7 @@
   </body>
 </html></richcontent>
 <node CREATED="1593757509952" ID="ID_317916793" MODIFIED="1593757700929" TEXT="level">
-<node CREATED="1593498420668" ID="ID_196719077" MODIFIED="1593757658018" TEXT="start">
+<node CREATED="1593498420668" ID="ID_196719077" MODIFIED="1596086266289" TEXT="start">
 <node CREATED="1593570199801" ID="ID_1325173746" MODIFIED="1593761701614" TEXT="reference">
 <node CREATED="1593570204193" ID="ID_1284351844" MODIFIED="1593570206339" TEXT="https://www.bilibili.com/video/BV187411y7hF">
 <node CREATED="1593570163766" ID="ID_969357548" MODIFIED="1593570166145" TEXT="https://mp.weixin.qq.com/mp/homepage?__biz=Mzg2NTAzMTExNg==&amp;hid=2&amp;sn=1650b6338f6469ca519b080fdbbbd333&amp;scene=18"/>
@@ -157,7 +157,7 @@
 </node>
 </node>
 <node CREATED="1551771854883" ID="ID_1892302707" MODIFIED="1593761707180" TEXT="command">
-<node CREATED="1551771830995" ID="ID_1190437359" MODIFIED="1593761709513" TEXT="network">
+<node CREATED="1551771830995" ID="ID_1190437359" MODIFIED="1594786504116" TEXT="network">
 <node CREATED="1593575394431" ID="ID_1911101387" MODIFIED="1593575424387" TEXT="cd /etc/sysconfig/network-scripts"/>
 <node CREATED="1551771868059" ID="ID_825215649" MODIFIED="1593761717709" TEXT="ifconfig">
 <node CREATED="1593573654742" ID="ID_1428286189" MODIFIED="1593573681863">
@@ -345,7 +345,7 @@
 </node>
 </node>
 <node CREATED="1589268154762" ID="ID_141705518" MODIFIED="1589268163900" TEXT="netstat">
-<node CREATED="1589268157666" ID="ID_60612503" MODIFIED="1589268159171" TEXT="netstat -lnp|grep 18000"/>
+<node CREATED="1589268157666" ID="ID_60612503" MODIFIED="1595302131031" TEXT="netstat -lnpt|grep 18000"/>
 </node>
 <node CREATED="1593573699297" ID="ID_123576579" MODIFIED="1593573702235" TEXT="wget">
 <node CREATED="1593573703655" ID="ID_452820172" MODIFIED="1593573709099" TEXT="yum install wget"/>
@@ -482,6 +482,9 @@
 </node>
 </node>
 </node>
+<node CREATED="1596086284227" ID="ID_1570483813" MODIFIED="1596086286260" TEXT="curl">
+<node CREATED="1596086286260" ID="ID_801787848" MODIFIED="1596086287383" TEXT="curl -o /usr/libexec/docker/cli-plugins/docker-ecs -L https://github.com/docker/ecs-plugin/releases/latest/download/docker-ecs-linux-amd64"/>
+</node>
 </node>
 <node CREATED="1593571950767" ID="ID_147333808" MODIFIED="1593683472485" TEXT="file &amp; directory">
 <node CREATED="1593584265356" ID="ID_1401441670" MODIFIED="1593584267332" TEXT="https://mp.weixin.qq.com/s?__biz=Mzg2NTAzMTExNg==&amp;mid=2247483885&amp;idx=1&amp;sn=cf98ffb9698999abf950c55da75c60ec&amp;scene=19#wechat_redirect"/>
@@ -506,26 +509,61 @@
 <node CREATED="1593584122436" ID="ID_1920553244" MODIFIED="1593584126761" TEXT="ln f1 f2"/>
 </node>
 <node CREATED="1593583723428" ID="ID_1666587163" MODIFIED="1593583736161" TEXT="symbolic link">
-<node CREATED="1593584128780" ID="ID_975863114" MODIFIED="1593584135073" TEXT="ln -s f1 f3"/>
+<node CREATED="1593584128780" ID="ID_975863114" MODIFIED="1594973774435" TEXT="ln -s source_file target_file"/>
 </node>
+<node CREATED="1594973783104" ID="ID_85185607" MODIFIED="1594973794109" TEXT="rm -rf link_file"/>
 </node>
 <node CREATED="1593573177023" ID="ID_7091693" MODIFIED="1593588791117" TEXT="file content">
-<node CREATED="1593573190742" FOLDED="true" ID="ID_662683590" MODIFIED="1593588794337" TEXT="view">
+<node CREATED="1593573190742" ID="ID_662683590" MODIFIED="1596165001855" TEXT="view">
 <node CREATED="1593573879584" ID="ID_1460507252" MODIFIED="1593573881323" TEXT="cat"/>
 <node CREATED="1593573882478" ID="ID_127795438" MODIFIED="1593573884836" TEXT="tac"/>
 <node CREATED="1593573885921" ID="ID_986243943" MODIFIED="1593583944137" TEXT="nl"/>
 <node CREATED="1593574274510" ID="ID_846922366" MODIFIED="1593574485513" TEXT="less (best practice)">
-<node CREATED="1593574277991" ID="ID_817538601" MODIFIED="1593574473988" TEXT="page up / page down"/>
-<node CREATED="1593574635551" ID="ID_1251703710" MODIFIED="1593574641215" TEXT="up / down"/>
-<node CREATED="1593574181576" ID="ID_796956491" MODIFIED="1593574624667" TEXT="space: page down"/>
-<node CREATED="1593574194774" ID="ID_1190935959" MODIFIED="1593574632148" TEXT="enter: down one line"/>
-<node CREATED="1593574216118" ID="ID_1042276134" MODIFIED="1593574257307" TEXT=":f : show line"/>
-<node CREATED="1593574292534" ID="ID_1395555214" MODIFIED="1593574297283" TEXT="q: quit"/>
-<node CREATED="1593575250095" ID="ID_269470546" MODIFIED="1593575251388" TEXT="search">
+<node CREATED="1593574277991" ID="ID_817538601" MODIFIED="1596174697506" TEXT="h"/>
+<node CREATED="1596169921340" ID="ID_53518486" MODIFIED="1596174629730" TEXT="commands">
+<node CREATED="1593574292534" ID="ID_1395555214" MODIFIED="1596174632245" TEXT="q: quit"/>
+<node CREATED="1593575250095" ID="ID_269470546" MODIFIED="1596169946961" TEXT="searching">
 <node CREATED="1593574429406" ID="ID_1366400168" MODIFIED="1593575268707" TEXT="/key: search down key"/>
 <node CREATED="1593575273951" ID="ID_374313639" MODIFIED="1593575281371" TEXT="?key: search up key"/>
 <node CREATED="1593575282638" ID="ID_1161260214" MODIFIED="1593575329131" TEXT="n: down"/>
 <node CREATED="1593575314318" ID="ID_1590548600" MODIFIED="1593575323125" TEXT="N: up"/>
+</node>
+<node CREATED="1596166173452" ID="ID_974984810" MODIFIED="1596166179349" TEXT="Jumping">
+<node CREATED="1596166179349" ID="ID_1539752269" MODIFIED="1596166195123" TEXT="g / G ">
+<node CREATED="1596166196244" ID="ID_1154364052" MODIFIED="1596166222663" TEXT="go to first / last line"/>
+</node>
+<node CREATED="1596169744284" ID="ID_1523294934" MODIFIED="1596169782106" TEXT="p">
+<node CREATED="1596169808996" ID="ID_1711514566" MODIFIED="1596169826912" TEXT="begin line of the file"/>
+<node CREATED="1596169828188" ID="ID_1238846241" MODIFIED="1596169833744" TEXT="100 enter">
+<node CREATED="1596169834740" ID="ID_712242336" MODIFIED="1596169839936" TEXT="100 line"/>
+</node>
+<node CREATED="1596169841636" ID="ID_773812015" MODIFIED="1596169848364" TEXT="50% enter">
+<node CREATED="1596169848364" ID="ID_1755370453" MODIFIED="1596169855600" TEXT="50% line"/>
+</node>
+</node>
+</node>
+<node CREATED="1596174426692" ID="ID_827610183" MODIFIED="1596174430189" TEXT="moving">
+<node CREATED="1596174430189" ID="ID_1054618490" MODIFIED="1596174529639" TEXT="b or 100 b">
+<node CREATED="1596174441171" ID="ID_481138971" MODIFIED="1596174538112" TEXT="backward"/>
+</node>
+<node CREATED="1596174540147" ID="ID_1919660494" MODIFIED="1596174548211" TEXT="f or 100 f">
+<node CREATED="1596174548212" ID="ID_714796567" MODIFIED="1596174551512" TEXT="forward"/>
+</node>
+<node CREATED="1596174557331" ID="ID_1292980150" MODIFIED="1596174564796" TEXT="e y">
+<node CREATED="1596174564796" ID="ID_451570677" MODIFIED="1596174569447" TEXT="one line"/>
+</node>
+</node>
+<node CREATED="1596174775891" ID="ID_363676481" MODIFIED="1596174790286" TEXT="miscellaneous commands">
+<node CREATED="1596174790286" ID="ID_1344537172" MODIFIED="1596174792248" TEXT="v">
+<node CREATED="1596174794890" ID="ID_1166318662" MODIFIED="1596174813080" TEXT="edit the current file"/>
+</node>
+</node>
+</node>
+<node CREATED="1596169924796" ID="ID_102994689" MODIFIED="1596169934905" TEXT="options">
+<node CREATED="1596165687669" ID="ID_1260991726" MODIFIED="1596165688633" TEXT="ps -ef | less -e "/>
+<node CREATED="1596165243764" ID="ID_708843467" MODIFIED="1596165696496" TEXT="less -N /bin">
+<node CREATED="1596165259325" ID="ID_1814960043" MODIFIED="1596165264816" TEXT="show line"/>
+</node>
 </node>
 </node>
 <node CREATED="1593574177078" ID="ID_433271682" MODIFIED="1593574181575" TEXT="more">
@@ -535,8 +573,9 @@
 <node CREATED="1593574733688" ID="ID_559118208" MODIFIED="1593574736979" TEXT="-n"/>
 <node CREATED="1593574738280" ID="ID_1378161501" MODIFIED="1593574742131" TEXT="tail -f"/>
 </node>
+<node CREATED="1596169884276" ID="ID_1771167458" MODIFIED="1596169887580" TEXT="in"/>
 </node>
-<node CREATED="1593584357924" FOLDED="true" ID="ID_1190220128" MODIFIED="1593588792958" TEXT="edit">
+<node CREATED="1593584357924" ID="ID_1190220128" MODIFIED="1596164956296" TEXT="edit">
 <node CREATED="1593584360828" ID="ID_148351138" MODIFIED="1593584364689" TEXT="touch"/>
 <node CREATED="1593584365980" ID="ID_837490945" MODIFIED="1593584368377" TEXT="echo"/>
 <node CREATED="1552275209844" ID="ID_744986189" MODIFIED="1593587877070" TEXT="vi &amp; vim">
@@ -551,8 +590,8 @@
 <node CREATED="1593587402606" ID="ID_1679512752" MODIFIED="1593587426958" TEXT="insert twice: replace mode"/>
 <node CREATED="1593587547586" ID="ID_132224081" MODIFIED="1593587564015" TEXT="ZZ: quit not save"/>
 </node>
-<node CREATED="1593585870375" FOLDED="true" ID="ID_1783811391" MODIFIED="1593587537159" TEXT="command">
-<node CREATED="1593585880276" FOLDED="true" ID="ID_810853557" MODIFIED="1593587339359" TEXT="move cursor">
+<node CREATED="1593585870375" ID="ID_1783811391" MODIFIED="1594693376902" TEXT="command">
+<node CREATED="1593585880276" ID="ID_810853557" MODIFIED="1594693391702" TEXT="move cursor">
 <node CREATED="1593585900708" ID="ID_908811493" MODIFIED="1593585903904" TEXT="h">
 <node CREATED="1593585918556" ID="ID_1827652470" MODIFIED="1593585926329" TEXT="left"/>
 </node>
@@ -578,7 +617,7 @@
 <node CREATED="1593586600917" ID="ID_1199688241" MODIFIED="1593586603929" TEXT="line of end"/>
 </node>
 </node>
-<node CREATED="1593586032460" FOLDED="true" ID="ID_193734207" MODIFIED="1593586737058" TEXT="page">
+<node CREATED="1593586032460" ID="ID_193734207" MODIFIED="1594693382595" TEXT="page">
 <node CREATED="1593586035093" ID="ID_30941875" MODIFIED="1593586046366" TEXT="ctrl + f">
 <node CREATED="1593586046366" ID="ID_493161406" MODIFIED="1593586052459" TEXT="page down"/>
 </node>
@@ -592,7 +631,7 @@
 <node CREATED="1593586096356" ID="ID_1819922433" MODIFIED="1593586103265" TEXT="page half up"/>
 </node>
 </node>
-<node CREATED="1593586642700" FOLDED="true" ID="ID_1348249809" MODIFIED="1593586738049" TEXT="search">
+<node CREATED="1593586642700" ID="ID_1348249809" MODIFIED="1594693386497" TEXT="search">
 <node CREATED="1593584805644" ID="ID_859909987" MODIFIED="1593586683193" TEXT="/key: search down key"/>
 <node CREATED="1593586656380" ID="ID_1546478202" MODIFIED="1593586672369" TEXT="?key: search up key">
 <node CREATED="1593585289316" ID="ID_1519720226" MODIFIED="1593586654625" TEXT="n: up search"/>
@@ -1321,8 +1360,12 @@
 </node>
 </node>
 </node>
+<node CREATED="1596083439916" ID="ID_1795423587" MODIFIED="1596083444448" TEXT="find">
+<node CREATED="1596083445228" ID="ID_1657618955" MODIFIED="1596083446096" TEXT="find /usr -name &quot;docker&quot; "/>
+<node CREATED="1596083826476" ID="ID_1611996046" MODIFIED="1596083827249" TEXT="find /usr -iname &quot;docke*.*&quot; -user bin "/>
 </node>
-<node CREATED="1593588806321" FOLDED="true" ID="ID_677055512" MODIFIED="1593681043858" TEXT="user &amp; group">
+</node>
+<node CREATED="1593588806321" ID="ID_677055512" MODIFIED="1594953250462" TEXT="user &amp; group">
 <node CREATED="1593589384793" ID="ID_476273505" MODIFIED="1593589386067" TEXT="user">
 <node CREATED="1593589053489" ID="ID_1603221661" MODIFIED="1593589073935" TEXT="useradd -m zhangsan">
 <node CREATED="1593589061722" ID="ID_276411395" MODIFIED="1593589069573" TEXT="/home zhangsan"/>
@@ -1392,7 +1435,7 @@
 <node CREATED="1593597511861" ID="ID_1845833762" MODIFIED="1593672885789" TEXT="tar">
 <node CREATED="1594261974916" ID="ID_1583229652" MODIFIED="1594262014258" TEXT="jdk">
 <node CREATED="1593672994754" ID="ID_1030607800" MODIFIED="1594261996985" TEXT="tar -vrx jdk-11.0.7_linux-x64_bin.tar.gz"/>
-<node CREATED="1593672887237" ID="ID_561873694" MODIFIED="1593672977517">
+<node CREATED="1593672887237" ID="ID_561873694" MODIFIED="1594709151760">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -1408,7 +1451,10 @@
       export JAVA_HOME=/usr/java/jdk-11.0.7
     </p>
     <p>
-      export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+      # jdk-11.0.7 has not *.jar file
+    </p>
+    <p>
+      # export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
     </p>
     <p>
       export PATH=$PATH:$JAVA_HOME/bin
@@ -1490,6 +1536,50 @@
     </p>
   </body>
 </html></richcontent>
+</node>
+<node CREATED="1595829455845" ID="ID_1601023518" MODIFIED="1595829804898" TEXT="troubleshooting">
+<node CREATED="1595829499044" ID="ID_311151134" MODIFIED="1595837556012">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      yum --help
+    </p>
+    <p>
+      &#160;&#160;File &quot;/usr/bin/yum&quot;, line 30
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;except KeyboardInterrupt, e:
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;^
+    </p>
+    <p>
+      SyntaxError: invalid syntax
+    </p>
+    <p>
+      -----
+    </p>
+    <p>
+      vim /usr/bin/yum
+    </p>
+    <p>
+      vim /usr/libexec/urlgrabber-ext-down
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      first line
+    </p>
+    <p>
+      from #!/usr/bin/python&quot; to &quot;#!/usr/bin/python2
+    </p>
+  </body>
+</html></richcontent>
+</node>
 </node>
 </node>
 </node>
@@ -1620,9 +1710,112 @@
 <node CREATED="1593674186964" ID="ID_272074476" MODIFIED="1593674188183" TEXT="nohup java -jar com.gwaysoft.spring.security.oauth2.server-1.0-SNAPSHOT.jar &gt;test.log 2&gt;&amp;1 &amp;"/>
 </node>
 </node>
-<node CREATED="1593680998097" ID="ID_1059887214" MODIFIED="1593681001118" TEXT="view info">
-<node CREATED="1593681001898" ID="ID_642942514" MODIFIED="1593681003021" TEXT="cat /etc/redhat-release "/>
+<node CREATED="1594867260974" ID="ID_641488705" MODIFIED="1594867570828" TEXT="nohup &amp;">
+<node CREATED="1594867912441" ID="ID_923910417" MODIFIED="1594868265405" TEXT="-u">
+<node CREATED="1594867916089" ID="ID_1881704905" MODIFIED="1594867933992" TEXT="&#x4e0d;&#x542f;&#x52a8;&#x65e5;&#x5fd7;&#x7f13;&#x51b2;"/>
+</node>
+<node CREATED="1594867405620" ID="ID_990650806" MODIFIED="1594867421308" TEXT="&gt;&gt; /dev/null"/>
+<node CREATED="1594867472511" ID="ID_923412673" MODIFIED="1594867588208" TEXT="nohup python3 test.py &amp;">
+<node CREATED="1594867589393" ID="ID_611280113" MODIFIED="1594867645716" TEXT="&gt; tmp/test.log"/>
+</node>
+<node CREATED="1594867396714" ID="ID_1553584280" MODIFIED="1594868281647" TEXT="practice">
+<node CREATED="1594867383114" ID="ID_308432641" MODIFIED="1594868164721" TEXT="nohup python3 -u practice/paloalto_add_address/main.py &gt; /dev/null &amp; "/>
+</node>
+<node CREATED="1594868285087" ID="ID_358279229" MODIFIED="1594868353662" TEXT="out">
+<node CREATED="1594868329673" ID="ID_646450989" MODIFIED="1594868336016" TEXT="1">
+<node CREATED="1594868350232" ID="ID_1423565772" MODIFIED="1594868351094" TEXT="stdout"/>
+</node>
+<node CREATED="1594868353662" ID="ID_1686200831" MODIFIED="1594868356617" TEXT="2">
+<node CREATED="1594868365736" ID="ID_1270156255" MODIFIED="1594868366773" TEXT="stderr">
+<node CREATED="1594868499104" ID="ID_492575309" MODIFIED="1594868500096" TEXT="nohup python3 test.py 2&gt; test_error.log"/>
+</node>
+</node>
+<node CREATED="1594868408727" ID="ID_1952690114" MODIFIED="1594868410575" TEXT="2&gt;&amp;1">
+<node CREATED="1594868411997" ID="ID_1242640083" MODIFIED="1594868421177" TEXT="stdout &amp; stderr">
+<node CREATED="1594868438424" ID="ID_27943266" MODIFIED="1594868453359" TEXT="nohup python -u test.py &gt; test.log 2&gt;&amp;1 &amp;"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1593680998097" ID="ID_1059887214" MODIFIED="1594953352437" TEXT="view info">
+<node CREATED="1593681001898" ID="ID_642942514" MODIFIED="1594273798931" TEXT="cat /etc/os-release "/>
 <node CREATED="1593681004561" ID="ID_176514606" MODIFIED="1593681009854" TEXT="env"/>
+<node CREATED="1594273618799" ID="ID_1500362741" MODIFIED="1595903494166" TEXT="uname -a"/>
+<node CREATED="1594865331858" ID="ID_451859406" MODIFIED="1594865334843" TEXT="date">
+<node CREATED="1594865334845" ID="ID_1784424916" MODIFIED="1596182986416">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    </p>
+    <p>
+      date -R
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1595992124007" ID="ID_87587800" MODIFIED="1595992126476" TEXT="set timezone"/>
+</node>
+<node CREATED="1594865400489" ID="ID_476325792" MODIFIED="1596183022138">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      yum install -y ntp ntpdate
+    </p>
+    <p>
+      ntpdate ntp1.aliyun.com
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1595991992951" ID="ID_1553414902" MODIFIED="1595992009587" TEXT="synchronize time"/>
+</node>
+<node CREATED="1594865744319" ID="ID_1741634802" MODIFIED="1596183167546">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      hwclock --systohc --localtime
+    </p>
+    <p>
+      hwclock -w
+    </p>
+    <p>
+      systemctl restart ntpdate
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1594865722760" ID="ID_809614105" MODIFIED="1594865743531" TEXT="set hardware clock"/>
+</node>
+</node>
+<node CREATED="1588214565168" ID="ID_1308850805" MODIFIED="1593589899974" TEXT="hostname">
+<node CREATED="1593589863881" ID="ID_1114071433" MODIFIED="1593589889506">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      hostname
+    </p>
+    <p>
+      hostname newname
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1588214575171" ID="ID_511620140" MODIFIED="1588214603699" TEXT="vi /etc/hostname"/>
+</node>
+<node CREATED="1588214593969" ID="ID_1160864701" MODIFIED="1588214597310" TEXT="reboot"/>
+</node>
+<node CREATED="1588132901820" ID="ID_269347565" MODIFIED="1593592205459" TEXT="set home">
+<node CREATED="1588132909806" ID="ID_834688878" MODIFIED="1588132926450" TEXT="~/.bashrc"/>
+</node>
 </node>
 </node>
 <node CREATED="1551948235253" ID="ID_428878726" MODIFIED="1594261924934" TEXT="service">
@@ -1691,7 +1884,7 @@
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1589267331050" ID="ID_1668888538" MODIFIED="1589267348253" TEXT="firewall">
+<node CREATED="1589267331050" ID="ID_1668888538" MODIFIED="1594353481027" TEXT="firewall">
 <node CREATED="1589267661881" ID="ID_79381175" MODIFIED="1589267663663" TEXT="https://blog.csdn.net/tanyyinyu/article/details/101569250"/>
 </node>
 </node>
@@ -1871,120 +2064,18 @@
 </html></richcontent>
 </node>
 </node>
-<node CREATED="1593676831634" ID="ID_1011357513" MODIFIED="1593676835563" TEXT="docker">
-<node CREATED="1594261778905" ID="ID_804632477" MODIFIED="1594261801858" TEXT="docker_k8s.mm"/>
-<node CREATED="1593681520937" ID="ID_1486945840" MODIFIED="1593681522620" TEXT="https://docs.docker.com/engine/install/centos/"/>
-<node CREATED="1593748209808" ID="ID_1924469814" MODIFIED="1594261915738">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      https://www.bilibili.com/video/BV187411y7hF?p=17
-    </p>
-    <p>
-      https://www.cnblogs.com/jpfss/p/10937575.html
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node CREATED="1593681098050" ID="ID_20438048" MODIFIED="1593681114717" TEXT="cat /etc/redhat-release"/>
-<node CREATED="1593681451698" ID="ID_796741152" MODIFIED="1593681497062" TEXT="prerequisite">
-<node CREATED="1593681353440" ID="ID_725478848" MODIFIED="1593681417100" TEXT="yum list installed | grep gcc"/>
-<node CREATED="1593681140202" ID="ID_1896060618" MODIFIED="1593681348434" TEXT="yum install gcc gcc-c++"/>
-<node CREATED="1593681578690" ID="ID_1198609357" MODIFIED="1593681601399" TEXT="yum remove docker \&#xa;                  docker-client \&#xa;                  docker-client-latest \&#xa;                  docker-common \&#xa;                  docker-latest \&#xa;                  docker-latest-logrotate \&#xa;                  docker-logrotate \&#xa;                  docker-engine"/>
-<node CREATED="1593681656568" ID="ID_1791409431" MODIFIED="1593681657621" TEXT="yum install -y yum-utils device-mapper-persistent-data lvm2"/>
-<node CREATED="1593746509995" ID="ID_1491571521" MODIFIED="1593746711745">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      # add repository for yum
-    </p>
-    <p>
-      yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      # update index for yum
-    </p>
-    <p>
-      yum makecache fast
-    </p>
-  </body>
-</html></richcontent>
+<node CREATED="1594263934928" ID="ID_1641138848" MODIFIED="1594263936358" TEXT="java">
+<node CREATED="1594263938305" ID="ID_688739912" MODIFIED="1594263950186" TEXT="install">
+<node CREATED="1594263950187" ID="ID_320561811" MODIFIED="1594263953446" TEXT="jdk">
+<node CREATED="1594263964472" ID="ID_1133464168" MODIFIED="1594263970221" TEXT="command -&gt; install"/>
 </node>
 </node>
-<node CREATED="1593746815312" ID="ID_1398871815" MODIFIED="1593746821997" TEXT="install">
-<node CREATED="1593746834576" ID="ID_1412639051" MODIFIED="1593746860902">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      yum -y install docker-ce docker-ce-cli containerd.io
-    </p>
-    <p>
-      # start service
-    </p>
-    <p>
-      systemctl start docker
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1593746899943" ID="ID_1638547135" MODIFIED="1593746916836" TEXT="verify">
-<node CREATED="1593746917591" ID="ID_1251808258" MODIFIED="1593757135028">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      docker version
-    </p>
-    <p>
-      docker run hello-world
-    </p>
-    <p>
-      docker images
-    </p>
-    <p>
-      ------------
-    </p>
-    <p>
-      docker search centos
-    </p>
-    <p>
-      docker pull centos
-    </p>
-    <p>
-      docker run -it -d centos
-    </p>
-    <p>
-      docker ps -a
-    </p>
-    <p>
-      docker attach containerId
-    </p>
-    <p>
-      docker rm|start|stop containerId
-    </p>
-  </body>
-</html></richcontent>
+<node CREATED="1594263978825" ID="ID_866119047" MODIFIED="1594263983005" TEXT="practice">
+<node CREATED="1594264232409" ID="ID_1872054974" MODIFIED="1594264233182" TEXT="nohup java -jar com.gwaysoft.spring.security.oauth2.server-1.0-SNAPSHOT.jar &gt;test.log 2&gt;&amp;1 &amp; "/>
 </node>
 </node>
 </node>
-</node>
-<node CREATED="1588044318146" FOLDED="true" ID="ID_1004826232" MODIFIED="1593757496033" TEXT="configuration">
+<node CREATED="1588044318146" ID="ID_1004826232" MODIFIED="1594273608862" TEXT="configuration">
 <node CREATED="1588132469849" ID="ID_1308491445" MODIFIED="1593592211214" TEXT="set PATH">
 <node CREATED="1588132489401" ID="ID_460741045" MODIFIED="1588132496751" TEXT="export -p"/>
 <node CREATED="1588132780786" ID="ID_811868049" MODIFIED="1588132790830" TEXT="add the hello command">
@@ -2006,7 +2097,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1588212938400" FOLDED="true" ID="ID_1101149218" MODIFIED="1593588803574" TEXT="public key login">
+<node CREATED="1588212938400" FOLDED="true" ID="ID_1101149218" MODIFIED="1594953358038" TEXT="public key login">
 <node CREATED="1588213594318" ID="ID_1954382613" MODIFIED="1588213610711" TEXT="https://blog.csdn.net/b108074013/article/details/48252809"/>
 <node CREATED="1588213269559" ID="ID_1800034460" MODIFIED="1588213302056" TEXT="local">
 <node CREATED="1588212950558" ID="ID_1190998984" MODIFIED="1593397444832" TEXT="vi /etc/ssh/sshd-config">
@@ -2041,71 +2132,94 @@
 <node CREATED="1588825844895" ID="ID_326139362" MODIFIED="1588825883365" TEXT="execute one time: ssh root@192.168.2.101"/>
 </node>
 </node>
-<node CREATED="1588214565168" ID="ID_1308850805" MODIFIED="1593589899974" TEXT="hostname">
-<node CREATED="1593589863881" ID="ID_1114071433" MODIFIED="1593589889506">
+<node CREATED="1594953377452" ID="ID_1509328282" MODIFIED="1594953390228" TEXT="&#x5f00;&#x673a;&#x542f;&#x52a8;">
+<node CREATED="1594953391094" ID="ID_1273483866" MODIFIED="1594953404329" TEXT="service">
+<node CREATED="1594953404329" ID="ID_1195642939" MODIFIED="1594953422331" TEXT="systemctl enable docker"/>
+<node CREATED="1594953423836" ID="ID_954029865" MODIFIED="1594953440120" TEXT="systemctl disable docker"/>
+</node>
+<node CREATED="1594953442187" ID="ID_1877527542" MODIFIED="1594953467856" TEXT="configure file">
+<node CREATED="1594953538305" ID="ID_43860542" MODIFIED="1594953781740" TEXT="file: autostart.sh">
+<node CREATED="1594953545863" ID="ID_277404180" MODIFIED="1594953562656">
 <richcontent TYPE="NODE"><html>
   <head>
     
   </head>
   <body>
     <p>
-      hostname
+      #!/bin/bash
     </p>
     <p>
-      hostname newname
+      # chkconfig: - 85 15
+    </p>
+    <p>
+      # description:&#24320;&#26426;&#33258;&#21551;&#33050;&#26412;
+    </p>
+    <p>
+      /usr/local/tomcat/bin/startup.sh&#160;&#160;#&#21551;&#21160;tomcat
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1588214575171" ID="ID_511620140" MODIFIED="1588214603699" TEXT="vi /etc/hostname"/>
-</node>
-<node CREATED="1588214593969" ID="ID_1160864701" MODIFIED="1588214597310" TEXT="reboot"/>
-</node>
-<node CREATED="1593588806321" ID="ID_1054579659" MODIFIED="1593681020654" TEXT="user &amp; group">
-<node CREATED="1593589384793" ID="ID_92426608" MODIFIED="1593589386067" TEXT="user">
-<node CREATED="1593589053489" ID="ID_570325398" MODIFIED="1593589073935" TEXT="useradd -m zhangsan">
-<node CREATED="1593589061722" ID="ID_289347140" MODIFIED="1593589069573" TEXT="/home zhangsan"/>
-<node CREATED="1593589246632" ID="ID_1708661282" MODIFIED="1593589277277" TEXT="cat /etc/passwd"/>
-</node>
-<node CREATED="1593589389280" ID="ID_1546959367" MODIFIED="1593589395040" TEXT="userdel -r zhangsan"/>
-<node CREATED="1593589438128" ID="ID_38982395" MODIFIED="1593589493777" TEXT="usermod ">
-<node CREATED="1593589498368" ID="ID_1586341437" MODIFIED="1593589501150" TEXT="-d"/>
-<node CREATED="1593589502249" ID="ID_24723509" MODIFIED="1593589522366" TEXT="-g">
-<node CREATED="1593592023624" ID="ID_1259119580" MODIFIED="1593592028885" TEXT="usermod -g 1000 zhangsan"/>
-</node>
-<node CREATED="1593589528578" ID="ID_1910923497" MODIFIED="1593589530101" TEXT="-s"/>
-<node CREATED="1593589609507" ID="ID_313929293" MODIFIED="1593589616272" TEXT="check">
-<node CREATED="1593589616273" ID="ID_1962285576" MODIFIED="1593589626045" TEXT="/etc/passwd"/>
 </node>
 </node>
-<node CREATED="1593589638273" ID="ID_1693265610" MODIFIED="1593590064533" TEXT="su zhangsan">
-<node CREATED="1593589731946" ID="ID_1600942072" MODIFIED="1593589732815" TEXT="exit"/>
+<node CREATED="1594953589425" ID="ID_1883482173" MODIFIED="1594953592779" TEXT="1">
+<node CREATED="1594953718176" ID="ID_90398185" MODIFIED="1594953725936">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # execute permission
+    </p>
+    <p>
+      chmod +x /opt/script/autostart.sh
+    </p>
+  </body>
+</html></richcontent>
 </node>
-<node CREATED="1593590007520" ID="ID_342876557" MODIFIED="1593590059455" TEXT="passwd zhangsan">
-<node CREATED="1593590584232" ID="ID_446439097" MODIFIED="1593590591573" TEXT="passwd -l zhangsan"/>
-<node CREATED="1593590592912" ID="ID_1535851547" MODIFIED="1593590597791" TEXT="passwd -u zhangsan"/>
-<node CREATED="1593590636900" ID="ID_1262833547" MODIFIED="1593590641733" TEXT="passwd -d zhangsan"/>
+<node CREATED="1594953731560" ID="ID_1787727037" MODIFIED="1594953758883">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      vim /etc/rc.d/rc/local
+    </p>
+    <p>
+      # add at last line
+    </p>
+    <p>
+      /opt/script/autostart.sh
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1594953740031" ID="ID_1249329720" MODIFIED="1594953741419" TEXT="chmod +x /etc/rc.d/rc.local"/>
+</node>
+<node CREATED="1594953760997" ID="ID_117275940" MODIFIED="1594953764975" TEXT="2">
+<node CREATED="1594953789026" ID="ID_967438447" MODIFIED="1594953789775" TEXT="mv  /opt/script/autostart.sh /etc/rc.d/init.d"/>
+<node CREATED="1594953797764" ID="ID_604318793" MODIFIED="1594953798560" TEXT="chmod +x  /etc/rc.d/init.d/autostart.sh"/>
+<node CREATED="1594953805308" ID="ID_556713681" MODIFIED="1594953813568">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cd /etc/rc.d/init.d
+    </p>
+    <p>
+      chkconfig --add autostart.sh
+    </p>
+    <p>
+      chkconfig autostart.sh on
+    </p>
+  </body>
+</html></richcontent>
 </node>
 </node>
-<node CREATED="1593590870633" ID="ID_1634257754" MODIFIED="1593590953110" TEXT="group">
-<node CREATED="1593591162600" ID="ID_1360143890" MODIFIED="1593591168901" TEXT="groupadd zhang">
-<node CREATED="1593591169704" ID="ID_654438619" MODIFIED="1593591243838" TEXT="tail /etc/group"/>
 </node>
-<node CREATED="1593591478032" ID="ID_1846072654" MODIFIED="1593591487236" TEXT="groupdel zhang"/>
-<node CREATED="1593591378881" ID="ID_354946587" MODIFIED="1593591382417" TEXT="groupmod">
-<node CREATED="1593591382417" ID="ID_1799058471" MODIFIED="1593591400597" TEXT="groupmod -g 1001 zhang"/>
-<node CREATED="1593591491392" ID="ID_1312992355" MODIFIED="1593591493278" TEXT="-n"/>
-<node CREATED="1593591533960" ID="ID_714664977" MODIFIED="1593591536534" TEXT="-p"/>
-</node>
-</node>
-<node CREATED="1593591588017" ID="ID_504975918" MODIFIED="1593591606703" TEXT="user changes group">
-<node CREATED="1593592019089" ID="ID_674977600" MODIFIED="1593592022045" TEXT="usermod -g zhang zhangsan"/>
-</node>
-<node CREATED="1593592336104" ID="ID_523963267" MODIFIED="1593592348265" TEXT="cat /etc/shadow">
-<node CREATED="1593592348265" ID="ID_1695695243" MODIFIED="1593592359741" TEXT="save encryption password"/>
-</node>
-</node>
-<node CREATED="1588132901820" ID="ID_269347565" MODIFIED="1593592205459" TEXT="set home">
-<node CREATED="1588132909806" ID="ID_834688878" MODIFIED="1588132926450" TEXT="~/.bashrc"/>
 </node>
 </node>
 <node CREATED="1552291370894" FOLDED="true" ID="ID_1976790810" MODIFIED="1593674811903" TEXT="shell">
