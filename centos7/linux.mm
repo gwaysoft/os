@@ -1,7 +1,7 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1588039771152" ID="ID_1986969131" MODIFIED="1596108988646" TEXT="linux">
-<node CREATED="1551771403043" ID="ID_762738337" MODIFIED="1593498420668" POSITION="right" TEXT="CentOS">
+<node CREATED="1588039771152" ID="ID_1986969131" MODIFIED="1602232922901" TEXT="linux">
+<node CREATED="1551771403043" ID="ID_762738337" MODIFIED="1603423270052" POSITION="right" TEXT="CentOS7">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -43,7 +43,7 @@
 </node>
 <node CREATED="1593757661336" ID="ID_1216375442" MODIFIED="1593761727112" TEXT="step">
 <node CREATED="1593498426697" ID="ID_1957491946" MODIFIED="1593498444557" TEXT="install centos 7 at mvware"/>
-<node CREATED="1588044322900" ID="ID_1909448745" MODIFIED="1593503727352" TEXT="configure network">
+<node CREATED="1588044322900" ID="ID_1909448745" MODIFIED="1600137539049" TEXT="configure network">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -54,7 +54,7 @@
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1588044326226" ID="ID_10056609" MODIFIED="1593502400936" TEXT="vi /etc/sysconfig/network-scripts/ifcfg-ens33">
+<node CREATED="1588044326226" ID="ID_10056609" MODIFIED="1600137539070" TEXT="vi /etc/sysconfig/network-scripts/ifcfg-ens33">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -158,83 +158,12 @@
 </node>
 <node CREATED="1551771854883" ID="ID_1892302707" MODIFIED="1593761707180" TEXT="command">
 <node CREATED="1551771830995" ID="ID_1190437359" MODIFIED="1594786504116" TEXT="network">
-<node CREATED="1593575394431" ID="ID_1911101387" MODIFIED="1593575424387" TEXT="cd /etc/sysconfig/network-scripts"/>
-<node CREATED="1551771868059" ID="ID_825215649" MODIFIED="1593761717709" TEXT="ifconfig">
-<node CREATED="1593573654742" ID="ID_1428286189" MODIFIED="1593573681863">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      # discard (CentOS-7)
-    </p>
-    <p>
-      yum search ifconfig
-    </p>
-    <p>
-      yum install net-tools.x86_64
-    </p>
-  </body>
-</html></richcontent>
-</node>
-<node CREATED="1551773125052" ID="ID_1513391005" MODIFIED="1551776304296" TEXT="reslove">
-<node CREATED="1551773157259" ID="ID_457293659" MODIFIED="1562555406803" TEXT="ifconfig: command not found">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Q
-    </p>
-    <p>
-      # ifconfig
-    </p>
-    <p>
-      -bash: ifconfig: command not found
-    </p>
-    <p>
-      A
-    </p>
-    <p>
-      1
-    </p>
-    <p>
-      echo $PATH
-    </p>
-    <p>
-      add /usr/sbin
-    </p>
-    <p>
-      vi /etc/profile
-    </p>
-    <p>
-      export PATH=$PATH:/sbin
-    </p>
-    <p>
-      2
-    </p>
-    <p>
-      yum
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      &#160;
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
+<node CREATED="1593575394431" ID="ID_1911101387" MODIFIED="1593575424387" TEXT="cd /etc/sysconfig/network-scripts">
+<node CREATED="1600855282753" ID="ID_379707985" MODIFIED="1600855283490" TEXT="systemctl restart network"/>
 </node>
 <node CREATED="1551772221557" ID="ID_1256592906" MODIFIED="1559720160154" TEXT="ip">
 <node CREATED="1551772318795" ID="ID_629367899" MODIFIED="1551776254713" TEXT="practice">
-<node CREATED="1551772322429" ID="ID_968197514" MODIFIED="1562555406822" TEXT="ip a">
+<node CREATED="1551772322429" ID="ID_968197514" MODIFIED="1600137539104" TEXT="ip a">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -262,7 +191,7 @@
 </node>
 </node>
 <node CREATED="1552638653710" ID="ID_1459699075" MODIFIED="1552638656026" TEXT="scan">
-<node CREATED="1552633381254" ID="ID_231236721" MODIFIED="1562555406838" TEXT="fping">
+<node CREATED="1552633381254" ID="ID_231236721" MODIFIED="1600137539127" TEXT="fping">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -285,7 +214,7 @@
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1552633485606" ID="ID_1459668501" MODIFIED="1562555406852" TEXT="command">
+<node CREATED="1552633485606" ID="ID_1459668501" MODIFIED="1600137539137" TEXT="command">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -313,7 +242,7 @@
 </html></richcontent>
 </node>
 </node>
-<node CREATED="1552634898590" ID="ID_1668232786" MODIFIED="1562555406865" TEXT="hping">
+<node CREATED="1552634898590" ID="ID_1668232786" MODIFIED="1600137539146" TEXT="hping">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -331,7 +260,7 @@
 <node CREATED="1552639107927" ID="ID_544553562" MODIFIED="1552639112870" TEXT="traceroute"/>
 <node CREATED="1552639429933" ID="ID_1654365648" MODIFIED="1552639433109" TEXT="mtr"/>
 <node CREATED="1552639534397" ID="ID_415186139" MODIFIED="1552639541778" TEXT="nmap"/>
-<node CREATED="1552639551351" ID="ID_1812941323" MODIFIED="1562555406903" TEXT="nc">
+<node CREATED="1552639551351" ID="ID_1812941323" MODIFIED="1600137539156" TEXT="nc">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -344,13 +273,10 @@
 </html></richcontent>
 </node>
 </node>
-<node CREATED="1589268154762" ID="ID_141705518" MODIFIED="1589268163900" TEXT="netstat">
-<node CREATED="1589268157666" ID="ID_60612503" MODIFIED="1595302131031" TEXT="netstat -lnpt|grep 18000"/>
-</node>
 <node CREATED="1593573699297" ID="ID_123576579" MODIFIED="1593573702235" TEXT="wget">
 <node CREATED="1593573703655" ID="ID_452820172" MODIFIED="1593573709099" TEXT="yum install wget"/>
 </node>
-<node CREATED="1593671028181" ID="ID_1183805185" MODIFIED="1593671568136" TEXT="firewall">
+<node CREATED="1593671028181" ID="ID_1183805185" MODIFIED="1600137539176" TEXT="firewall">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -464,7 +390,7 @@
 </html></richcontent>
 </node>
 </node>
-<node CREATED="1593671150561" ID="ID_831689938" MODIFIED="1593671156294" TEXT="add ports">
+<node CREATED="1593671150561" ID="ID_831689938" MODIFIED="1603099935080" TEXT="add port">
 <node CREATED="1593671622848" ID="ID_1341139775" MODIFIED="1593671640553">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -481,12 +407,126 @@
 </html></richcontent>
 </node>
 </node>
+<node CREATED="1603099923060" ID="ID_1063950425" MODIFIED="1603099930093" TEXT="remove port">
+<node CREATED="1603099930098" ID="ID_853786750" MODIFIED="1603099931354" TEXT="firewall-cmd --zone=public --remove-port=5000/tcp --permanent"/>
+</node>
 </node>
 <node CREATED="1596086284227" ID="ID_1570483813" MODIFIED="1596086286260" TEXT="curl">
 <node CREATED="1596086286260" ID="ID_801787848" MODIFIED="1596086287383" TEXT="curl -o /usr/libexec/docker/cli-plugins/docker-ecs -L https://github.com/docker/ecs-plugin/releases/latest/download/docker-ecs-linux-amd64"/>
 </node>
+<node CREATED="1603423326534" ID="ID_924753099" MODIFIED="1603423394657" TEXT="net-tools">
+<node CREATED="1603423414231" ID="ID_190003178" MODIFIED="1603423416568" TEXT="yum install net-tools"/>
+<node CREATED="1551771868059" ID="ID_825215649" MODIFIED="1593761717709" TEXT="ifconfig">
+<node CREATED="1593573654742" ID="ID_1428286189" MODIFIED="1593573681863">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # discard (CentOS-7)
+    </p>
+    <p>
+      yum search ifconfig
+    </p>
+    <p>
+      yum install net-tools.x86_64
+    </p>
+  </body>
+</html></richcontent>
 </node>
-<node CREATED="1593571950767" ID="ID_147333808" MODIFIED="1593683472485" TEXT="file &amp; directory">
+<node CREATED="1551773125052" ID="ID_1513391005" MODIFIED="1551776304296" TEXT="reslove">
+<node CREATED="1551773157259" ID="ID_457293659" MODIFIED="1600137539093" TEXT="ifconfig: command not found">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Q
+    </p>
+    <p>
+      # ifconfig
+    </p>
+    <p>
+      -bash: ifconfig: command not found
+    </p>
+    <p>
+      A
+    </p>
+    <p>
+      1
+    </p>
+    <p>
+      echo $PATH
+    </p>
+    <p>
+      add /usr/sbin
+    </p>
+    <p>
+      vi /etc/profile
+    </p>
+    <p>
+      export PATH=$PATH:/sbin
+    </p>
+    <p>
+      2
+    </p>
+    <p>
+      yum
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1589268154762" ID="ID_141705518" MODIFIED="1589268163900" TEXT="netstat">
+<node CREATED="1589268157666" ID="ID_60612503" MODIFIED="1595302131031" TEXT="netstat -lnpt|grep 18000"/>
+</node>
+</node>
+<node CREATED="1603423509614" ID="ID_40132811" MODIFIED="1603423513212" TEXT="telnet">
+<node CREATED="1603423513214" ID="ID_1685730497" MODIFIED="1603423519524" TEXT="yum install telnet">
+<node CREATED="1603423977566" ID="ID_995027496" MODIFIED="1603424026534">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # successful
+    </p>
+    <p>
+      [root@localhost ~]# telnet 192.168.2.70 31962
+    </p>
+    <p>
+      Trying 192.168.2.70...
+    </p>
+    <p>
+      Connected to 192.168.2.70.
+    </p>
+    <p>
+      Escape character is '^]'.
+    </p>
+    <p>
+      Connection closed by foreign host.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1593571950767" ID="ID_147333808" MODIFIED="1600939042847" TEXT="file &amp; directory">
 <node CREATED="1593584265356" ID="ID_1401441670" MODIFIED="1593584267332" TEXT="https://mp.weixin.qq.com/s?__biz=Mzg2NTAzMTExNg==&amp;mid=2247483885&amp;idx=1&amp;sn=cf98ffb9698999abf950c55da75c60ec&amp;scene=19#wechat_redirect"/>
 <node CREATED="1593572294087" ID="ID_422604784" MODIFIED="1593572298435" TEXT="operation">
 <node CREATED="1593571534527" ID="ID_622708731" MODIFIED="1593571545232" TEXT="rm -rf"/>
@@ -498,6 +538,7 @@
 <node CREATED="1593659052903" ID="ID_576561149" MODIFIED="1593659057273" TEXT="whereis">
 <node CREATED="1593659057274" ID="ID_1253517907" MODIFIED="1593659069421" TEXT="whereis curl"/>
 </node>
+<node CREATED="1601265911060" ID="ID_1752111061" MODIFIED="1601265911921" TEXT="ls | grep -v y | grep -v d | xargs -i rm {}"/>
 </node>
 <node CREATED="1593572304367" ID="ID_1147591169" MODIFIED="1593572309139" TEXT="privilege">
 <node CREATED="1593572310031" ID="ID_819650431" MODIFIED="1593572937195" TEXT="chmod -R "/>
@@ -513,7 +554,7 @@
 </node>
 <node CREATED="1594973783104" ID="ID_85185607" MODIFIED="1594973794109" TEXT="rm -rf link_file"/>
 </node>
-<node CREATED="1593573177023" ID="ID_7091693" MODIFIED="1593588791117" TEXT="file content">
+<node CREATED="1593573177023" ID="ID_7091693" MODIFIED="1603095485630" TEXT="file content">
 <node CREATED="1593573190742" ID="ID_662683590" MODIFIED="1596165001855" TEXT="view">
 <node CREATED="1593573879584" ID="ID_1460507252" MODIFIED="1593573881323" TEXT="cat"/>
 <node CREATED="1593573882478" ID="ID_127795438" MODIFIED="1593573884836" TEXT="tac"/>
@@ -576,9 +617,37 @@
 <node CREATED="1596169884276" ID="ID_1771167458" MODIFIED="1596169887580" TEXT="in"/>
 </node>
 <node CREATED="1593584357924" ID="ID_1190220128" MODIFIED="1596164956296" TEXT="edit">
-<node CREATED="1593584360828" ID="ID_148351138" MODIFIED="1593584364689" TEXT="touch"/>
-<node CREATED="1593584365980" ID="ID_837490945" MODIFIED="1593584368377" TEXT="echo"/>
-<node CREATED="1552275209844" ID="ID_744986189" MODIFIED="1593587877070" TEXT="vi &amp; vim">
+<node CREATED="1593584360828" ID="ID_148351138" MODIFIED="1603095514061" TEXT="cat">
+<node CREATED="1603095514062" ID="ID_242927069" MODIFIED="1603095517830">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat &gt; reamd.md &lt;&lt;eof
+    </p>
+    <p>
+      &gt; network
+    </p>
+    <p>
+      &gt; docker-ce
+    </p>
+    <p>
+      &gt; ntp
+    </p>
+    <p>
+      &gt; eof
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1593584365980" ID="ID_837490945" MODIFIED="1593584368377" TEXT="echo">
+<node CREATED="1603095488526" ID="ID_182919456" MODIFIED="1603095489521" TEXT="echo &apos;other&apos; &gt;&gt; readme.md"/>
+</node>
+<node CREATED="1552275209844" ID="ID_744986189" MODIFIED="1600743849518" TEXT="vi &amp; vim">
 <node CREATED="1593584902204" ID="ID_1765904823" MODIFIED="1593584911061" TEXT="yum install vim"/>
 <node CREATED="1552901387787" ID="ID_1998311433" MODIFIED="1593584912809" TEXT="mode">
 <node CREATED="1552276484556" ID="ID_884884653" MODIFIED="1593586816271" TEXT="command mode">
@@ -1358,6 +1427,9 @@
 </node>
 </node>
 </node>
+<node CREATED="1602233058001" ID="ID_1316656658" MODIFIED="1602233060218" TEXT="sed">
+<node CREATED="1602233060218" ID="ID_1956836872" MODIFIED="1602233061325" TEXT="sed &apos;s/&#x8981;&#x88ab;&#x53d6;&#x4ee3;&#x7684;&#x5b57;&#x4e32;/&#x65b0;&#x7684;&#x5b57;&#x4e32;/g&apos;"/>
+</node>
 </node>
 </node>
 <node CREATED="1596083439916" ID="ID_1795423587" MODIFIED="1596083444448" TEXT="find">
@@ -1365,7 +1437,7 @@
 <node CREATED="1596083826476" ID="ID_1611996046" MODIFIED="1596083827249" TEXT="find /usr -iname &quot;docke*.*&quot; -user bin "/>
 </node>
 </node>
-<node CREATED="1593588806321" ID="ID_677055512" MODIFIED="1594953250462" TEXT="user &amp; group">
+<node CREATED="1593588806321" ID="ID_677055512" MODIFIED="1604389873809" TEXT="user &amp; group">
 <node CREATED="1593589384793" ID="ID_476273505" MODIFIED="1593589386067" TEXT="user">
 <node CREATED="1593589053489" ID="ID_1603221661" MODIFIED="1593589073935" TEXT="useradd -m zhangsan">
 <node CREATED="1593589061722" ID="ID_276411395" MODIFIED="1593589069573" TEXT="/home zhangsan"/>
@@ -1409,7 +1481,7 @@
 <node CREATED="1593592348265" ID="ID_1611325026" MODIFIED="1593592359741" TEXT="save encryption password"/>
 </node>
 </node>
-<node CREATED="1551776347099" ID="ID_1963052222" MODIFIED="1594261948797" TEXT="install">
+<node CREATED="1551776347099" ID="ID_1963052222" MODIFIED="1600853809106" TEXT="install">
 <node CREATED="1552632696645" ID="ID_290708277" MODIFIED="1593658692857" TEXT="rpm">
 <node CREATED="1594262000356" ID="ID_126897313" MODIFIED="1594262004705" TEXT="jdk">
 <node CREATED="1593658496974" ID="ID_843482478" MODIFIED="1593673069622" TEXT="rpm -aq| grep jdk">
@@ -1430,6 +1502,9 @@
 </html></richcontent>
 </node>
 </node>
+</node>
+<node CREATED="1600136177765" ID="ID_854484704" MODIFIED="1600136184781" TEXT="command">
+<node CREATED="1600136184782" ID="ID_582916792" MODIFIED="1600136192745" TEXT="rpm -q vi"/>
 </node>
 </node>
 <node CREATED="1593597511861" ID="ID_1845833762" MODIFIED="1593672885789" TEXT="tar">
@@ -1471,7 +1546,7 @@
 </node>
 </node>
 <node CREATED="1551773629156" ID="ID_371840669" MODIFIED="1593655553533" TEXT="yum">
-<node CREATED="1551947218805" ID="ID_511538169" MODIFIED="1593505169427" TEXT="config">
+<node CREATED="1551947218805" ID="ID_511538169" MODIFIED="1600137539211" TEXT="config">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1510,7 +1585,7 @@
   </body>
 </html></richcontent>
 </node>
-<node CREATED="1552271544174" ID="ID_1360267149" MODIFIED="1562555406977" TEXT="command">
+<node CREATED="1552271544174" ID="ID_1360267149" MODIFIED="1600137539221" TEXT="command">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1536,6 +1611,7 @@
     </p>
   </body>
 </html></richcontent>
+<node CREATED="1600136155093" ID="ID_1583694112" MODIFIED="1600136168057" TEXT="yum list installed vi"/>
 </node>
 <node CREATED="1595829455845" ID="ID_1601023518" MODIFIED="1595829804898" TEXT="troubleshooting">
 <node CREATED="1595829499044" ID="ID_311151134" MODIFIED="1595837556012">
@@ -1584,7 +1660,7 @@
 </node>
 </node>
 <node CREATED="1551779234683" ID="ID_151450836" MODIFIED="1593680925532" TEXT="common">
-<node CREATED="1551779241011" ID="ID_1279201537" MODIFIED="1562555407009" TEXT="mount">
+<node CREATED="1551779241011" ID="ID_1279201537" MODIFIED="1600137539235" TEXT="mount">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1618,7 +1694,7 @@
 </html></richcontent>
 <node CREATED="1593594439656" ID="ID_1370468192" MODIFIED="1593594992309" TEXT="unmount -f"/>
 </node>
-<node CREATED="1552273870924" ID="ID_931416290" MODIFIED="1562555407022" TEXT="shutdown">
+<node CREATED="1552273870924" ID="ID_931416290" MODIFIED="1600137539252" TEXT="shutdown">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1636,7 +1712,7 @@
   </body>
 </html></richcontent>
 </node>
-<node CREATED="1552276306091" ID="ID_1251203476" MODIFIED="1562555407035" TEXT="source">
+<node CREATED="1552276306091" ID="ID_1251203476" MODIFIED="1600137539261" TEXT="source">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1650,7 +1726,7 @@
 </node>
 <node CREATED="1588042136319" ID="ID_149225600" MODIFIED="1588042139363" TEXT="reboot"/>
 <node CREATED="1590464941320" ID="ID_1282292729" MODIFIED="1590464989544" TEXT="connected users: $ w"/>
-<node CREATED="1593397687904" FOLDED="true" ID="ID_1746396047" MODIFIED="1593593768260" TEXT="view system information">
+<node CREATED="1593397687904" ID="ID_1746396047" MODIFIED="1600741008263" TEXT="view system information">
 <node CREATED="1593397823587" ID="ID_588223172" MODIFIED="1593397826100" TEXT="https://www.cnblogs.com/yanans/p/11196347.html"/>
 <node CREATED="1593397760168" ID="ID_397131155" MODIFIED="1593397771417">
 <richcontent TYPE="NODE"><html>
@@ -1671,7 +1747,7 @@
 </html></richcontent>
 </node>
 </node>
-<node CREATED="1552631661214" ID="ID_1674378147" MODIFIED="1562555407253" TEXT="tar">
+<node CREATED="1552631661214" ID="ID_1674378147" MODIFIED="1600137539273" TEXT="tar">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1742,7 +1818,7 @@
 <node CREATED="1593681004561" ID="ID_176514606" MODIFIED="1593681009854" TEXT="env"/>
 <node CREATED="1594273618799" ID="ID_1500362741" MODIFIED="1595903494166" TEXT="uname -a"/>
 <node CREATED="1594865331858" ID="ID_451859406" MODIFIED="1594865334843" TEXT="date">
-<node CREATED="1594865334845" ID="ID_1784424916" MODIFIED="1596182986416">
+<node CREATED="1594865334845" ID="ID_1784424916" MODIFIED="1601176324782">
 <richcontent TYPE="NODE"><html>
   <head>
     
@@ -1754,26 +1830,125 @@
     <p>
       date -R
     </p>
+    <p>
+      # not prompt, because default: cp=cp -i
+    </p>
+    <p>
+      /bin/cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime -f
+    </p>
   </body>
 </html></richcontent>
 <node CREATED="1595992124007" ID="ID_87587800" MODIFIED="1595992126476" TEXT="set timezone"/>
+<node CREATED="1601175602280" ID="ID_128040168" MODIFIED="1601175603461" TEXT="systemctl list-unit-files | grep enabled | grep ntpd"/>
 </node>
-<node CREATED="1594865400489" ID="ID_476325792" MODIFIED="1596183022138">
+<node CREATED="1600136209789" ID="ID_1749369439" MODIFIED="1600136219098" TEXT="ntp">
+<node CREATED="1594865400489" ID="ID_476325792" MODIFIED="1601363613138">
 <richcontent TYPE="NODE"><html>
   <head>
     
   </head>
   <body>
     <p>
-      yum install -y ntp ntpdate
+      # set timezone first
     </p>
     <p>
-      ntpdate ntp1.aliyun.com
+      cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    </p>
+    <p>
+      yum install -y ntp
+    </p>
+    <p>
+      systemctl start ntpd &amp;&amp; systemctl enable ntpd
+    </p>
+    <p>
+      # check
+    </p>
+    <p>
+      systemctl list-unit-files|grep enabled|grep ntpd
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1595991992951" ID="ID_1553414902" MODIFIED="1595992009587" TEXT="synchronize time"/>
+<node CREATED="1595991992951" ID="ID_1553414902" MODIFIED="1600137450601" TEXT="synchronize time manually">
+<node CREATED="1599719505638" ID="ID_1571597652" MODIFIED="1599719510977" TEXT="ebaotech">
+<node CREATED="1599719510977" ID="ID_1006077581" MODIFIED="1600136966241" TEXT="ntpdate -u 172.16.30.84"/>
 </node>
+<node CREATED="1600136490861" ID="ID_138099406" MODIFIED="1600136505225" TEXT="aliyun">
+<node CREATED="1600136494286" ID="ID_242941167" MODIFIED="1600136970673" TEXT="ntpdate -u ntp1.aliyun.com"/>
+</node>
+</node>
+<node CREATED="1600069291312" ID="ID_1326058102" MODIFIED="1600137535614">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # &#26597;&#30475;&#24403;&#21069;&#21516;&#27493;&#30340;&#26102;&#38388;&#26381;&#21153;&#22120;&#65292;&#26597;&#30475;&#27809;&#38382;&#39064;&#23601;&#23433;&#35013;&#25104;&#21151;&#20102;
+    </p>
+    <p>
+      # ntpq -p
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;remote&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;refid&#160;&#160;&#160;&#160;&#160;&#160;st t when poll reach&#160;&#160;&#160;delay&#160;&#160;&#160;offset&#160; jitter
+    </p>
+    <p>
+      ==============================================================================
+    </p>
+    <p>
+      -makaki.miuku.ne 218.186.3.36&#160;&#160;&#160;&#160;&#160;2 u&#160;&#160;&#160;66&#160;&#160;&#160;64&#160;&#160;367&#160;&#160;228.270&#160;&#160;-65.176&#160;&#160; 2.418
+    </p>
+    <p>
+      *139.199.215.251 100.122.36.196&#160;&#160;&#160;2 u&#160;&#160;&#160;&#160;4&#160;&#160;&#160;64&#160;&#160;377&#160;&#160;&#160;34.214&#160;&#160;&#160;-0.255&#160;&#160; 2.722
+    </p>
+    <p>
+      +119.28.183.184&#160;&#160;100.122.36.4&#160;&#160;&#160;&#160;&#160;2 u&#160;&#160;&#160;62&#160;&#160;&#160;64&#160;&#160;377&#160;&#160;&#160;53.802&#160;&#160;&#160;&#160;2.204&#160;&#160; 3.974
+    </p>
+    <p>
+      +ntp.xtom.nl&#160;&#160;&#160;&#160;&#160;194.80.204.184&#160;&#160;&#160;2 u&#160;&#160;&#160;&#160;8&#160;&#160;&#160;64&#160;&#160;377&#160;&#160;166.270&#160;&#160;&#160;-2.795&#160;&#160; 4.556
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1600137193884" ID="ID_963165552" MODIFIED="1600137195702" TEXT="https://blog.csdn.net/sztyler/article/details/5937458"/>
+<node CREATED="1600135616253" ID="ID_1704101902" MODIFIED="1600135618549" TEXT="https://blog.csdn.net/qq_38591756/article/details/85243965"/>
+</node>
+<node CREATED="1601176844400" ID="ID_1682142828" MODIFIED="1601176884021" TEXT="best practice (shell)">
+<node CREATED="1601176859344" ID="ID_96962759" MODIFIED="1601176871439">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      #!/usr/bin/env bash
+    </p>
+    <p>
+      /bin/cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime -f
+    </p>
+    <p>
+      yum install -y ntp
+    </p>
+    <p>
+      systemctl start ntpd &amp;&amp; systemctl enable ntpd
+    </p>
+    <p>
+      systemctl list-unit-files|grep enabled|grep ntpd
+    </p>
+    <p>
+      date
+    </p>
+    <p>
+      sleep 5s
+    </p>
+    <p>
+      ntpq -p
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1600137569780" ID="ID_1089499684" MODIFIED="1600137572441" TEXT="?">
 <node CREATED="1594865744319" ID="ID_1741634802" MODIFIED="1596183167546">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -1792,6 +1967,7 @@
   </body>
 </html></richcontent>
 <node CREATED="1594865722760" ID="ID_809614105" MODIFIED="1594865743531" TEXT="set hardware clock"/>
+</node>
 </node>
 </node>
 <node CREATED="1588214565168" ID="ID_1308850805" MODIFIED="1593589899974" TEXT="hostname">
@@ -1819,7 +1995,7 @@
 </node>
 </node>
 <node CREATED="1551948235253" ID="ID_428878726" MODIFIED="1594261924934" TEXT="service">
-<node CREATED="1551945820801" ID="ID_408963751" MODIFIED="1562555407338" TEXT="bind">
+<node CREATED="1551945820801" ID="ID_408963751" MODIFIED="1600137539343" TEXT="bind">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1830,12 +2006,12 @@
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1551947246992" ID="ID_471487222" MODIFIED="1551948112939" TEXT="bind-utils">
+<node CREATED="1551947246992" ID="ID_471487222" MODIFIED="1602497243753" TEXT="bind-utils">
 <node CREATED="1551947400212" ID="ID_1258464322" MODIFIED="1551947410153" TEXT="nslookup"/>
 <node CREATED="1551947411788" ID="ID_103194337" MODIFIED="1551947413175" TEXT="host"/>
 <node CREATED="1551947439896" ID="ID_1612171624" MODIFIED="1551947442114" TEXT="dig"/>
 </node>
-<node CREATED="1551947223058" ID="ID_1622008792" MODIFIED="1562555407374" TEXT="net-tools">
+<node CREATED="1551947223058" ID="ID_1622008792" MODIFIED="1600137539358" TEXT="net-tools">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1853,7 +2029,7 @@
   </body>
 </html></richcontent>
 <node CREATED="1551947324457" ID="ID_481801861" MODIFIED="1551947341025" TEXT="ifconfig"/>
-<node CREATED="1551947342772" ID="ID_686771029" MODIFIED="1562555407387" TEXT="netstat">
+<node CREATED="1551947342772" ID="ID_686771029" MODIFIED="1600137539368" TEXT="netstat">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1870,7 +2046,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1552550437039" ID="ID_328495785" MODIFIED="1589267345449" TEXT="iptables (centos7 is firewall)">
+<node CREATED="1552550437039" ID="ID_328495785" MODIFIED="1600137539377" TEXT="iptables (centos7 is firewall)">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1888,7 +2064,7 @@
 <node CREATED="1589267661881" ID="ID_79381175" MODIFIED="1589267663663" TEXT="https://blog.csdn.net/tanyyinyu/article/details/101569250"/>
 </node>
 </node>
-<node CREATED="1552631885388" ID="ID_940041888" MODIFIED="1562555407404" TEXT="gcc">
+<node CREATED="1552631885388" ID="ID_940041888" MODIFIED="1600137539390" TEXT="gcc">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1909,7 +2085,7 @@
   </body>
 </html></richcontent>
 </node>
-<node CREATED="1559721071299" ID="ID_849317202" MODIFIED="1562555407413" TEXT="redis">
+<node CREATED="1559721071299" ID="ID_849317202" MODIFIED="1600137539397" TEXT="redis">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -1922,7 +2098,7 @@
 </html></richcontent>
 </node>
 <node CREATED="1588824626465" ID="ID_1083909237" MODIFIED="1588824633239" TEXT="telnet">
-<node CREATED="1588824633240" ID="ID_405333242" MODIFIED="1588824637794" TEXT="install">
+<node CREATED="1588824633240" ID="ID_405333242" MODIFIED="1600137539410" TEXT="install">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2038,7 +2214,13 @@
 </node>
 </node>
 <node CREATED="1591671799134" ID="ID_285159126" MODIFIED="1591671805814" TEXT="zip unzip">
-<node CREATED="1591671805815" ID="ID_436658444" MODIFIED="1591671807751" TEXT="yum install -y unzip zip"/>
+<node CREATED="1591671805815" ID="ID_436658444" MODIFIED="1591671807751" TEXT="yum install -y unzip zip">
+<node CREATED="1600141319494" ID="ID_827432809" MODIFIED="1600141320713" TEXT="unzip -oq common.war -d common">
+<node CREATED="1600141321885" ID="ID_968836863" MODIFIED="1600141349297" TEXT="-o  overwrite files WITHOUT prompting"/>
+<node CREATED="1600141351029" ID="ID_1106018973" MODIFIED="1600141361181" TEXT="-q  quiet mode (-qq =&gt; quieter)"/>
+<node CREATED="1600141370636" ID="ID_1094473690" MODIFIED="1600141371465" TEXT="-d  extract files into exdir"/>
+</node>
+</node>
 </node>
 <node CREATED="1593674843745" ID="ID_457146993" MODIFIED="1593674845543" TEXT="tomcat">
 <node CREATED="1593674848769" ID="ID_799710266" MODIFIED="1593674860109" TEXT="tar -zxvf xxx.tar"/>
@@ -2097,29 +2279,8 @@
 </node>
 </node>
 </node>
-<node CREATED="1588212938400" FOLDED="true" ID="ID_1101149218" MODIFIED="1594953358038" TEXT="public key login">
-<node CREATED="1588213594318" ID="ID_1954382613" MODIFIED="1588213610711" TEXT="https://blog.csdn.net/b108074013/article/details/48252809"/>
-<node CREATED="1588213269559" ID="ID_1800034460" MODIFIED="1588213302056" TEXT="local">
-<node CREATED="1588212950558" ID="ID_1190998984" MODIFIED="1593397444832" TEXT="vi /etc/ssh/sshd-config">
-<node CREATED="1588213124270" MODIFIED="1588213124270" TEXT="# CentOS7.4&#x5f03;&#x7528;RSAAuthentication&#x652f;&#x6301;, &#x4f7f;&#x7528;PubkeyAuthentication yes"/>
-<node CREATED="1588213124273" MODIFIED="1588213124273" TEXT="# RSAAuthentication &#x627e;&#x4e0d;&#x5230;"/>
-<node CREATED="1588213124276" MODIFIED="1588213124276" TEXT="RSAAuthentication yes"/>
-<node CREATED="1588213124278" MODIFIED="1588213124278" TEXT="PubkeyAuthentication yes"/>
-<node CREATED="1588213124279" MODIFIED="1588213124279" TEXT="AuthorizedKeysFile .ssh/authorized_keys"/>
-</node>
-<node CREATED="1588213151784" ID="ID_1338555662" MODIFIED="1588213157850" TEXT="$ /sbin/service sshd restart"/>
-<node CREATED="1588213184578" ID="ID_271178306" MODIFIED="1588213193641" TEXT="generate pub/pri">
-<node CREATED="1588213194726" ID="ID_686369638" MODIFIED="1588213196660" TEXT="ssh-keygen -t rsa"/>
-<node CREATED="1588213202287" ID="ID_87162852" MODIFIED="1588213220134" TEXT="cd ~/.ssh"/>
-</node>
-<node CREATED="1588213264693" ID="ID_442502961" MODIFIED="1588213266019" TEXT="cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys"/>
-</node>
-<node CREATED="1588213315449" ID="ID_212892574" MODIFIED="1588213368771" TEXT="be logged">
-<node CREATED="1588213369718" ID="ID_864622398" MODIFIED="1588213388187" TEXT="scp ~/.ssh/id_rsa.pub root@192.168.2.101:/home/id_rsa.pub"/>
-<node CREATED="1588213400145" ID="ID_1840234722" MODIFIED="1588213414254" TEXT="cat /home/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys"/>
-<node CREATED="1588213417564" ID="ID_601027726" MODIFIED="1588213417564" TEXT="chmod 700 ~/.ssh"/>
-<node CREATED="1588213417565" ID="ID_681082741" MODIFIED="1588213417565" TEXT="chmod 600 ~/.ssh/authorized_keys"/>
-</node>
+<node CREATED="1588212938400" ID="ID_1101149218" MODIFIED="1604394889802" TEXT="public key login">
+<node CREATED="1588213594318" ID="ID_1954382613" MODIFIED="1604460949099" TEXT="os/centos7/install/keygen/readme.md"/>
 <node CREATED="1588213541227" ID="ID_993370787" MODIFIED="1588213571688" TEXT="add log info at local">
 <node CREATED="1588213432536" ID="ID_964768320" MODIFIED="1588213451103" TEXT="vi ~/.ssh/config">
 <node CREATED="1588213510444" ID="ID_730885082" MODIFIED="1588213510444" TEXT="Host 101"/>
@@ -2136,6 +2297,7 @@
 <node CREATED="1594953391094" ID="ID_1273483866" MODIFIED="1594953404329" TEXT="service">
 <node CREATED="1594953404329" ID="ID_1195642939" MODIFIED="1594953422331" TEXT="systemctl enable docker"/>
 <node CREATED="1594953423836" ID="ID_954029865" MODIFIED="1594953440120" TEXT="systemctl disable docker"/>
+<node CREATED="1600841938569" ID="ID_1824765119" MODIFIED="1600841939422" TEXT="systemctl list-unit-files|grep enabled"/>
 </node>
 <node CREATED="1594953442187" ID="ID_1877527542" MODIFIED="1594953467856" TEXT="configure file">
 <node CREATED="1594953538305" ID="ID_43860542" MODIFIED="1594953781740" TEXT="file: autostart.sh">
@@ -2222,7 +2384,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1552291370894" FOLDED="true" ID="ID_1976790810" MODIFIED="1593674811903" TEXT="shell">
+<node CREATED="1552291370894" ID="ID_1976790810" MODIFIED="1603080913643" TEXT="shell">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2250,7 +2412,7 @@
 </node>
 </node>
 </node>
-<node CREATED="1551771009292" ID="ID_664772960" MODIFIED="1593758557708" POSITION="left" TEXT="VMWare Workstation Pro">
+<node CREATED="1551771009292" ID="ID_664772960" MODIFIED="1600137539481" POSITION="left" TEXT="VMWare Workstation Pro">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2261,7 +2423,7 @@
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1551771276733" ID="ID_1728370365" MODIFIED="1562555407456" TEXT="install">
+<node CREATED="1551771276733" ID="ID_1728370365" MODIFIED="1600137539489" TEXT="install">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2280,7 +2442,7 @@
 </html></richcontent>
 </node>
 <node CREATED="1551771341644" ID="ID_890149336" MODIFIED="1551948294297" TEXT="CentOS7">
-<node CREATED="1551771640139" ID="ID_1708292391" MODIFIED="1588045946332" TEXT="network setting">
+<node CREATED="1551771640139" ID="ID_1708292391" MODIFIED="1600137539500" TEXT="network setting">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2292,12 +2454,9 @@
     <p>
       ping: www.163.com: Name or service not known
     </p>
-    <p>
-      
-    </p>
   </body>
 </html></richcontent>
-<node CREATED="1588063262772" ID="ID_1815968532" MODIFIED="1588064550391" TEXT="https://blog.csdn.net/GHHCNGC/article/details/101061796?utm_source=distribute.pc_relevant.none-task-blog-baidujs-4">
+<node CREATED="1588063262772" ID="ID_1815968532" MODIFIED="1600137539512" TEXT="https://blog.csdn.net/GHHCNGC/article/details/101061796?utm_source=distribute.pc_relevant.none-task-blog-baidujs-4">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2429,7 +2588,7 @@
 </node>
 <node CREATED="1588045956421" ID="ID_1008677773" MODIFIED="1588045969116" TEXT="add existing CentOS">
 <node CREATED="1588045976616" ID="ID_241761062" MODIFIED="1588143537342" TEXT="right click a mv -&gt; manage -&gt; clone"/>
-<node CREATED="1588046003999" ID="ID_477927335" MODIFIED="1588143564460" TEXT="set network">
+<node CREATED="1588046003999" ID="ID_477927335" MODIFIED="1600137539564" TEXT="set network">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2521,7 +2680,7 @@
 </node>
 </node>
 <node CREATED="1588143594092" ID="ID_239327854" MODIFIED="1588143607914" TEXT="init configuration">
-<node CREATED="1588143608861" ID="ID_1194600824" MODIFIED="1588143621722" TEXT="install ifconfig">
+<node CREATED="1588143608861" ID="ID_1194600824" MODIFIED="1600137539576" TEXT="install ifconfig">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2542,7 +2701,7 @@
   </body>
 </html></richcontent>
 </node>
-<node CREATED="1588143633722" ID="ID_947710317" MODIFIED="1588143646794" TEXT="remove Last log">
+<node CREATED="1588143633722" ID="ID_947710317" MODIFIED="1600137539583" TEXT="remove Last log">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2589,7 +2748,7 @@
 <node CREATED="1593761300234" ID="ID_570426292" MODIFIED="1593761320132" TEXT="snapshot"/>
 </node>
 </node>
-<node CREATED="1551773995387" FOLDED="true" ID="ID_721970981" MODIFIED="1593757703502" POSITION="left" TEXT="tools">
+<node CREATED="1551773995387" ID="ID_721970981" MODIFIED="1600830299872" POSITION="left" TEXT="tools">
 <node CREATED="1551774000531" ID="ID_1832416529" MODIFIED="1551776917656" TEXT="ssh">
 <node CREATED="1551776919796" ID="ID_299376131" MODIFIED="1562555407271" TEXT="PuTTy">
 <richcontent TYPE="NOTE"><html>
