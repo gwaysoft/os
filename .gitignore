@@ -1,6 +1,7 @@
 # custom
 .idea
 *.gz
+*.iso
 
 # Logs
 logs

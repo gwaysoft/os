@@ -520,8 +520,7 @@
       Connection closed by foreign host.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -640,8 +639,7 @@
       &gt; eof
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 <node CREATED="1593584365980" ID="ID_837490945" MODIFIED="1593584368377" TEXT="echo">
@@ -1429,6 +1427,30 @@
 </node>
 <node CREATED="1602233058001" ID="ID_1316656658" MODIFIED="1602233060218" TEXT="sed">
 <node CREATED="1602233060218" ID="ID_1956836872" MODIFIED="1602233061325" TEXT="sed &apos;s/&#x8981;&#x88ab;&#x53d6;&#x4ee3;&#x7684;&#x5b57;&#x4e32;/&#x65b0;&#x7684;&#x5b57;&#x4e32;/g&apos;"/>
+</node>
+</node>
+<node CREATED="1605682247387" ID="ID_510518630" MODIFIED="1605682250952" TEXT="search">
+<node CREATED="1605682250954" ID="ID_875619860" MODIFIED="1605682252291" TEXT="jq">
+<node CREATED="1605682529895" ID="ID_546998063" MODIFIED="1605682586573">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      yum install epel-release
+    </p>
+    <p>
+      yum list jq
+    </p>
+    <p>
+      yum install jq
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1605682625289" ID="ID_1550567876" MODIFIED="1605682633569" TEXT="for json query"/>
 </node>
 </node>
 </node>

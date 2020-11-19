@@ -1,0 +1,2 @@
+## command
+    init 0
