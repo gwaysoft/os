@@ -34,6 +34,7 @@
     DNS1=192.168.1.1
     DNS2=114.114.114.114
     DNS3=4.4.4.4
+#### systemctl restart network
 #### check 
     [root@localhost ~]# ip addr
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000

@@ -4,6 +4,7 @@
 *.iso
 *.exe
 tools
+workstation
 
 # Logs
 logs
