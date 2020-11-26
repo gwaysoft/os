@@ -44,3 +44,86 @@ Last login: Thu Nov 26 10:36:44 2020 from 192.168.2.15
 3. Session Manager right button-> Properties -> Connection -> Authentication
 ```
 ![image text](./pictures/key.png)
+
+## sshd_config settings
+### deny password login
+```shell script
+[root@python-110 ssh]# ls -l /etc/ssh 
+total 604
+-rw-r--r--. 1 root root       2276 Aug  9  2019 ssh_config    # ssh client config
+-rw-------. 1 root root       3929 Nov  4 10:53 sshd_config   # ssh server config
+
+[root@python-110 ssh]# vi sshd_config 
+     63 # To disable tunneled clear text passwords, change to no here!
+     64 #PasswordAuthentication yes
+     65 #PermitEmptyPasswords no
+     66 PasswordAuthentication no   # yes -> no
+
+# must reboot
+[root@python-110 ssh]# systemctl restart sshd
+```
+### deny root to login
+```shell script
+[root@python-110 ssh]# vi sshd_config
+     38 #PermitRootLogin yes # -> no
+
+[root@docker-210 ~]# systemctl restart sshd
+[root@docker-210 ~]# useradd lisi
+[root@docker-210 ~]# passwd lisi
+Changing password for user lisi.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[root@docker-210 ~]# logout
+
+# lisi | lisi
+Last login: Thu Nov 26 14:50:18 2020
+[lisi@docker-210 ~]$ pwd
+/home/lisi
+
+[lisi@docker-210 ~]$ su
+Password: 
+[root@docker-210 lisi]# 
+```
+
+### port
+```shell script
+[root@python-110 ssh]# vi sshd_config
+     17 #Port 22
+
+# ssh -p 5000 root@192.168.2.110
+```
+### restrict listen address
+#### add sub sub ethernet ens33
+```shell script
+[root@docker-210 ~]# ifconfig ens33:0 192.168.2.221
+[root@docker-210 ~]# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.210  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::20c:29ff:fe44:72a0  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:44:72:a0  txqueuelen 1000  (Ethernet)
+        RX packets 62181  bytes 24433844 (23.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 30462  bytes 2493126 (2.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens33:0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.221  netmask 255.255.255.0  broadcast 192.168.2.255
+        ether 00:0c:29:44:72:a0  txqueuelen 1000  (Ethernet)
+```
+#### vi listen address from 192.168.2.220 to 192.168.2.221
+```shell script
+[root@docker-210 ~]# vi /etc/ssh/sshd_config 
+     19 ListenAddress 192.168.2.221
+     20 #ListenAddress ::
+[root@docker-210 ~]# systemctl restart sshd
+[root@docker-210 ~]# exit
+logout
+Connection to 192.168.2.221 closed.
+[root@python-110 ~]# ssh root@192.168.2.220
+ssh: connect to host 192.168.2.220 port 22: No route to host
+[root@python-110 ~]# ssh root@192.168.2.221
+Last login: Thu Nov 26 15:10:25 2020 from 192.168.2.110
+[root@docker-210 ~]# 
+```
