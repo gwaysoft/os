@@ -154,377 +154,436 @@
 <node CREATED="1593502789271" ID="ID_1611653595" MODIFIED="1593508159931" TEXT="yum clean all&#xa;yum update&#xa;--additional--&#xa;curl http://mirrors.163.com/.help/CentOS7-Base-163.repo -o CentOS-Base-aliyun.repo&#xa;or&#xa;yum install wget&#xa;wget -O CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo"/>
 </node>
 </node>
+<node CREATED="1606120075568" ID="ID_537035076" MODIFIED="1606120088069" TEXT="centos6 vs centos7">
+<node CREATED="1606120098146" ID="ID_803992774" MODIFIED="1606120100870" TEXT="file">
+<node CREATED="1606120101834" ID="ID_1586066235" MODIFIED="1606120112479" TEXT="6, EXT4"/>
+<node CREATED="1606120113889" ID="ID_255305242" MODIFIED="1606120119864" TEXT="7, XFS"/>
+</node>
+<node CREATED="1606120218633" ID="ID_1162868461" MODIFIED="1606120222878" TEXT="soft">
+<node CREATED="1606120276592" ID="ID_582850024" MODIFIED="1606120293561" TEXT="default database">
+<node CREATED="1606120293562" ID="ID_1128124200" MODIFIED="1606120295245" TEXT="mysql"/>
+<node CREATED="1606120296449" ID="ID_1720797960" MODIFIED="1606120300181" TEXT="mariadb">
+<node CREATED="1606120540105" ID="ID_1476688327" MODIFIED="1606120543424">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# rpm -aq | grep mariadb
+    </p>
+    <p>
+      mariadb-libs-5.5.65-1.el7.x86_64
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1606120232920" ID="ID_1321362603" MODIFIED="1606120238425" TEXT="kernel">
+<node CREATED="1606120238425" ID="ID_324040955" MODIFIED="1606120244637" TEXT="2.6.x"/>
+<node CREATED="1606120246160" ID="ID_1184939352" MODIFIED="1606120250541" TEXT="3.10.x"/>
+</node>
+<node CREATED="1606120254192" ID="ID_320866962" MODIFIED="1606120256853" TEXT="firewall">
+<node CREATED="1606120257697" ID="ID_863527668" MODIFIED="1606120260517" TEXT="iptables"/>
+<node CREATED="1606120261896" ID="ID_770914237" MODIFIED="1606120268341" TEXT="firewalld">
+<node CREATED="1606120715338" ID="ID_282685612" MODIFIED="1606120719332">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# rpm -aq | egrep &quot;(firewalld|iptables)&quot;
+    </p>
+    <p>
+      firewalld-filesystem-0.6.3-8.el7_8.1.noarch
+    </p>
+    <p>
+      firewalld-0.6.3-8.el7_8.1.noarch
+    </p>
+    <p>
+      iptables-1.4.21-34.el7.x86_64
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1606120723553" ID="ID_1633292626" MODIFIED="1606120738774" TEXT="7, stop firewalld, use iptables"/>
+</node>
+</node>
+</node>
+<node CREATED="1606120926497" ID="ID_1180772285" MODIFIED="1606121058270" TEXT="date synchronization">
+<node CREATED="1606120939041" ID="ID_1306896054" MODIFIED="1606120952758" TEXT="ntpd -p"/>
+<node CREATED="1606120954705" ID="ID_597449860" MODIFIED="1606120963197" TEXT="chronyc source"/>
+</node>
+<node CREATED="1606121070256" ID="ID_839365574" MODIFIED="1606121075423" TEXT="timezone">
+<node CREATED="1606121078561" ID="ID_540053539" MODIFIED="1606121088518" TEXT="/etc/sysconfig/clock"/>
+<node CREATED="1606121090064" ID="ID_835038507" MODIFIED="1606121113597" TEXT="timedatectl set-timezone Asia/Shanghai">
+<node CREATED="1606121462688" ID="ID_1712357095" MODIFIED="1606121761011">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost sysconfig]# date
+    </p>
+    <p>
+      Mon Nov 23 16:51:40 CST 2020
+    </p>
+    <p>
+      [root@localhost sysconfig]# timedatectl set-timezone Asia/Shanghai
+    </p>
+    <p>
+      [root@localhost sysconfig]# timedatectl
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Local time: Mon 2020-11-23 16:55:19 CST
+    </p>
+    <p>
+      &#160;&#160;Universal time: Mon 2020-11-23 08:55:19 UTC
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RTC time: Mon 2020-11-23 08:55:19
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;Time zone: Asia/Shanghai (CST, +0800)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;NTP enabled: yes
+    </p>
+    <p>
+      NTP synchronized: yes
+    </p>
+    <p>
+      &#160;RTC in local TZ: no
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;DST active: n/a
+    </p>
+    <p>
+      [root@localhost sysconfig]# date
+    </p>
+    <p>
+      Mon Nov 23 16:52:23 CST 2020
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1606121177201" ID="ID_1772284309" MODIFIED="1606121180349" TEXT="language">
+<node CREATED="1606121181153" ID="ID_267459169" MODIFIED="1606121191893" TEXT="/etc/sysconfig/i18n"/>
+<node CREATED="1606121193257" ID="ID_648143732" MODIFIED="1606121224214" TEXT="localectl set-locale LANG=zh_CN.UTF-8">
+<node CREATED="1606121422257" ID="ID_1489169833" MODIFIED="1606121797313">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost sysconfig]# localectl
+    </p>
+    <p>
+      &#160;&#160;&#160;System Locale: LANG=en_US.UTF-8
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;VC Keymap: us
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;X11 Layout: us
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1606121988793" ID="ID_1486196782" MODIFIED="1606121999278" TEXT="hostname">
+<node CREATED="1606122001776" ID="ID_105918960" MODIFIED="1606122012445" TEXT="/etc/sysconfig/network"/>
+<node CREATED="1606122013840" ID="ID_1167892887" MODIFIED="1606122025269" TEXT="/etc/hostname">
+<node CREATED="1606122071529" ID="ID_572252410" MODIFIED="1606122072398" TEXT="[root@localhost sysconfig]# cat /etc/hostname  localhost.localdomain"/>
+</node>
+<node CREATED="1606122107265" ID="ID_1065116227" MODIFIED="1606122113145" TEXT="hostnamectl">
+<node CREATED="1606122113146" ID="ID_760380098" MODIFIED="1606122115504">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost sysconfig]# hostnamectl
+    </p>
+    <p>
+      &#160;&#160;&#160;Static hostname: localhost.localdomain
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Icon name: computer-vm
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Chassis: vm
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Machine ID: 842ac7f1dd654c61a36b2e30ac4fd637
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Boot ID: 5aa83d8a0c6c49188af92d12ef57863c
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Virtualization: vmware
+    </p>
+    <p>
+      &#160;&#160;Operating System: CentOS Linux 7 (Core)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;CPE OS Name: cpe:/o:centos:centos:7
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Kernel: Linux 3.10.0-1127.13.1.el7.x86_64
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;Architecture: x86-64
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1606122306376" ID="ID_1386223950" MODIFIED="1606122327877" TEXT="service">
+<node CREATED="1606122328944" ID="ID_561260832" MODIFIED="1606122330613" TEXT="service"/>
+<node CREATED="1606122331984" ID="ID_1531379323" MODIFIED="1606122338517" TEXT="systemctl ">
+<node CREATED="1606122504545" ID="ID_144249876" MODIFIED="1606122507255">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost sysconfig]# systemctl list-units | grep firewalld
+    </p>
+    <p>
+      &#160;&#160;firewalld.service&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;loaded active running&#160;&#160; firewalld - dynamic firewall daemon
+    </p>
+    <p>
+      [root@localhost sysconfig]# systemctl list-unit-files | grep iptables
+    </p>
+    <p>
+      [root@localhost sysconfig]# systemctl list-unit-files | grep firewalld
+    </p>
+    <p>
+      firewalld.service&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; enabled
+    </p>
+    <p>
+      [root@localhost sysconfig]# systemctl status iptables
+    </p>
+    <p>
+      Unit iptables.service could not be found.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1606123502521" ID="ID_1399938271" MODIFIED="1606123509533" TEXT="network">
+<node CREATED="1606123510256" ID="ID_1173098092" MODIFIED="1606123518349" TEXT="network card">
+<node CREATED="1606123536056" ID="ID_942419496" MODIFIED="1606123540228" TEXT="eth0"/>
+<node CREATED="1606123541986" ID="ID_131047119" MODIFIED="1606123546037" TEXT="ens33">
+<node CREATED="1606123547632" ID="ID_1073934772" MODIFIED="1606123612632">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost sysconfig]# cat /etc/sysconfig/network-scripts/ifcfg-ens33
+    </p>
+    <p>
+      TYPE=Ethernet
+    </p>
+    <p>
+      PROXY_METHOD=none
+    </p>
+    <p>
+      BROWSER_ONLY=no
+    </p>
+    <p>
+      BOOTPROTO=static
+    </p>
+  </body>
+</html>
+</richcontent>
+<node CREATED="1606125673569" ID="ID_492243935" MODIFIED="1606125698637" TEXT="7, PREFIX=24">
+<node CREATED="1606125700504" ID="ID_1659579499" MODIFIED="1606125720133" TEXT="NETMASK=255.255.255.0"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1606123655473" ID="ID_628059339" MODIFIED="1606124245013" TEXT="network configure command">
+<node CREATED="1606124290488" ID="ID_371085045" MODIFIED="1606124295629" TEXT="ifconfig/setup"/>
+<node CREATED="1606124296920" ID="ID_81429729" MODIFIED="1606124304789" TEXT="ip/nmtui">
+<node CREATED="1606124423247" ID="ID_508632990" MODIFIED="1606124429697" TEXT="ip">
+<node CREATED="1606124429697" ID="ID_921479315" MODIFIED="1606124431821" TEXT="view"/>
+</node>
+<node CREATED="1606124434761" ID="ID_1759823565" MODIFIED="1606124441814" TEXT="nmtui">
+<node CREATED="1606124595737" ID="ID_1353037003" MODIFIED="1606124612381" TEXT="/etc/sysconfig/network-scripts/ifcfg-ens33"/>
+<node CREATED="1606124677105" ID="ID_45354125" MODIFIED="1606124683952">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost sysconfig]# which nmtui
+    </p>
+    <p>
+      /usr/bin/nmtui
+    </p>
+    <p>
+      [root@localhost sysconfig]# rpm -qf /usr/bin/nmtui
+    </p>
+    <p>
+      NetworkManager-tui-1.18.4-3.el7.x86_64
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1606124248280" ID="ID_447056534" MODIFIED="1606124254501" TEXT="network service">
+<node CREATED="1606124309241" ID="ID_131954157" MODIFIED="1606124312309" TEXT="network"/>
+<node CREATED="1606124313393" ID="ID_553684147" MODIFIED="1606124320950" TEXT="NetworkManager">
+<node CREATED="1606125334584" ID="ID_505001636" MODIFIED="1606125338658">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# systemctl status network
+    </p>
+    <p>
+      &#9679; network.service - LSB: Bring up/down networking
+    </p>
+    <p>
+      &#160;&#160;&#160;Loaded: loaded (/etc/rc.d/init.d/network; bad; vendor preset: disabled)
+    </p>
+    <p>
+      &#160;&#160;&#160;Active: active (exited) since Mon 2020-11-23 17:51:24 CST; 3min 26s ago
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;Docs: man:systemd-sysv-generator(8)
+    </p>
+    <p>
+      &#160;&#160;Process: 827 ExecStart=/etc/rc.d/init.d/network start (code=exited, status=0/SUCCESS)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Tasks: 0
+    </p>
+    <p>
+      &#160;&#160;&#160;Memory: 0B
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Nov 23 17:51:23 localhost.localdomain systemd[1]: Starting LSB: Bring up/down networking...
+    </p>
+    <p>
+      Nov 23 17:51:24 localhost.localdomain network[827]: Bringing up loopback interface:&#160;&#160;[&#160;&#160;...]
+    </p>
+    <p>
+      Nov 23 17:51:24 localhost.localdomain network[827]: Bringing up interface ens33:&#160;&#160;[&#160;&#160;OK&#160;&#160;]
+    </p>
+    <p>
+      Nov 23 17:51:24 localhost.localdomain systemd[1]: Started LSB: Bring up/down networking.
+    </p>
+    <p>
+      Hint: Some lines were ellipsized, use -l to show in full.
+    </p>
+    <p>
+      [root@localhost ~]# systemctl status NetworkManager
+    </p>
+    <p>
+      &#9679; NetworkManager.service - Network Manager
+    </p>
+    <p>
+      &#160;&#160;&#160;Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)
+    </p>
+    <p>
+      &#160;&#160;&#160;Active: active (running) since Mon 2020-11-23 17:51:20 CST; 3min 43s ago
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;Docs: man:NetworkManager(8)
+    </p>
+    <p>
+      &#160;Main PID: 696 (NetworkManager)
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;Tasks: 3
+    </p>
+    <p>
+      &#160;&#160;&#160;Memory: 9.7M
+    </p>
+    <p>
+      &#160;&#160;&#160;CGroup: /system.slice/NetworkManager.service
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#9492;&#9472;696 /usr/sbin/NetworkManager --no-daemon
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2684] ifc...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2713] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2750] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2754] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2777] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2786] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2788] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2836] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.2838] dev...)
+    </p>
+    <p>
+      Nov 23 17:51:35 localhost.localdomain NetworkManager[696]: &lt;info&gt;&#160; [1606125095.3024] dev....
+    </p>
+    <p>
+      Hint: Some lines were ellipsized, use -l to show in full.
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+</node>
 </node>
 </node>
 <node CREATED="1551771854883" ID="ID_1892302707" MODIFIED="1593761707180" TEXT="command">
-<node CREATED="1551771830995" ID="ID_1190437359" MODIFIED="1594786504116" TEXT="network">
-<node CREATED="1593575394431" ID="ID_1911101387" MODIFIED="1593575424387" TEXT="cd /etc/sysconfig/network-scripts">
-<node CREATED="1600855282753" ID="ID_379707985" MODIFIED="1600855283490" TEXT="systemctl restart network"/>
-</node>
-<node CREATED="1551772221557" ID="ID_1256592906" MODIFIED="1559720160154" TEXT="ip">
-<node CREATED="1551772318795" ID="ID_629367899" MODIFIED="1551776254713" TEXT="practice">
-<node CREATED="1551772322429" ID="ID_968197514" MODIFIED="1600137539104" TEXT="ip a">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      ip addr
-    </p>
-    <p>
-      ip addr show
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-</node>
-<node CREATED="1551772407675" ID="ID_710385014" MODIFIED="1551772411748" TEXT="ping">
-<node CREATED="1551772411749" ID="ID_1147294084" MODIFIED="1551772426532" TEXT="practice">
-<node CREATED="1551772426533" ID="ID_983941100" MODIFIED="1551772445264" TEXT="ping www.aliyun.com"/>
-</node>
-</node>
-<node CREATED="1551772982155" ID="ID_737214527" MODIFIED="1551773015876" TEXT="service">
-<node CREATED="1551773028331" ID="ID_213520407" MODIFIED="1551773047640" TEXT="practice">
-<node CREATED="1551773015877" ID="ID_571959361" MODIFIED="1551773024555" TEXT="service network restart"/>
-</node>
-</node>
-<node CREATED="1552638653710" ID="ID_1459699075" MODIFIED="1552638656026" TEXT="scan">
-<node CREATED="1552633381254" ID="ID_231236721" MODIFIED="1600137539127" TEXT="fping">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Q
-    </p>
-    <p>
-      install by source
-    </p>
-    <p>
-      A
-    </p>
-    <p>
-      down: http://fping.org/
-    </p>
-    <p>
-      tar, configuration, make, make install
-    </p>
-  </body>
-</html></richcontent>
-<node CREATED="1552633485606" ID="ID_1459668501" MODIFIED="1600137539137" TEXT="command">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      ping 172.16.31.143 172.16.31.150
-    </p>
-    <p>
-      # show targets that are alive
-    </p>
-    <p>
-      ping -a 172.16.31.143 172.16.31.150
-    </p>
-    <p>
-      # generate target list
-    </p>
-    <p>
-      ping -g 172.16.31.143 172.16.31.150
-    </p>
-    <p>
-      ping -g 172.16.30.1/24
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1552634898590" ID="ID_1668232786" MODIFIED="1600137539146" TEXT="hping">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      yum install libpcap-devel
-    </p>
-    <p>
-      down: http://hping.org/
-    </p>
-  </body>
-</html></richcontent>
-</node>
-<node CREATED="1552639107927" ID="ID_544553562" MODIFIED="1552639112870" TEXT="traceroute"/>
-<node CREATED="1552639429933" ID="ID_1654365648" MODIFIED="1552639433109" TEXT="mtr"/>
-<node CREATED="1552639534397" ID="ID_415186139" MODIFIED="1552639541778" TEXT="nmap"/>
-<node CREATED="1552639551351" ID="ID_1812941323" MODIFIED="1600137539156" TEXT="nc">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      ncat
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1593573699297" ID="ID_123576579" MODIFIED="1593573702235" TEXT="wget">
-<node CREATED="1593573703655" ID="ID_452820172" MODIFIED="1593573709099" TEXT="yum install wget"/>
-</node>
-<node CREATED="1593671028181" ID="ID_1183805185" MODIFIED="1600137539176" TEXT="firewall">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      # &#26597;&#30475;firewall&#26381;&#21153;&#29366;&#24577;
-    </p>
-    <p>
-      systemctl status firewalld
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      # &#24320;&#21551;&#12289;&#37325;&#21551;&#12289;&#20851;&#38381;&#12289;firewalld.service&#26381;&#21153;
-    </p>
-    <p>
-      # &#24320;&#21551;
-    </p>
-    <p>
-      service firewalld start
-    </p>
-    <p>
-      # &#37325;&#21551;
-    </p>
-    <p>
-      service firewalld restart
-    </p>
-    <p>
-      # &#20851;&#38381;
-    </p>
-    <p>
-      service firewalld stop
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      # &#26597;&#30475;&#38450;&#28779;&#22681;&#35268;&#21017;
-    </p>
-    <p>
-      firewall-cmd --list-all&#160;&#160;&#160;&#160;# &#26597;&#30475;&#20840;&#37096;&#20449;&#24687;
-    </p>
-    <p>
-      firewall-cmd --list-ports&#160;&#160;# &#21482;&#30475;&#31471;&#21475;&#20449;&#24687;
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      # &#24320;&#21551;&#31471;&#21475;
-    </p>
-    <p>
-      &#24320;&#31471;&#21475;&#21629;&#20196;&#65306;firewall-cmd --zone=public --add-port=80/tcp --permanent
-    </p>
-    <p>
-      &#37325;&#21551;&#38450;&#28779;&#22681;&#65306;systemctl restart firewalld.service
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      &#21629;&#20196;&#21547;&#20041;&#65306;
-    </p>
-    <p>
-      --zone #&#20316;&#29992;&#22495;
-    </p>
-    <p>
-      --add-port=80/tcp&#160;&#160;#&#28155;&#21152;&#31471;&#21475;&#65292;&#26684;&#24335;&#20026;&#65306;&#31471;&#21475;/&#36890;&#35759;&#21327;&#35758;
-    </p>
-    <p>
-      --permanent&#160;&#160;&#160;#&#27704;&#20037;&#29983;&#25928;&#65292;&#27809;&#26377;&#27492;&#21442;&#25968;&#37325;&#21551;&#21518;&#22833;&#25928;
-    </p>
-  </body>
-</html></richcontent>
-<node CREATED="1593671043019" ID="ID_587616149" MODIFIED="1593671055302" TEXT="systemctl">
-<node CREATED="1593671055762" ID="ID_287788206" MODIFIED="1593671110150">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      systemctl status firewalld
-    </p>
-    <p>
-      systemctl stop firewalld
-    </p>
-    <p>
-      systemctl start firewalld
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1593671113040" ID="ID_1836935536" MODIFIED="1593671118685" TEXT="view">
-<node CREATED="1593671119608" ID="ID_171216935" MODIFIED="1593671141952">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      firewall-cmd --list-all
-    </p>
-    <p>
-      firewall-cmd --list-ports
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1593671150561" ID="ID_831689938" MODIFIED="1603099935080" TEXT="add port">
-<node CREATED="1593671622848" ID="ID_1341139775" MODIFIED="1593671640553">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      firewall-cmd --zone=public --add-port=8080/tcp --permanent
-    </p>
-    <p>
-      systemctl restart firewalld
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1603099923060" ID="ID_1063950425" MODIFIED="1603099930093" TEXT="remove port">
-<node CREATED="1603099930098" ID="ID_853786750" MODIFIED="1603099931354" TEXT="firewall-cmd --zone=public --remove-port=5000/tcp --permanent"/>
-</node>
-</node>
-<node CREATED="1596086284227" ID="ID_1570483813" MODIFIED="1596086286260" TEXT="curl">
-<node CREATED="1596086286260" ID="ID_801787848" MODIFIED="1596086287383" TEXT="curl -o /usr/libexec/docker/cli-plugins/docker-ecs -L https://github.com/docker/ecs-plugin/releases/latest/download/docker-ecs-linux-amd64"/>
-</node>
-<node CREATED="1603423326534" ID="ID_924753099" MODIFIED="1603423394657" TEXT="net-tools">
-<node CREATED="1603423414231" ID="ID_190003178" MODIFIED="1603423416568" TEXT="yum install net-tools"/>
-<node CREATED="1551771868059" ID="ID_825215649" MODIFIED="1593761717709" TEXT="ifconfig">
-<node CREATED="1593573654742" ID="ID_1428286189" MODIFIED="1593573681863">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      # discard (CentOS-7)
-    </p>
-    <p>
-      yum search ifconfig
-    </p>
-    <p>
-      yum install net-tools.x86_64
-    </p>
-  </body>
-</html></richcontent>
-</node>
-<node CREATED="1551773125052" ID="ID_1513391005" MODIFIED="1551776304296" TEXT="reslove">
-<node CREATED="1551773157259" ID="ID_457293659" MODIFIED="1600137539093" TEXT="ifconfig: command not found">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Q
-    </p>
-    <p>
-      # ifconfig
-    </p>
-    <p>
-      -bash: ifconfig: command not found
-    </p>
-    <p>
-      A
-    </p>
-    <p>
-      1
-    </p>
-    <p>
-      echo $PATH
-    </p>
-    <p>
-      add /usr/sbin
-    </p>
-    <p>
-      vi /etc/profile
-    </p>
-    <p>
-      export PATH=$PATH:/sbin
-    </p>
-    <p>
-      2
-    </p>
-    <p>
-      yum
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      &#160;
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-</node>
-<node CREATED="1589268154762" ID="ID_141705518" MODIFIED="1589268163900" TEXT="netstat">
-<node CREATED="1589268157666" ID="ID_60612503" MODIFIED="1595302131031" TEXT="netstat -lnpt|grep 18000"/>
-</node>
-</node>
-<node CREATED="1603423509614" ID="ID_40132811" MODIFIED="1603423513212" TEXT="telnet">
-<node CREATED="1603423513214" ID="ID_1685730497" MODIFIED="1603423519524" TEXT="yum install telnet">
-<node CREATED="1603423977566" ID="ID_995027496" MODIFIED="1603424026534">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      # successful
-    </p>
-    <p>
-      [root@localhost ~]# telnet 192.168.2.70 31962
-    </p>
-    <p>
-      Trying 192.168.2.70...
-    </p>
-    <p>
-      Connected to 192.168.2.70.
-    </p>
-    <p>
-      Escape character is '^]'.
-    </p>
-    <p>
-      Connection closed by foreign host.
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-</node>
-</node>
 <node CREATED="1593571950767" ID="ID_147333808" MODIFIED="1600939042847" TEXT="file &amp; directory">
 <node CREATED="1593584265356" ID="ID_1401441670" MODIFIED="1593584267332" TEXT="https://mp.weixin.qq.com/s?__biz=Mzg2NTAzMTExNg==&amp;mid=2247483885&amp;idx=1&amp;sn=cf98ffb9698999abf950c55da75c60ec&amp;scene=19#wechat_redirect"/>
 <node CREATED="1593572294087" ID="ID_422604784" MODIFIED="1593572298435" TEXT="operation">
@@ -554,8 +613,250 @@
 <node CREATED="1594973783104" ID="ID_85185607" MODIFIED="1594973794109" TEXT="rm -rf link_file"/>
 </node>
 <node CREATED="1593573177023" ID="ID_7091693" MODIFIED="1603095485630" TEXT="file content">
-<node CREATED="1593573190742" ID="ID_662683590" MODIFIED="1596165001855" TEXT="view">
-<node CREATED="1593573879584" ID="ID_1460507252" MODIFIED="1593573881323" TEXT="cat"/>
+<node CREATED="1605682247387" ID="ID_510518630" MODIFIED="1605852183390" TEXT="search">
+<node CREATED="1605682250954" ID="ID_875619860" MODIFIED="1605682252291" TEXT="jq">
+<node CREATED="1605682529895" ID="ID_546998063" MODIFIED="1605682586573">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      yum install epel-release
+    </p>
+    <p>
+      yum list jq
+    </p>
+    <p>
+      yum install jq
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605682625289" ID="ID_1550567876" MODIFIED="1605682633569" TEXT="for json query"/>
+</node>
+<node CREATED="1605853758323" ID="ID_348320007" MODIFIED="1605853766348" TEXT="grep">
+<node CREATED="1605853817148" ID="ID_1552537446" MODIFIED="1605853844570">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# grep &quot;version&quot; bb.b
+    </p>
+    <p>
+      #version=RHEL8
+    </p>
+    <p>
+      #version=RHEL8
+    </p>
+    <p>
+      #version=RHEL8
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605853847082" ID="ID_448849928" MODIFIED="1605853850490">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# grep root /etc/passwd
+    </p>
+    <p>
+      root:x:0:0:root:/root:/bin/bash
+    </p>
+    <p>
+      operator:x:11:0:operator:/root:/sbin/nologin
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605854295546" ID="ID_252127113" MODIFIED="1605854298059">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# grep -v &quot;^#&quot; anaconda-ks.cfg | grep -v &quot;^$&quot; | grep -v &quot;^%&quot;
+    </p>
+    <p>
+      ignoredisk --only-use=sda
+    </p>
+    <p>
+      autopart --type=lvm
+    </p>
+    <p>
+      clearpart --none --initlabel
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1605854377378" ID="ID_1025362567" MODIFIED="1605854380993">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# egrep -v &quot;(^#|^$|^%)&quot; anaconda-ks.cfg
+    </p>
+    <p>
+      ignoredisk --only-use=sda
+    </p>
+    <p>
+      autopart --type=lvm
+    </p>
+    <p>
+      clearpart --none --initlabel
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1605854020674" ID="ID_530023587" MODIFIED="1605854025619" TEXT="egrep">
+<node CREATED="1605854025619" ID="ID_696249321" MODIFIED="1605854028274">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# egrep &quot;(root|ssh)&quot; /etc/passwd
+    </p>
+    <p>
+      root:x:0:0:root:/root:/bin/bash
+    </p>
+    <p>
+      operator:x:11:0:operator:/root:/sbin/nologin
+    </p>
+    <p>
+      sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1596083439916" ID="ID_1795423587" MODIFIED="1605854502752" TEXT="find">
+<node CREATED="1596083445228" ID="ID_1657618955" MODIFIED="1596083446096" TEXT="find /usr -name &quot;docker&quot; "/>
+<node CREATED="1596083826476" ID="ID_1611996046" MODIFIED="1596083827249" TEXT="find /usr -iname &quot;docke*.*&quot; -user bin "/>
+<node CREATED="1605854723730" ID="ID_834731339" MODIFIED="1605854733522">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# find /etc -name &quot;host*&quot;
+    </p>
+    <p>
+      /etc/host.conf
+    </p>
+    <p>
+      /etc/hosts
+    </p>
+    <p>
+      /etc/hostname
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605854853355" ID="ID_1233031062" MODIFIED="1605854900770">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      -name
+    </p>
+    <p>
+      -size
+    </p>
+    <p>
+      -iname # ignore
+    </p>
+    <p>
+      !
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605855212554" ID="ID_598646015" MODIFIED="1605855214859">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# find /etc ! -name &quot;*.*&quot; | grep ^/etc/fire*
+    </p>
+    <p>
+      /etc/firewalld
+    </p>
+    <p>
+      /etc/firewalld/helpers
+    </p>
+    <p>
+      /etc/firewalld/icmptypes
+    </p>
+    <p>
+      /etc/firewalld/ipsets
+    </p>
+    <p>
+      /etc/firewalld/services
+    </p>
+    <p>
+      /etc/firewalld/zones
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1593573190742" ID="ID_662683590" MODIFIED="1605845057087" TEXT="view">
+<node CREATED="1593573879584" ID="ID_1460507252" MODIFIED="1605844794892" TEXT="cat">
+<node CREATED="1605844798847" ID="ID_1592194160" MODIFIED="1605844827578">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      cat &lt; aa.a &gt; bb.b
+    </p>
+    <p>
+      cat &lt; aa.a &gt;&gt; bb.b
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605852334046" ID="ID_972666219" MODIFIED="1605852337129">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat bb.b | grep &quot;version&quot;
+    </p>
+    <p>
+      #version=RHEL8
+    </p>
+    <p>
+      #version=RHEL8
+    </p>
+    <p>
+      #version=RHEL8
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
 <node CREATED="1593573882478" ID="ID_127795438" MODIFIED="1593573884836" TEXT="tac"/>
 <node CREATED="1593573885921" ID="ID_986243943" MODIFIED="1593583944137" TEXT="nl"/>
 <node CREATED="1593574274510" ID="ID_846922366" MODIFIED="1593574485513" TEXT="less (best practice)">
@@ -614,6 +915,27 @@
 <node CREATED="1593574738280" ID="ID_1378161501" MODIFIED="1593574742131" TEXT="tail -f"/>
 </node>
 <node CREATED="1596169884276" ID="ID_1771167458" MODIFIED="1596169887580" TEXT="in"/>
+<node CREATED="1605845052643" ID="ID_501178091" MODIFIED="1605845056068" TEXT="echo">
+<node CREATED="1605845059692" ID="ID_821702108" MODIFIED="1605845086755">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# echo &quot;root&quot; | passwd --stdin root
+    </p>
+    <p>
+      Changing password for user root.
+    </p>
+    <p>
+      passwd: all authentication tokens updated successfully.
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1605845093131" ID="ID_692381146" MODIFIED="1605845109476" TEXT="change root&apos;s password"/>
+</node>
+</node>
 </node>
 <node CREATED="1593584357924" ID="ID_1190220128" MODIFIED="1596164956296" TEXT="edit">
 <node CREATED="1593584360828" ID="ID_148351138" MODIFIED="1603095514061" TEXT="cat">
@@ -1429,34 +1751,6 @@
 <node CREATED="1602233060218" ID="ID_1956836872" MODIFIED="1602233061325" TEXT="sed &apos;s/&#x8981;&#x88ab;&#x53d6;&#x4ee3;&#x7684;&#x5b57;&#x4e32;/&#x65b0;&#x7684;&#x5b57;&#x4e32;/g&apos;"/>
 </node>
 </node>
-<node CREATED="1605682247387" ID="ID_510518630" MODIFIED="1605682250952" TEXT="search">
-<node CREATED="1605682250954" ID="ID_875619860" MODIFIED="1605682252291" TEXT="jq">
-<node CREATED="1605682529895" ID="ID_546998063" MODIFIED="1605682586573">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      yum install epel-release
-    </p>
-    <p>
-      yum list jq
-    </p>
-    <p>
-      yum install jq
-    </p>
-  </body>
-</html>
-</richcontent>
-</node>
-<node CREATED="1605682625289" ID="ID_1550567876" MODIFIED="1605682633569" TEXT="for json query"/>
-</node>
-</node>
-</node>
-<node CREATED="1596083439916" ID="ID_1795423587" MODIFIED="1596083444448" TEXT="find">
-<node CREATED="1596083445228" ID="ID_1657618955" MODIFIED="1596083446096" TEXT="find /usr -name &quot;docker&quot; "/>
-<node CREATED="1596083826476" ID="ID_1611996046" MODIFIED="1596083827249" TEXT="find /usr -iname &quot;docke*.*&quot; -user bin "/>
 </node>
 </node>
 <node CREATED="1593588806321" ID="ID_677055512" MODIFIED="1604389873809" TEXT="user &amp; group">
@@ -2017,76 +2311,7 @@
 </node>
 </node>
 <node CREATED="1551948235253" ID="ID_428878726" MODIFIED="1594261924934" TEXT="service">
-<node CREATED="1551945820801" ID="ID_408963751" MODIFIED="1600137539343" TEXT="bind">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Search IP: http://www.ip138.com/
-    </p>
-  </body>
-</html></richcontent>
-<node CREATED="1551947246992" ID="ID_471487222" MODIFIED="1602497243753" TEXT="bind-utils">
-<node CREATED="1551947400212" ID="ID_1258464322" MODIFIED="1551947410153" TEXT="nslookup"/>
-<node CREATED="1551947411788" ID="ID_103194337" MODIFIED="1551947413175" TEXT="host"/>
-<node CREATED="1551947439896" ID="ID_1612171624" MODIFIED="1551947442114" TEXT="dig"/>
-</node>
-<node CREATED="1551947223058" ID="ID_1622008792" MODIFIED="1600137539358" TEXT="net-tools">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      yum install net-tools.x86_64
-    </p>
-    <p>
-      ifconfig -&gt; ip a
-    </p>
-    <p>
-      netstat -&gt; ss
-    </p>
-  </body>
-</html></richcontent>
-<node CREATED="1551947324457" ID="ID_481801861" MODIFIED="1551947341025" TEXT="ifconfig"/>
-<node CREATED="1551947342772" ID="ID_686771029" MODIFIED="1600137539368" TEXT="netstat">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Q: check port
-    </p>
-    <p>
-      A: netstat -lntup
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-</node>
-<node CREATED="1552550437039" ID="ID_328495785" MODIFIED="1600137539377" TEXT="iptables (centos7 is firewall)">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      Q: Open port 6379
-    </p>
-    <p>
-      A: /sbin/iptables -I INPUT -p tcp --dport 6379 -j ACCEPT
-    </p>
-  </body>
-</html></richcontent>
-<node CREATED="1589267331050" ID="ID_1668888538" MODIFIED="1594353481027" TEXT="firewall">
-<node CREATED="1589267661881" ID="ID_79381175" MODIFIED="1589267663663" TEXT="https://blog.csdn.net/tanyyinyu/article/details/101569250"/>
-</node>
-</node>
-<node CREATED="1552631885388" ID="ID_940041888" MODIFIED="1600137539390" TEXT="gcc">
+<node CREATED="1552631885388" ID="ID_940041888" MODIFIED="1606211692568" TEXT="gcc">
 <richcontent TYPE="NOTE"><html>
   <head>
     
@@ -2105,7 +2330,8 @@
       yum -y install gcc-c++
     </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 </node>
 <node CREATED="1559721071299" ID="ID_849317202" MODIFIED="1600137539397" TEXT="redis">
 <richcontent TYPE="NOTE"><html>
@@ -2119,43 +2345,11 @@
   </body>
 </html></richcontent>
 </node>
-<node CREATED="1588824626465" ID="ID_1083909237" MODIFIED="1588824633239" TEXT="telnet">
-<node CREATED="1588824633240" ID="ID_405333242" MODIFIED="1600137539410" TEXT="install">
-<richcontent TYPE="NOTE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      yum install xinetd
-    </p>
-    <p>
-      yum install telnet
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      [root@localhost ~]# systemctl status xinetd.service
-    </p>
-    <p>
-      &#9679; xinetd.service - Xinetd A Powerful Replacement For Inetd
-    </p>
-    <p>
-      &#160;&#160;&#160;Loaded: loaded (/usr/lib/systemd/system/xinetd.service; enabled; vendor preset: enabled)
-    </p>
-    <p>
-      &#160;&#160;&#160;Active: inactive (dead)
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
 <node CREATED="1588824643642" ID="ID_622193034" MODIFIED="1588824648475" TEXT="wget">
 <node CREATED="1588824664943" ID="ID_1525528917" MODIFIED="1588824667791" TEXT="yum -y install wget"/>
 <node CREATED="1588824690150" ID="ID_1376236172" MODIFIED="1588824691260" TEXT="wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo"/>
 </node>
-<node CREATED="1589011507861" FOLDED="true" ID="ID_835406990" MODIFIED="1593496529721" TEXT="tshark">
+<node CREATED="1589011507861" FOLDED="true" ID="ID_835406990" MODIFIED="1606199835735" TEXT="tshark">
 <node CREATED="1589011561286" ID="ID_1226532183" MODIFIED="1589011565939">
 <richcontent TYPE="NODE"><html>
   <head>
@@ -2198,36 +2392,6 @@
   </body>
 </html></richcontent>
 </node>
-</node>
-<node CREATED="1589011896497" ID="ID_1084768457" MODIFIED="1589268137786" TEXT="route">
-<node CREATED="1589011899865" ID="ID_1132452720" MODIFIED="1589011904573">
-<richcontent TYPE="NODE"><html>
-  <head>
-    
-  </head>
-  <body>
-    <p>
-      [root@localhost ~]# route -nee
-    </p>
-    <p>
-      Kernel IP routing table
-    </p>
-    <p>
-      Destination&#160;&#160;&#160;&#160;&#160;Gateway&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Genmask&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Flags Metric Ref&#160;&#160;&#160;&#160;Use Iface&#160;&#160;&#160;&#160;MSS&#160;&#160;&#160;Window irtt
-    </p>
-    <p>
-      0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;192.168.2.2&#160;&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;UG&#160;&#160;&#160;&#160;100&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 ens33&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;0
-    </p>
-    <p>
-      192.168.2.0&#160;&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;255.255.255.0&#160;&#160;&#160;U&#160;&#160;&#160;&#160;&#160;100&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 ens33&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;0
-    </p>
-  </body>
-</html></richcontent>
-</node>
-</node>
-<node CREATED="1589165006923" ID="ID_1295278337" MODIFIED="1589165010892" TEXT="nmap">
-<node CREATED="1589165075352" ID="ID_1274183583" MODIFIED="1589165076616" TEXT="https://nmap.org/"/>
-<node CREATED="1589165559868" ID="ID_419191924" MODIFIED="1589165572498" TEXT="yum install nmap"/>
 </node>
 <node CREATED="1590657986012" ID="ID_377497770" MODIFIED="1590657997711" TEXT="fail2ban">
 <node CREATED="1590658048706" ID="ID_1572720526" MODIFIED="1590658054155" TEXT="view ssh log">
@@ -2405,6 +2569,237 @@
 </node>
 </node>
 </node>
+<node CREATED="1605856882218" ID="ID_1079788653" MODIFIED="1605856899031" TEXT="environment variables">
+<node CREATED="1605857503437" ID="ID_1823098624" MODIFIED="1605857505981" TEXT="define">
+<node CREATED="1605856997194" ID="ID_1075166173" MODIFIED="1605857000049">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# A=123
+    </p>
+    <p>
+      [root@localhost ~]# echo $A
+    </p>
+    <p>
+      123
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605857242529" ID="ID_1497818574" MODIFIED="1605857450590">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# a=1 &amp;&amp; export b=2
+    </p>
+    <p>
+      [root@localhost ~]# bash
+    </p>
+    <p>
+      [root@localhost ~]# echo $a
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      [root@localhost ~]# echo $b
+    </p>
+    <p>
+      2
+    </p>
+    <p>
+      # exit bash
+    </p>
+    <p>
+      [root@localhost ~]# exit
+    </p>
+    <p>
+      exit
+    </p>
+    <p>
+      [root@localhost ~]# export a
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1605857286410" ID="ID_1348611107" MODIFIED="1605857300935" TEXT="global and local variable"/>
+</node>
+<node CREATED="1605858709561" ID="ID_774292566" MODIFIED="1605858712677" TEXT="unset">
+<node CREATED="1605858714625" ID="ID_1982904173" MODIFIED="1605858717248">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# env | grep a=4
+    </p>
+    <p>
+      a=4
+    </p>
+    <p>
+      [root@localhost ~]# unset a
+    </p>
+    <p>
+      [root@localhost ~]# env | grep a=4
+    </p>
+    <p>
+      [root@localhost ~]# echo $a
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1605857511377" ID="ID_1858305412" MODIFIED="1605857513325" TEXT="view">
+<node CREATED="1605858589721" ID="ID_1364540384" MODIFIED="1605858598830" TEXT=".bashrc">
+<node CREATED="1605857623081" ID="ID_764248367" MODIFIED="1605857810616">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat .bashrc
+    </p>
+    <p>
+      # .bashrc
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # User specific aliases and functions
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      alias rm='rm -i'
+    </p>
+    <p>
+      alias cp='cp -i'
+    </p>
+    <p>
+      alias mv='mv -i'
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # Source global definitions
+    </p>
+    <p>
+      if [ -f /etc/bashrc ]; then
+    </p>
+    <p>
+      . /etc/bashrc # if file exist, to be available the file
+    </p>
+    <p>
+      fi
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1605858603594" ID="ID_606382040" MODIFIED="1605858609357" TEXT=".bash_profile">
+<node CREATED="1605858366538" ID="ID_952459135" MODIFIED="1605858370544">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat .bash_profile
+    </p>
+    <p>
+      # .bash_profile
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # Get the aliases and functions
+    </p>
+    <p>
+      if [ -f ~/.bashrc ]; then
+    </p>
+    <p>
+      . ~/.bashrc
+    </p>
+    <p>
+      fi
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # User specific environment and startup programs
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      PATH=$PATH:$HOME/bin
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1605858617753" ID="ID_360028284" MODIFIED="1605858622494" TEXT="env">
+<node CREATED="1605858578786" ID="ID_7331315" MODIFIED="1605858587067">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# env | grep -i HOMe
+    </p>
+    <p>
+      HOME=/root
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605861566089" ID="ID_1331466339" MODIFIED="1605861569511">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# echo $PATH
+    </p>
+    <p>
+      /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605861845616" ID="ID_1738301962" MODIFIED="1605861848135">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# source /etc/profile
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+</node>
 </node>
 <node CREATED="1552291370894" ID="ID_1976790810" MODIFIED="1603080913643" TEXT="shell">
 <richcontent TYPE="NOTE"><html>
@@ -2420,17 +2815,251 @@
     </p>
   </body>
 </html></richcontent>
-<node CREATED="1552293625571" ID="ID_364845061" MODIFIED="1562555407436" TEXT="bracket">
-<richcontent TYPE="NOTE"><html>
+<node CREATED="1605852576230" ID="ID_248656522" MODIFIED="1605852582330" TEXT="operator">
+<node CREATED="1605851892150" ID="ID_1044331159" MODIFIED="1605852586444" TEXT="input output">
+<node CREATED="1605851908846" ID="ID_31050016" MODIFIED="1605852080952">
+<richcontent TYPE="NODE"><html>
   <head>
     
   </head>
   <body>
     <p>
-      https://www.cnblogs.com/hanggegege/p/5928870.html
+      &gt; # replace output
+    </p>
+    <p>
+      &gt;&gt; # add output
+    </p>
+    <p>
+      &lt; #input
+    </p>
+    <p>
+      --stdin
     </p>
   </body>
 </html></richcontent>
+</node>
+</node>
+<node CREATED="1605852163589" ID="ID_505603811" MODIFIED="1605852639198">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      |
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1605852186175" ID="ID_1553803878" MODIFIED="1605852257015">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# echo &quot;123&quot; | grep 2
+    </p>
+    <p>
+      123
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605852385606" ID="ID_1746450806" MODIFIED="1605852398524">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# ip addr | grep inet
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;inet 127.0.0.1/8 scope host lo
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;inet6 ::1/128 scope host
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;inet 192.168.2.10/24 brd 192.168.2.255 scope global noprefixroute ens33
+    </p>
+    <p>
+      &#160;&#160;&#160;&#160;inet6 fe80::20c:29ff:fe16:71be/64 scope link
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1605852642854" ID="ID_1166764310" MODIFIED="1605852646146" TEXT="&amp;&amp;">
+<node CREATED="1605852667494" ID="ID_197613840" MODIFIED="1605853020215">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # execute the first command successfully, then execute the second command
+    </p>
+    <p>
+      # execute the first command failure, do not execute next command
+    </p>
+    <p>
+      [root@localhost ~]# ls &amp;&amp; ls -l
+    </p>
+    <p>
+      anaconda-ks.cfg&#160;&#160;bb.b
+    </p>
+    <p>
+      total 8
+    </p>
+    <p>
+      -rw-------. 1 root root 1189 Nov 19 11:10 anaconda-ks.cfg
+    </p>
+    <p>
+      -rw-r--r--. 1 root root 3567 Nov 19 22:40 bb.b
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1605853022630" ID="ID_937498709" MODIFIED="1605853025106" TEXT="||">
+<node CREATED="1605853031821" ID="ID_595030148" MODIFIED="1605853076136">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # execute the first command successfully, do not execute next command
+    </p>
+    <p>
+      [root@localhost ~]# ls || ls -l
+    </p>
+    <p>
+      anaconda-ks.cfg&#160;&#160;bb.b
+    </p>
+    <p>
+      [root@localhost ~]# lss || ls -l
+    </p>
+    <p>
+      -bash: lss: command not found
+    </p>
+    <p>
+      total 8
+    </p>
+    <p>
+      -rw-------. 1 root root 1189 Nov 19 11:10 anaconda-ks.cfg
+    </p>
+    <p>
+      -rw-r--r--. 1 root root 3567 Nov 19 22:40 bb.b
+    </p>
+    <p>
+      
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1605853272813" ID="ID_1643887065" MODIFIED="1605853274794" TEXT="[]">
+<node CREATED="1605853280198" ID="ID_1725991272" MODIFIED="1605853341997">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      -d # verify directory
+    </p>
+    <p>
+      -f # verify file
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1605853431593" ID="ID_1675347955" MODIFIED="1605853436609">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# [ -d /bin ] &amp;&amp; echo &quot;exist&quot;
+    </p>
+    <p>
+      exist
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1605853497491" ID="ID_413444554" MODIFIED="1605853585777">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# [ -f bb.a ] || touch bb.a &amp;&amp; ls
+    </p>
+    <p>
+      bb.a
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1605853231070" ID="ID_955214417" MODIFIED="1605853430186">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# [ -d /dd ]
+    </p>
+    <p>
+      [root@localhost ~]# echo $?
+    </p>
+    <p>
+      1
+    </p>
+    <p>
+      [root@localhost ~]# [ -d /bin ]
+    </p>
+    <p>
+      [root@localhost ~]# echo $?
+    </p>
+    <p>
+      0
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1605862052640" ID="ID_1299257185" MODIFIED="1605862054773" TEXT="array">
+<node CREATED="1605862055816" ID="ID_616830245" MODIFIED="1605862058423">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# array=(a b c)
+    </p>
+    <p>
+      [root@localhost ~]# echo $array
+    </p>
+    <p>
+      a
+    </p>
+    <p>
+      [root@localhost ~]# echo ${array[2]}
+    </p>
+    <p>
+      c
+    </p>
+  </body>
+</html></richcontent>
+</node>
 </node>
 </node>
 </node>
@@ -2902,6 +3531,1045 @@
 </node>
 <node CREATED="1588054133093" ID="ID_968282315" MODIFIED="1588054136452" TEXT="monitor">
 <node CREATED="1588054136453" ID="ID_336030557" MODIFIED="1588824758870" TEXT="zabbix.mm"/>
+</node>
+</node>
+<node CREATED="1606118404785" ID="ID_946277339" MODIFIED="1606119545842" POSITION="right" TEXT="network">
+<node CREATED="1606199773571" ID="ID_1421327365" MODIFIED="1606199776948" TEXT="basic">
+<node CREATED="1606198014993" ID="ID_990872626" MODIFIED="1606198021890" TEXT="ccna"/>
+<node CREATED="1606119548723" FOLDED="true" ID="ID_1593892387" MODIFIED="1606198012639" TEXT="framework">
+<node CREATED="1606119493993" ID="ID_1563134998" MODIFIED="1606119541827">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="pictures/network_01.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1606188885739" ID="ID_1283333806" MODIFIED="1606188887672" TEXT="address">
+<node CREATED="1606118446537" ID="ID_1373926467" MODIFIED="1606118449037" TEXT="ip">
+<node CREATED="1606118430401" ID="ID_1183673365" MODIFIED="1606118440765" TEXT="dhcp">
+<node CREATED="1606118463545" ID="ID_822187354" MODIFIED="1606118481062" TEXT="dynamic host control protocol"/>
+</node>
+<node CREATED="1606118442288" ID="ID_6148597" MODIFIED="1606118445141" TEXT="static"/>
+</node>
+<node CREATED="1606188193037" ID="ID_1217071982" MODIFIED="1606188210236" TEXT="ip address ">
+<node CREATED="1606188210237" ID="ID_245697105" MODIFIED="1606188231861" TEXT="ipv4"/>
+<node CREATED="1606188215420" ID="ID_349863381" MODIFIED="1606188235969" TEXT="ipv6"/>
+</node>
+<node CREATED="1606188879958" ID="ID_1778148455" MODIFIED="1606188883280" TEXT="mac address"/>
+</node>
+<node CREATED="1606189014673" ID="ID_1092674307" MODIFIED="1606189020271" TEXT="protocol">
+<node CREATED="1606189096443" ID="ID_1824137487" MODIFIED="1606189129375" TEXT="application layer">
+<node CREATED="1606189102611" ID="ID_1312182520" MODIFIED="1606189122295" TEXT="ftp, http, smtp, telnet, dns"/>
+</node>
+<node CREATED="1606189261763" ID="ID_1566950897" MODIFIED="1606189273604" TEXT="presentation layer"/>
+<node CREATED="1606189247123" ID="ID_856045287" MODIFIED="1606189251957" TEXT="session layer"/>
+<node CREATED="1606189124059" ID="ID_1815968759" MODIFIED="1606189202215" TEXT="transport layer">
+<node CREATED="1606189284170" ID="ID_908170594" MODIFIED="1606189288327" TEXT="tcp, udp"/>
+</node>
+<node CREATED="1606189206884" ID="ID_1281122889" MODIFIED="1606189211879" TEXT="network layer">
+<node CREATED="1606189292986" ID="ID_679005100" MODIFIED="1606189495480" TEXT="ip, icmp"/>
+<node CREATED="1606189496843" ID="ID_1957428894" MODIFIED="1606189501616" TEXT="arp, arap">
+<node CREATED="1606189505546" ID="ID_510970766" MODIFIED="1606189513143" TEXT="ip &lt;=&gt; mac"/>
+</node>
+</node>
+<node CREATED="1606189213163" ID="ID_595218845" MODIFIED="1606189470772" TEXT="data link layer">
+<node CREATED="1606189309899" ID="ID_1846388488" MODIFIED="1606189312127" TEXT="ppp"/>
+<node CREATED="1606189470773" ID="ID_1092604454" MODIFIED="1606189471944" TEXT="mac"/>
+</node>
+<node CREATED="1606189233514" ID="ID_128409671" MODIFIED="1606189244048" TEXT="physical layer"/>
+</node>
+<node CREATED="1606190414907" ID="ID_1527469543" MODIFIED="1606190418264" TEXT="port">
+<node CREATED="1606197013633" ID="ID_1901859548" MODIFIED="1606197110411" TEXT="[root@localhost ~]# less /etc/services  "/>
+<node CREATED="1606190419243" ID="ID_805090902" MODIFIED="1606190422667" TEXT="ftp">
+<node CREATED="1606190422668" ID="ID_951792376" MODIFIED="1606190428327" TEXT="20/21"/>
+</node>
+<node CREATED="1606196578561" ID="ID_811724426" MODIFIED="1606196579982" TEXT="ssh">
+<node CREATED="1606196580849" ID="ID_329408253" MODIFIED="1606196582110" TEXT="22"/>
+</node>
+<node CREATED="1606196585425" ID="ID_963500319" MODIFIED="1606196588969" TEXT="telnet">
+<node CREATED="1606196588969" ID="ID_1504422548" MODIFIED="1606196590269" TEXT="23"/>
+</node>
+<node CREATED="1606196610849" ID="ID_1417241697" MODIFIED="1606196719779" TEXT="http">
+<node CREATED="1606196620282" ID="ID_447532419" MODIFIED="1606196623205" TEXT="80"/>
+</node>
+<node CREATED="1606196722617" ID="ID_495201422" MODIFIED="1606196728305" TEXT="https">
+<node CREATED="1606196728306" ID="ID_409779454" MODIFIED="1606196730045" TEXT="443"/>
+</node>
+<node CREATED="1606196734553" ID="ID_869855581" MODIFIED="1606196737626" TEXT="dns">
+<node CREATED="1606196737626" ID="ID_196673641" MODIFIED="1606196741205" TEXT="53"/>
+</node>
+<node CREATED="1606196743569" ID="ID_650721413" MODIFIED="1606196746474" TEXT="mysql">
+<node CREATED="1606196746474" ID="ID_1302022637" MODIFIED="1606196749054" TEXT="3306"/>
+</node>
+<node CREATED="1606197094681" ID="ID_1150579343" MODIFIED="1606197097533" TEXT="email">
+<node CREATED="1606196593217" FOLDED="true" ID="ID_1525358279" MODIFIED="1606197099430" TEXT="smtp">
+<node CREATED="1606196605881" ID="ID_642853497" MODIFIED="1606196608981" TEXT="25"/>
+</node>
+<node CREATED="1606196629897" ID="ID_1668688513" MODIFIED="1606196642163" TEXT="smtp (ssl)">
+<node CREATED="1606196637330" ID="ID_78106234" MODIFIED="1606196641133" TEXT="465"/>
+</node>
+<node CREATED="1606196644569" ID="ID_659160662" MODIFIED="1606196651553" TEXT="pop3">
+<node CREATED="1606196651554" ID="ID_1893249510" MODIFIED="1606196655973" TEXT="110"/>
+</node>
+<node CREATED="1606196657769" ID="ID_163074867" MODIFIED="1606196664257" TEXT="imap4">
+<node CREATED="1606196664257" ID="ID_1868592796" MODIFIED="1606196666293" TEXT="143"/>
+</node>
+<node CREATED="1606196692874" ID="ID_537730610" MODIFIED="1606196713429" TEXT="imap4 (ssl)">
+<node CREATED="1606196698721" ID="ID_887031661" MODIFIED="1606196703861" TEXT="993"/>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1606198973217" ID="ID_1821247819" MODIFIED="1606198979057" TEXT="configure">
+<node CREATED="1606200220801" ID="ID_671230296" MODIFIED="1606200228187" TEXT="network">
+<node CREATED="1606198979058" ID="ID_1918352372" MODIFIED="1606200218815">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-ens33
+    </p>
+    <p>
+      TYPE=Ethernet
+    </p>
+    <p>
+      PROXY_METHOD=none
+    </p>
+    <p>
+      BROWSER_ONLY=no
+    </p>
+    <p>
+      BOOTPROTO=static
+    </p>
+    <p>
+      DEFROUTE=yes
+    </p>
+    <p>
+      IPV4_FAILURE_FATAL=no
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1606200195889" ID="ID_1206199313" MODIFIED="1606200197925" TEXT="dns">
+<node CREATED="1606200206313" ID="ID_986498831" MODIFIED="1606200208487">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat /etc/resolv.conf
+    </p>
+    <p>
+      # Generated by NetworkManager
+    </p>
+    <p>
+      nameserver 198.168.1.1
+    </p>
+    <p>
+      nameserver 114.114.114.114
+    </p>
+    <p>
+      nameserver 4.4.4.4
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1606200161089" ID="ID_1528880860" MODIFIED="1606200240373" TEXT="hosts">
+<node CREATED="1606200174890" ID="ID_1305040005" MODIFIED="1606200189785">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat /etc/hosts
+    </p>
+    <p>
+      127.0.0.1&#160;&#160;&#160;localhost localhost.localdomain localhost4 localhost4.localdomain4
+    </p>
+    <p>
+      ::1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;localhost localhost.localdomain localhost6 localhost6.localdomain6
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1551771830995" ID="ID_358553747" MODIFIED="1606199759750" TEXT="command">
+<node CREATED="1593575394431" ID="ID_362380896" MODIFIED="1593575424387" TEXT="cd /etc/sysconfig/network-scripts">
+<node CREATED="1600855282753" ID="ID_1825257673" MODIFIED="1600855283490" TEXT="systemctl restart network"/>
+</node>
+<node CREATED="1551772221557" ID="ID_1653788675" MODIFIED="1559720160154" TEXT="ip">
+<node CREATED="1551772318795" ID="ID_83906744" MODIFIED="1551776254713" TEXT="practice">
+<node CREATED="1551772322429" ID="ID_1261466255" MODIFIED="1600137539104" TEXT="ip a">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ip addr
+    </p>
+    <p>
+      ip addr show
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1551772407675" ID="ID_1289263190" MODIFIED="1551772411748" TEXT="ping">
+<node CREATED="1551772411749" ID="ID_1788795948" MODIFIED="1551772426532" TEXT="practice">
+<node CREATED="1551772426533" ID="ID_1998997085" MODIFIED="1606200933600">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# ping -c 3 www.baidu.com
+    </p>
+    <p>
+      PING www.a.shifen.com (61.135.185.32) 56(84) bytes of data.
+    </p>
+    <p>
+      64 bytes from 61.135.185.32 (61.135.185.32): icmp_seq=1 ttl=128 time=27.9 ms
+    </p>
+    <p>
+      64 bytes from 61.135.185.32 (61.135.185.32): icmp_seq=2 ttl=128 time=27.9 ms
+    </p>
+    <p>
+      64 bytes from 61.135.185.32 (61.135.185.32): icmp_seq=3 ttl=128 time=27.0 ms
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      --- www.a.shifen.com ping statistics ---
+    </p>
+    <p>
+      3 packets transmitted, 3 received, 0% packet loss, time 6073ms
+    </p>
+    <p>
+      rtt min/avg/max/mdev = 27.094/27.670/27.993/0.451 ms
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1551772982155" ID="ID_1031397011" MODIFIED="1551773015876" TEXT="service">
+<node CREATED="1551773028331" ID="ID_1717569597" MODIFIED="1551773047640" TEXT="practice">
+<node CREATED="1551773015877" ID="ID_1224849906" MODIFIED="1551773024555" TEXT="service network restart"/>
+</node>
+</node>
+<node CREATED="1552638653710" ID="ID_1997673300" MODIFIED="1552638656026" TEXT="scan">
+<node CREATED="1552633381254" ID="ID_694929496" MODIFIED="1600137539127" TEXT="fping">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Q
+    </p>
+    <p>
+      install by source
+    </p>
+    <p>
+      A
+    </p>
+    <p>
+      down: http://fping.org/
+    </p>
+    <p>
+      tar, configuration, make, make install
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1552633485606" ID="ID_981540183" MODIFIED="1600137539137" TEXT="command">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ping 172.16.31.143 172.16.31.150
+    </p>
+    <p>
+      # show targets that are alive
+    </p>
+    <p>
+      ping -a 172.16.31.143 172.16.31.150
+    </p>
+    <p>
+      # generate target list
+    </p>
+    <p>
+      ping -g 172.16.31.143 172.16.31.150
+    </p>
+    <p>
+      ping -g 172.16.30.1/24
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1552634898590" ID="ID_716549183" MODIFIED="1600137539146" TEXT="hping">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      yum install libpcap-devel
+    </p>
+    <p>
+      down: http://hping.org/
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1552639107927" ID="ID_1050828674" MODIFIED="1552639112870" TEXT="traceroute"/>
+<node CREATED="1552639429933" ID="ID_803643896" MODIFIED="1552639433109" TEXT="mtr"/>
+<node CREATED="1552639534397" ID="ID_1993218744" MODIFIED="1552639541778" TEXT="nmap"/>
+<node CREATED="1552639551351" ID="ID_28462943" MODIFIED="1600137539156" TEXT="nc">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      ncat
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1593573699297" ID="ID_289997030" MODIFIED="1593573702235" TEXT="wget">
+<node CREATED="1593573703655" ID="ID_1931296612" MODIFIED="1593573709099" TEXT="yum install wget"/>
+</node>
+<node CREATED="1593671028181" ID="ID_1611452109" MODIFIED="1606211814143" TEXT="firewalld">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # &#26597;&#30475;firewall&#26381;&#21153;&#29366;&#24577;
+    </p>
+    <p>
+      systemctl status firewalld
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # &#24320;&#21551;&#12289;&#37325;&#21551;&#12289;&#20851;&#38381;&#12289;firewalld.service&#26381;&#21153;
+    </p>
+    <p>
+      # &#24320;&#21551;
+    </p>
+    <p>
+      service firewalld start
+    </p>
+    <p>
+      # &#37325;&#21551;
+    </p>
+    <p>
+      service firewalld restart
+    </p>
+    <p>
+      # &#20851;&#38381;
+    </p>
+    <p>
+      service firewalld stop
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # &#26597;&#30475;&#38450;&#28779;&#22681;&#35268;&#21017;
+    </p>
+    <p>
+      firewall-cmd --list-all&#160;&#160;&#160;&#160;# &#26597;&#30475;&#20840;&#37096;&#20449;&#24687;
+    </p>
+    <p>
+      firewall-cmd --list-ports&#160;&#160;# &#21482;&#30475;&#31471;&#21475;&#20449;&#24687;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # &#24320;&#21551;&#31471;&#21475;
+    </p>
+    <p>
+      &#24320;&#31471;&#21475;&#21629;&#20196;&#65306;firewall-cmd --zone=public --add-port=80/tcp --permanent
+    </p>
+    <p>
+      &#37325;&#21551;&#38450;&#28779;&#22681;&#65306;systemctl restart firewalld.service
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#21629;&#20196;&#21547;&#20041;&#65306;
+    </p>
+    <p>
+      --zone #&#20316;&#29992;&#22495;
+    </p>
+    <p>
+      --add-port=80/tcp&#160;&#160;#&#28155;&#21152;&#31471;&#21475;&#65292;&#26684;&#24335;&#20026;&#65306;&#31471;&#21475;/&#36890;&#35759;&#21327;&#35758;
+    </p>
+    <p>
+      --permanent&#160;&#160;&#160;#&#27704;&#20037;&#29983;&#25928;&#65292;&#27809;&#26377;&#27492;&#21442;&#25968;&#37325;&#21551;&#21518;&#22833;&#25928;
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1593671043019" ID="ID_616469945" MODIFIED="1593671055302" TEXT="systemctl">
+<node CREATED="1593671055762" ID="ID_1942876730" MODIFIED="1593671110150">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      systemctl status firewalld
+    </p>
+    <p>
+      systemctl stop firewalld
+    </p>
+    <p>
+      systemctl start firewalld
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1593671113040" ID="ID_101463556" MODIFIED="1593671118685" TEXT="view">
+<node CREATED="1593671119608" ID="ID_1375353586" MODIFIED="1593671141952">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      firewall-cmd --list-all
+    </p>
+    <p>
+      firewall-cmd --list-ports
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1593671150561" ID="ID_1864139977" MODIFIED="1603099935080" TEXT="add port">
+<node CREATED="1593671622848" ID="ID_710012554" MODIFIED="1593671640553">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      firewall-cmd --zone=public --add-port=8080/tcp --permanent
+    </p>
+    <p>
+      systemctl restart firewalld
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1603099923060" ID="ID_1959906021" MODIFIED="1603099930093" TEXT="remove port">
+<node CREATED="1603099930098" ID="ID_642670695" MODIFIED="1603099931354" TEXT="firewall-cmd --zone=public --remove-port=5000/tcp --permanent"/>
+</node>
+</node>
+<node CREATED="1596086284227" ID="ID_1062379691" MODIFIED="1596086286260" TEXT="curl">
+<node CREATED="1596086286260" ID="ID_1953231812" MODIFIED="1596086287383" TEXT="curl -o /usr/libexec/docker/cli-plugins/docker-ecs -L https://github.com/docker/ecs-plugin/releases/latest/download/docker-ecs-linux-amd64"/>
+</node>
+<node CREATED="1603423326534" ID="ID_722141980" MODIFIED="1603423394657" TEXT="net-tools">
+<node CREATED="1603423414231" ID="ID_1794715190" MODIFIED="1603423416568" TEXT="yum install net-tools"/>
+<node CREATED="1551771868059" ID="ID_1416284780" MODIFIED="1593761717709" TEXT="ifconfig">
+<node CREATED="1593573654742" ID="ID_1450397227" MODIFIED="1593573681863">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # discard (CentOS-7)
+    </p>
+    <p>
+      yum search ifconfig
+    </p>
+    <p>
+      yum install net-tools.x86_64
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1551773125052" ID="ID_1072569673" MODIFIED="1551776304296" TEXT="reslove">
+<node CREATED="1551773157259" ID="ID_1824709143" MODIFIED="1600137539093" TEXT="ifconfig: command not found">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Q
+    </p>
+    <p>
+      # ifconfig
+    </p>
+    <p>
+      -bash: ifconfig: command not found
+    </p>
+    <p>
+      A
+    </p>
+    <p>
+      1
+    </p>
+    <p>
+      echo $PATH
+    </p>
+    <p>
+      add /usr/sbin
+    </p>
+    <p>
+      vi /etc/profile
+    </p>
+    <p>
+      export PATH=$PATH:/sbin
+    </p>
+    <p>
+      2
+    </p>
+    <p>
+      yum
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      &#160;
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1589268154762" ID="ID_196722130" MODIFIED="1589268163900" TEXT="netstat">
+<node CREATED="1589268157666" ID="ID_1370037138" MODIFIED="1595302131031" TEXT="netstat -lnpt|grep 18000"/>
+</node>
+<node CREATED="1606199997105" ID="ID_369194703" MODIFIED="1606199999521" TEXT="route">
+<node CREATED="1606199999522" ID="ID_396936985" MODIFIED="1606200158457">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # the 0.0.0.0 column is default gateway
+    </p>
+    <p>
+      [root@localhost ~]# route -ne
+    </p>
+    <p>
+      Kernel IP routing table
+    </p>
+    <p>
+      Destination&#160;&#160;&#160;&#160;&#160;Gateway&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Genmask&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Flags&#160;&#160;&#160;MSS Window&#160;&#160;irtt Iface
+    </p>
+    <p>
+      0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;192.168.2.2&#160;&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;UG&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 ens33
+    </p>
+    <p>
+      172.16.228.0&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;255.255.255.0&#160;&#160;&#160;U&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 br-426660ebf605
+    </p>
+    <p>
+      172.16.229.0&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;255.255.255.0&#160;&#160;&#160;U&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 br-2afea5a0b14b
+    </p>
+    <p>
+      172.17.0.0&#160;&#160;&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;255.255.0.0&#160;&#160;&#160;&#160;&#160;U&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 docker0
+    </p>
+    <p>
+      192.168.2.0&#160;&#160;&#160;&#160;&#160;0.0.0.0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;255.255.255.0&#160;&#160;&#160;U&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0 ens33
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1606201249769" ID="ID_773775798" MODIFIED="1606201250901" TEXT="arp">
+<node CREATED="1606201252801" ID="ID_168053739" MODIFIED="1606201281233">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# arp
+    </p>
+    <p>
+      Address&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;HWtype&#160;&#160;HWaddress&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Flags Mask&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;Iface
+    </p>
+    <p>
+      192.168.2.20&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ether&#160;&#160;&#160;00:0c:29:dd:a5:66&#160;&#160;&#160;C&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;ens33
+    </p>
+    <p>
+      gateway&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ether&#160;&#160;&#160;00:50:56:e0:08:14&#160;&#160;&#160;C&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;ens33
+    </p>
+    <p>
+      192.168.2.154&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ether&#160;&#160;&#160;00:50:56:c0:00:08&#160;&#160;&#160;C&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &#160;&#160;ens33
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1603423509614" ID="ID_1745149681" MODIFIED="1603423513212" TEXT="telnet">
+<node CREATED="1603423513214" ID="ID_294488878" MODIFIED="1603423519524" TEXT="yum install telnet">
+<node CREATED="1603423977566" ID="ID_1385495168" MODIFIED="1603424026534">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # successful
+    </p>
+    <p>
+      [root@localhost ~]# telnet 192.168.2.70 31962
+    </p>
+    <p>
+      Trying 192.168.2.70...
+    </p>
+    <p>
+      Connected to 192.168.2.70.
+    </p>
+    <p>
+      Escape character is '^]'.
+    </p>
+    <p>
+      Connection closed by foreign host.
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1551947246992" ID="ID_1179470984" MODIFIED="1602497243753" TEXT="bind-utils">
+<node CREATED="1606199508729" ID="ID_518317875" MODIFIED="1606199517402" TEXT="yum install bind-utils"/>
+<node CREATED="1551947400212" ID="ID_733657097" MODIFIED="1551947410153" TEXT="nslookup">
+<node CREATED="1606199684169" ID="ID_808261962" MODIFIED="1606199687520">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# nslookup www.baidu.com
+    </p>
+    <p>
+      Server: 114.114.114.114
+    </p>
+    <p>
+      Address: 114.114.114.114#53
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Non-authoritative answer:
+    </p>
+    <p>
+      www.baidu.com canonical name = www.a.shifen.com.
+    </p>
+    <p>
+      Name: www.a.shifen.com
+    </p>
+    <p>
+      Address: 61.135.169.121
+    </p>
+    <p>
+      Name: www.a.shifen.com
+    </p>
+    <p>
+      Address: 61.135.185.32
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1551947411788" ID="ID_985196673" MODIFIED="1551947413175" TEXT="host"/>
+<node CREATED="1551947439896" ID="ID_657581475" MODIFIED="1551947442114" TEXT="dig"/>
+</node>
+<node CREATED="1606200496465" ID="ID_1292221134" MODIFIED="1606200502562" TEXT="traceroute">
+<node CREATED="1606200502562" ID="ID_126010105" MODIFIED="1606200508606" TEXT="yum install traceroute"/>
+<node CREATED="1606200773250" ID="ID_260643639" MODIFIED="1606200802584">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      # not support NAT, support bridge
+    </p>
+    <p>
+      [root@localhost ~]# traceroute 61.135.169.121
+    </p>
+    <p>
+      traceroute to 61.135.169.121 (61.135.169.121), 30 hops max, 60 byte packets
+    </p>
+    <p>
+      &#160;1&#160;&#160;gateway (192.168.2.2)&#160;&#160;0.417 ms&#160;&#160;0.412 ms&#160;&#160;0.529 ms
+    </p>
+    <p>
+      &#160;2&#160;&#160;* * *
+    </p>
+    <p>
+      &#160;3&#160;&#160;* * *
+    </p>
+    <p>
+      &#160;4&#160;&#160;* * *
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1589165006923" ID="ID_1295278337" MODIFIED="1589165010892" TEXT="nmap">
+<node CREATED="1589165075352" ID="ID_1274183583" MODIFIED="1589165076616" TEXT="https://nmap.org/"/>
+<node CREATED="1589165559868" ID="ID_419191924" MODIFIED="1589165572498" TEXT="yum install nmap">
+<node CREATED="1606206415627" ID="ID_1058432589" MODIFIED="1606206421072" TEXT="nmap -sP">
+<node CREATED="1606206421892" ID="ID_1944735802" MODIFIED="1606206425549">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# nmap -sP 192.168.2.0/24
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Starting Nmap 6.40 ( http://nmap.org ) at 2020-11-24 16:26 CST
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.2
+    </p>
+    <p>
+      Host is up (0.0030s latency).
+    </p>
+    <p>
+      MAC Address: 00:50:56:E0:08:14 (VMware)
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.10
+    </p>
+    <p>
+      Host is up (0.0014s latency).
+    </p>
+    <p>
+      MAC Address: 00:0C:29:16:71:BE (VMware)
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.20
+    </p>
+    <p>
+      Host is up (0.00085s latency).
+    </p>
+    <p>
+      MAC Address: 00:0C:29:DD:A5:66 (VMware)
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.30
+    </p>
+    <p>
+      Host is up (-0.089s latency).
+    </p>
+    <p>
+      MAC Address: 00:0C:29:34:0C:7E (VMware)
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.110
+    </p>
+    <p>
+      Host is up (-0.10s latency).
+    </p>
+    <p>
+      MAC Address: 00:0C:29:5D:F1:DD (VMware)
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.154
+    </p>
+    <p>
+      Host is up (-0.099s latency).
+    </p>
+    <p>
+      MAC Address: 00:50:56:C0:00:08 (VMware)
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.210
+    </p>
+    <p>
+      Host is up.
+    </p>
+    <p>
+      Nmap done: 256 IP addresses (7 hosts up) scanned in 20.25 seconds
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+<node CREATED="1606206706099" ID="ID_1628469897" MODIFIED="1606206712821" TEXT="nmap -sT">
+<node CREATED="1606206712821" ID="ID_1934810915" MODIFIED="1606206717140">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# nmap -sT 192.168.2.20
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Starting Nmap 6.40 ( http://nmap.org ) at 2020-11-24 16:31 CST
+    </p>
+    <p>
+      Nmap scan report for 192.168.2.20
+    </p>
+    <p>
+      Host is up (0.011s latency).
+    </p>
+    <p>
+      Not shown: 999 closed ports
+    </p>
+    <p>
+      PORT&#160;&#160;&#160;STATE SERVICE
+    </p>
+    <p>
+      22/tcp open&#160;&#160;ssh
+    </p>
+    <p>
+      MAC Address: 00:0C:29:DD:A5:66 (VMware)
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Nmap done: 1 IP address (1 host up) scanned in 6.44 seconds
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1606206787296" ID="ID_508054381" MODIFIED="1606206790917" TEXT="ssh">
+<node CREATED="1606207208009" ID="ID_418249118" MODIFIED="1606207214880" TEXT="introduce">
+<node CREATED="1606207214881" ID="ID_1845234620" MODIFIED="1606207221741" TEXT="security shell">
+<node CREATED="1606207242448" ID="ID_1726879645" MODIFIED="1606207247868" TEXT="replace telnet"/>
+</node>
+<node CREATED="1606207501288" ID="ID_1681835832" MODIFIED="1606207505838" TEXT="port">
+<node CREATED="1606207236912" ID="ID_1185341438" MODIFIED="1606207238965" TEXT="22"/>
+</node>
+<node CREATED="1606207511720" ID="ID_905207982" MODIFIED="1606207514600" TEXT="login">
+<node CREATED="1606207514601" ID="ID_1717568554" MODIFIED="1606207523684" TEXT="username password">
+<node CREATED="1606207677576" ID="ID_1694973860" MODIFIED="1606207683528" TEXT="username">
+<node CREATED="1606207683529" ID="ID_644554497" MODIFIED="1606207688261" TEXT="/etc/passwd"/>
+</node>
+<node CREATED="1606207689864" ID="ID_1967082297" MODIFIED="1606207693536" TEXT="password">
+<node CREATED="1606207693537" ID="ID_256826800" MODIFIED="1606207701703" TEXT="/etc/shadow">
+<node CREATED="1606207757472" ID="ID_1038797720" MODIFIED="1606207761695">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost .ssh]# cat /etc/shadow
+    </p>
+    <p>
+      root:$6$Q7PjfIpSdB2Eay0m$goFv08cbQ1g24xgDvHt5NFFvtRL5dhx.QwkwIsqzhRs9jCV8PO9Fd5YYBILnaE0vs3uKpiHrASYXvquckkd9F.::0:99999:7:::
+    </p>
+    <p>
+      bin:*:18353:0:99999:7:::
+    </p>
+    <p>
+      daemon:*:18353:0:99999:7:::
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1606207525128" ID="ID_782128807" MODIFIED="1606207529436" TEXT="private public key"/>
+</node>
+<node CREATED="1606211105136" ID="ID_882576953" MODIFIED="1606211109016" TEXT="SELunix">
+<node CREATED="1606211841040" ID="ID_966095039" MODIFIED="1606211845574">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# getenforce
+    </p>
+    <p>
+      Enforcing
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+<node CREATED="1606211109016" ID="ID_1148656349" MODIFIED="1606211847042">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# cat /etc/selinux/config
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      # This file controls the state of SELinux on the system.
+    </p>
+    <p>
+      # SELINUX= can take one of these three values:
+    </p>
+    <p>
+      #&#160;&#160;&#160;&#160;&#160;enforcing - SELinux security policy is enforced.
+    </p>
+    <p>
+      #&#160;&#160;&#160;&#160;&#160;permissive - SELinux prints warnings instead of enforcing.
+    </p>
+    <p>
+      #&#160;&#160;&#160;&#160;&#160;disabled - No SELinux policy is loaded.
+    </p>
+    <p>
+      SELINUX=enforcing
+    </p>
+    <p>
+      # SELINUXTYPE= can take one of three values:
+    </p>
+    <p>
+      #&#160;&#160;&#160;&#160;&#160;targeted - Targeted processes are protected,
+    </p>
+    <p>
+      #&#160;&#160;&#160;&#160;&#160;minimum - Modification of targeted policy. Only selected processes are protected.
+    </p>
+    <p>
+      #&#160;&#160;&#160;&#160;&#160;mls - Multi Level Security protection.
+    </p>
+    <p>
+      SELINUXTYPE=targeted
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1552550437039" ID="ID_328495785" MODIFIED="1606199442816" TEXT="iptables (centos7 is firewall)">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Q: Open port 6379
+    </p>
+    <p>
+      A: /sbin/iptables -I INPUT -p tcp --dport 6379 -j ACCEPT
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1606211682911" ID="ID_1203779265" MODIFIED="1606211686266">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# iptables -h | egrep &quot;(\-F|\-L)&quot;
+    </p>
+    <p>
+      &#160;&#160;--list&#160;&#160;&#160;&#160;-L [chain [rulenum]]
+    </p>
+    <p>
+      &#160;&#160;--flush&#160;&#160;&#160;-F [chain] Delete all rules in&#160;&#160;chain or all chains
+    </p>
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1606211792928" ID="ID_491042558" MODIFIED="1606211801351">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      [root@localhost ~]# iptables -L
+    </p>
+    <p>
+      Chain INPUT (policy ACCEPT)
+    </p>
+    <p>
+      target&#160;&#160;&#160;&#160;&#160;prot opt source&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;destination&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Chain FORWARD (policy ACCEPT)
+    </p>
+    <p>
+      target&#160;&#160;&#160;&#160;&#160;prot opt source&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;destination&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      Chain OUTPUT (policy ACCEPT)
+    </p>
+    <p>
+      target&#160;&#160;&#160;&#160;&#160;prot opt source&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;destination
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
+</node>
 </node>
 </node>
 </node>
