@@ -55,5 +55,17 @@
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=1 ttl=128 time=33.0 ms
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=2 ttl=128 time=32.7 ms
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=3 ttl=128 time=33.2 ms
+ ## mvware nat
+ ```text
+ 192.168.2.0                # subnet
+ 192.168.2.1                # host ip
+ 192.168.2.2                # gateway
+ 192.168.2.255              # broadcast
+ 192.168.2.3 192.168.2.254  # available ip
+```
+ ### vmware nat
+ ![image_text](./pictures/vmware_nat.png)
+ ### host setting
+ ![image_text](./pictures/host_nat.png)
 
 
