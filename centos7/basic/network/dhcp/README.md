@@ -94,8 +94,10 @@ dhcp.x86_64                          12:4.2.5-82.el7.centos         @base
 dhcp-common.x86_64                   12:4.2.5-82.el7.centos         @base       
 dhcp-libs.x86_64                     12:4.2.5-82.el7.centos         @base   
 ```
-### configure
-````shell script
+### practice
+
+#### DHCP server configure
+```text
 # *.example is template file
 [root@docker-210 cronsun-v0.3.5]# cat /etc/dhcp/dhcpd.conf 
 #
@@ -114,23 +116,185 @@ dhcp-common-4.2.5
 dhcpd6.conf.example  dhcpd.conf.example  ldap
 
 
-
-[root@docker-210 ~]# cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/
 [root@docker-210 ~]# cd /etc/dhcp/
 [root@docker-210 dhcp]# ls
-dhclient.d  dhclient-exit-hooks.d  dhcpd6.conf  dhcpd.conf  dhcpd.conf.example  scripts
+dhclient.d  dhclient-exit-hooks.d  dhcpd6.conf  dhcpd.conf  scripts
+[root@docker-210 dhcp]# cp dhcpd.conf dhcpd.conf.bak
 
+
+# copy
+[root@docker-210 ~]# cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf 
+[root@docker-210 ~]# cd /etc/dhcp/
+[root@docker-210 dhcp]# ls
+dhclient.d  dhclient-exit-hooks.d  dhcpd6.conf  dhcpd.conf  dhcpd.conf.bak  scripts
 
 # at least once, has a subnet is the current host subnet
-[root@docker-210 dhcp-4.2.5]# vi dhcpd.conf.example 
-subnet 192.168.2.0 netmask 255.255.255.224 {
+[root@docker-210 dhcp]# vi dhcpd.conf 
+subnet 192.168.2.0 netmask 255.255.255.0 {
   range 192.168.2.3 192.168.2.254;              # ip address pool
-  option domain-name-servers 114.114.114.114;   # DNS server ip address
-  option domain-name "internal.example.org";    # dns domain
-  option routers 192.168.2.2;                   # gateway address
-  option broadcast-address 192.168.2.255;       # can not set                   
-  default-lease-time 600;             
+#  option domain-name-servers 114.114.114.114;   # DNS server ip address
+#  option domain-name "internal.example.org";    # dns domain
+#  option routers 192.168.2.2;                   # gateway address
+#  option broadcast-address 192.168.2.255;       # can not set
+  default-lease-time 600;
   max-lease-time 7200;
 }
 
-````
+
+# required
+subnet 192.168.2.0 netmask 255.255.255.0 {
+  range 192.168.2.3 192.168.2.254;              # ip address pool
+  default-lease-time 600;
+  max-lease-time 7200;
+}
+
+
+[root@docker-210 dhcp]# systemctl status dhcpd
+● dhcpd.service - DHCPv4 Server Daemon
+   Loaded: loaded (/usr/lib/systemd/system/dhcpd.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:dhcpd(8)
+           man:dhcpd.conf(5)
+[root@docker-210 dhcp]# systemctl start dhcpd
+[root@docker-210 dhcp]# systemctl status dhcpd
+● dhcpd.service - DHCPv4 Server Daemon
+   Loaded: loaded (/usr/lib/systemd/system/dhcpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-11-27 15:00:47 CST; 3s ago
+     Docs: man:dhcpd(8)
+           man:dhcpd.conf(5)
+ Main PID: 5260 (dhcpd)
+   Status: "Dispatching packets..."
+    Tasks: 1
+   Memory: 7.7M
+   CGroup: /system.slice/dhcpd.service
+           └─5260 /usr/sbin/dhcpd -f -cf /etc/dhcp/dhcpd.conf -user dhcpd -group dhcpd --...
+
+Nov 27 15:00:47 docker-210 dhcpd[5260]: No subnet declaration for br-2afea5a0b14b (172...1).
+Nov 27 15:00:47 docker-210 dhcpd[5260]: ** Ignoring requests on br-2afea5a0b14b.  If t...hat
+Nov 27 15:00:47 docker-210 dhcpd[5260]:    you want, please write a subnet declaration
+Nov 27 15:00:47 docker-210 dhcpd[5260]:    in your dhcpd.conf file for the network segment
+Nov 27 15:00:47 docker-210 dhcpd[5260]:    to which interface br-2afea5a0b14b is attac... **
+Nov 27 15:00:47 docker-210 dhcpd[5260]: 
+Nov 27 15:00:47 docker-210 dhcpd[5260]: Listening on LPF/ens33/00:0c:29:44:72:a0/192.1.../24
+Nov 27 15:00:47 docker-210 dhcpd[5260]: Sending on   LPF/ens33/00:0c:29:44:72:a0/192.1.../24
+Nov 27 15:00:47 docker-210 dhcpd[5260]: Sending on   Socket/fallback/fallback-net
+Nov 27 15:00:47 docker-210 systemd[1]: Started DHCPv4 Server Daemon.
+Hint: Some lines were ellipsized, use -l to show in full.
+
+
+# check      
+[root@docker-210 dhcp]# netstat -lnptu
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1165/master         
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      4319/sshd           
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1165/master         
+tcp6       0      0 :::22                   :::*                    LISTEN      4319/sshd           
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           5260/dhcpd          
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           667/chronyd         
+udp6       0      0 ::1:323                 :::*                                667/chronyd  
+
+```
+
+#### HDCP client
+```shell script
+[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-ens33 
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp            
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+#IPV6INIT=yes
+#IPV6_AUTOCONF=yes
+#IPV6_DEFROUTE=yes
+#IPV6_FAILURE_FATAL=no
+#IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=f8fc6093-6f9b-4f4c-b3ce-5e0979202906
+DEVICE=ens33
+ONBOOT=yes
+
+DNS1=192.168.1.1
+DNS2=114.114.114.114
+DNS3=4.4.4.4
+IPV6INIT=no
+```
+
+##### vmware
+```shell script
+# restart ethernet card
+# not use, systemctl restart network
+[root@localhost ~]# ifdown ens33;ifup ens33
+```
+##### xshell
+```shell script
+[root@localhost ~]# ip addr | grep 192.168
+    inet 192.168.2.3/24 brd 192.168.2.255 scope global noprefixroute dynamic ens33
+```
+
+#### check DHCP server
+```shell script
+[root@docker-210 dhcp]# systemctl status dhcpd
+● dhcpd.service - DHCPv4 Server Daemon
+   Loaded: loaded (/usr/lib/systemd/system/dhcpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-11-27 15:00:47 CST; 38min ago
+     Docs: man:dhcpd(8)
+           man:dhcpd.conf(5)
+ Main PID: 5260 (dhcpd)
+   Status: "Dispatching packets..."
+    Tasks: 1
+   Memory: 7.8M
+   CGroup: /system.slice/dhcpd.service
+           └─5260 /usr/sbin/dhcpd -f -cf /etc/dhcp/dhcpd.conf -user dhcpd -group dhcpd --no-pid
+
+Nov 27 15:35:28 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:35:33 docker-210 dhcpd[5260]: ns1.example.org: host unknown.
+Nov 27 15:35:38 docker-210 dhcpd[5260]: ns2.example.org: host unknown.
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33
+Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
+```
+
+#### stop DHCP server
+##### stop DHCP server
+```shell script
+[root@docker-210 dhcp]# systemctl stop dhcpd
+[root@docker-210 dhcp]# systemctl status dhcpd
+● dhcpd.service - DHCPv4 Server Daemon
+   Loaded: loaded (/usr/lib/systemd/system/dhcpd.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:dhcpd(8)
+           man:dhcpd.conf(5)
+
+Nov 27 15:40:28 docker-210 dhcpd[5260]: ns2.example.org: host unknown.
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33:0
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33
+Nov 27 15:40:28 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
+Nov 27 15:41:13 docker-210 systemd[1]: Stopping DHCPv4 Server Daemon...
+Nov 27 15:41:13 docker-210 systemd[1]: Stopped DHCPv4 Server Daemon.
+```
+##### vmware restart ethernet card
+```shell script
+# restart ethernet card
+# not use, systemctl restart network
+[root@localhost ~]# ifdown ens33;ifup ens33
+```
+![image_text](pictures/dhcp_check.png)
+
+##### get ip automatically
+```text
+# DHCP server start
+[root@docker-210 dhcp]# systemctl start dhcpd
+# waiting a moment, DHCP client will get ip again automatically
+[root@localhost ~]# ip addr | grep 192.168
+    inet 192.168.2.3/24 brd 192.168.2.255 scope global noprefixroute dynamic ens33
+```

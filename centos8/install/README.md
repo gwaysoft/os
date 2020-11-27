@@ -1,5 +1,7 @@
 ## reference
+```text
     https://space.bilibili.com/475079413/channel/detail?cid=147873
+```
 ## install CentOS 8
 ### download
     http://mirrors.aliyun.com/centos/8.2.2004/isos/x86_64/CentOS-8.2.2004-x86_64-minimal.iso
