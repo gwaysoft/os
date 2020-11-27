@@ -97,7 +97,7 @@ Password:
 ### restrict listen address
 #### add sub sub ethernet ens33
 ```shell script
-[root@docker-210 ~]# ifconfig ens33:0 192.168.2.221
+[root@docker-210 ~]# ifconfig ens33:0 192.168.2.211
 [root@docker-210 ~]# ifconfig
 ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.2.210  netmask 255.255.255.0  broadcast 192.168.2.255
@@ -111,6 +111,14 @@ ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 ens33:0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.2.221  netmask 255.255.255.0  broadcast 192.168.2.255
         ether 00:0c:29:44:72:a0  txqueuelen 1000  (Ethernet)
+
+# delete ip address
+[root@docker-210 dhcp]# ip addr delete 192.168.2.211 dev ens33:0
+Warning: Executing wildcard deletion to stay compatible with old scripts.
+         Explicitly specify the prefix length (192.168.2.211/32) to avoid this warning.
+         This special behaviour is likely to disappear in further releases,
+         fix your scripts!
+
 ```
 #### vi listen address from 192.168.2.220 to 192.168.2.221
 ```shell script

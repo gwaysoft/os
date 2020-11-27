@@ -94,7 +94,9 @@ dhcp.x86_64                          12:4.2.5-82.el7.centos         @base
 dhcp-common.x86_64                   12:4.2.5-82.el7.centos         @base       
 dhcp-libs.x86_64                     12:4.2.5-82.el7.centos         @base   
 ```
-### practice
+
+## practice
+### practice 1, DHCP client get ip from DHCP server
 
 #### DHCP server configure
 ```text
@@ -294,7 +296,53 @@ Nov 27 15:41:13 docker-210 systemd[1]: Stopped DHCPv4 Server Daemon.
 ```text
 # DHCP server start
 [root@docker-210 dhcp]# systemctl start dhcpd
+
 # waiting a moment, DHCP client will get ip again automatically
 [root@localhost ~]# ip addr | grep 192.168
     inet 192.168.2.3/24 brd 192.168.2.255 scope global noprefixroute dynamic ens33
+
+# view DHCP server log
+[root@localhost ~]# tail -f /var/log/messages
+Nov 27 16:08:02 localhost dhcpd: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33:0
+Nov 27 16:08:02 localhost dhcpd: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33
+Nov 27 16:08:02 localhost dhcpd: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
+Nov 27 16:08:02 localhost dhcpd: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33:0
+Nov 27 16:08:02 localhost dhcpd: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33:0
+Nov 27 16:08:02 localhost dhcpd: DHCPREQUEST for 192.168.2.3 from 00:0c:29:34:0c:7e via ens33
+Nov 27 16:08:02 localhost dhcpd: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
+
+```
+### practice 2, dhcp client get static ip
+#### get dhcp client mac, 00:0c:29:34:0c:7e
+```text
+[root@localhost ~]# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.3  netmask 255.255.255.0  broadcast 192.168.2.255
+        ether 00:0c:29:34:0c:7e  txqueuelen 1000  (Ethernet)
+        RX packets 674217  bytes 312225835 (297.7 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 955612  bytes 1667475302 (1.5 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+```
+#### dhcp server
+```text
+[root@docker-210 dhcp]# vi /etc/dhcp/dhcpd.conf
+     53 host fantasia {
+     54   hardware ethernet 00:0c:29:34:0c:7e;
+     55   fixed-address 192.168.2.30;
+     56 }
+[root@docker-210 dhcp]# systemctl restart dhcpd
+```
+#### dhcp client
+##### vmware
+```shell script
+# restart ethernet card
+# not use, systemctl restart network
+[root@localhost ~]# ifdown ens33;ifup ens33
+```
+
+```shell script
+[root@localhost ~]# ifconfig | grep 192.168
+        inet 192.168.2.30  netmask 255.255.255.0  broadcast 192.168.2.255
 ```
