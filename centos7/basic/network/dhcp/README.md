@@ -262,6 +262,17 @@ Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPREQUEST for 192.168.2.3 from 00:0c:2
 Nov 27 15:35:38 docker-210 dhcpd[5260]: DHCPACK on 192.168.2.3 to 00:0c:29:34:0c:7e via ens33
 ```
 
+```shell script
+[root@python-110 dhcp]# systemctl list-unit-files | grep dhcpd
+dhcpd.service                                 disabled
+dhcpd6.service                                disabled
+[root@python-110 dhcp]# systemctl enable dhcpd
+Created symlink from /etc/systemd/system/multi-user.target.wants/dhcpd.service to /usr/lib/systemd/system/dhcpd.service.
+[root@python-110 dhcp]# systemctl list-unit-files | grep dhcpd
+dhcpd.service                                 enabled 
+dhcpd6.service                                disabled
+```
+
 #### stop DHCP server
 ##### stop DHCP server
 ```shell script
@@ -345,4 +356,158 @@ ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 ```shell script
 [root@localhost ~]# ifconfig | grep 192.168
         inet 192.168.2.30  netmask 255.255.255.0  broadcast 192.168.2.255
+```
+
+#### dhcp server 租约四部曲
+```shell script
+[root@docker-210 dhcp]# tail -30 /var/log/messages
+# 1
+Nov 27 16:37:49 localhost dhcpd: DHCPDISCOVER from 00:0c:29:34:0c:7e via ens33      
+# 2        
+Nov 27 16:37:49 localhost dhcpd: DHCPOFFER on 192.168.2.30 to 00:0c:29:34:0c:7e via ens33
+Nov 27 16:37:49 localhost dhcpd: Dynamic and static leases present for 192.168.2.30.
+Nov 27 16:37:49 localhost dhcpd: Remove host declaration fantasia or remove 192.168.2.30
+Nov 27 16:37:49 localhost dhcpd: from the dynamic address pool for 192.168.2.0/24
+# 3
+Nov 27 16:37:49 localhost dhcpd: DHCPREQUEST for 192.168.2.30 (192.168.2.210) from 00:0c:29:34:0c:7e via ens33
+# 4
+Nov 27 16:37:49 localhost dhcpd: DHCPACK on 192.168.2.30 to 00:0c:29:34:0c:7e via ens33
+```
+#### dhcp server 续租
+```shell script
+# 3
+Nov 27 16:47:17 localhost dhcpd: DHCPREQUEST for 192.168.2.30 from 00:0c:29:34:0c:7e via ens33
+# 4
+Nov 27 16:47:17 localhost dhcpd: DHCPACK on 192.168.2.30 to 00:0c:29:34:0c:7e via ens33
+```
+
+### practice 3 shared network
+####
+![image_text](./pictures/vmware_vne.png)
+#### dhcp server
+```shell script
+# add ethernet card for dhcp server
+# 192.168.2.110 -> VMnet8 (NAT)
+# 192.168.3.110 -> VMnet2 (Host-only)
+[root@python-110 ~]# ifconfig | grep inet
+        inet 192.168.2.110  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet 192.168.3.110  netmask 255.255.255.0  broadcast 192.168.3.255
+        inet 127.0.0.1  netmask 255.0.0.0
+```
+
+```shell script
+# delete all [subnet] 
+# set [shared-network]
+[root@python-110 ~]# vi /etc/dhcp/dhcpd.conf
+# practice 2
+host docker01 {
+  hardware ethernet 00:0c:29:34:0c:7e;
+  fixed-address 192.168.3.30;
+}
+
+host other01 {
+  hardware ethernet 00:0c:29:44:72:a0;
+  fixed-address 192.168.2.210;
+}
+
+# shared network
+# through dhcp server to get ip address and router must be dhcp server ip, each of different subnet can ping successfully 
+shared-network 2-3 {
+  subnet 192.168.2.0 netmask 255.255.255.0 {
+    option routers 192.168.2.110;
+    range 192.168.2.3 192.168.2.254;
+ }
+  subnet 192.168.3.0 netmask 255.255.255.0 {
+    option routers 192.168.3.110;
+    range 192.168.3.3 192.168.3.254;
+  }
+}
+
+[root@docker-30 network-scripts]# ping 192.168.2.210
+PING 192.168.2.210 (192.168.2.210) 56(84) bytes of data.
+64 bytes from 192.168.2.210: icmp_seq=22 ttl=63 time=2.49 ms
+64 bytes from 192.168.2.210: icmp_seq=23 ttl=63 time=1.52 ms
+64 bytes from 192.168.2.210: icmp_seq=24 ttl=63 time=1.78 ms
+^C
+--- 192.168.2.210 ping statistics ---
+24 packets transmitted, 3 received, 87% packet loss, time 23011ms
+rtt min/avg/max/mdev = 1.522/1.933/2.493/0.413 ms
+
+
+[root@python-110 ~]# systemctl start dhcpd
+[root@python-110 ~]# systemctl status dhcpd
+```
+```shell script
+# virtual router
+[root@python-110 ~]# vi /etc/sysctl.conf 
+[root@python-110 ~]# sysctl -p
+net.ipv4.ip_forward = 1
+```
+
+##### set default gateway can access internet
+```shell script
+# shared network
+shared-network 2-3 {
+  subnet 192.168.2.0 netmask 255.255.255.0 {
+    option routers 192.168.2.2; 
+    range 192.168.2.3 192.168.2.254;
+ }
+
+[root@docker-210 network-scripts]# ping www.baidu.com
+PING www.wshifen.com (103.235.46.39) 56(84) bytes of data.
+64 bytes from 103.235.46.39 (103.235.46.39): icmp_seq=1 ttl=128 time=50.0 ms
+64 bytes from 103.235.46.39 (103.235.46.39): icmp_seq=2 ttl=128 time=53.7 ms
+64 bytes from 103.235.46.39 (103.235.46.39): icmp_seq=3 ttl=128 time=48.9 ms
+
+```
+#### hdcp client
+```shell script
+# 192.168.2.210 -> VMnet8 (NAT)
+# 192.168.3.30 -> VMnet2 (Host-only)
+# BOOTPROTO=dhcp  
+
+[root@docker-210 ~]# systemctl restart network
+```
+
+#### check log at dhcp server
+```shell script
+[root@python-110 ~]# tail -f /var/log/messages
+Dec  1 10:31:55 python-110 dhcpd: Sending on   LPF/ens33/00:0c:29:5d:f1:dd/2-3
+Dec  1 10:31:55 python-110 dhcpd: Sending on   Socket/fallback/fallback-net
+Dec  1 10:31:55 python-110 systemd: Started DHCPv4 Server Daemon.
+Dec  1 10:32:13 python-110 dhcpd: DHCPDISCOVER from 00:0c:29:34:0c:7e via ens37
+Dec  1 10:32:13 python-110 dhcpd: DHCPOFFER on 192.168.3.30 to 00:0c:29:34:0c:7e via ens37
+Dec  1 10:32:13 python-110 dhcpd: Dynamic and static leases present for 192.168.3.30.
+Dec  1 10:32:13 python-110 dhcpd: Remove host declaration docker01 or remove 192.168.3.30
+Dec  1 10:32:13 python-110 dhcpd: from the dynamic address pool for 2-3
+Dec  1 10:32:13 python-110 dhcpd: DHCPREQUEST for 192.168.3.30 (192.168.3.110) from 00:0c:29:34:0c:7e via ens37
+Dec  1 10:32:13 python-110 dhcpd: DHCPACK on 192.168.3.30 to 00:0c:29:34:0c:7e via ens37
+Dec  1 10:35:16 python-110 dhcpd: DHCPDISCOVER from 00:0c:29:44:72:a0 via ens33:0
+Dec  1 10:35:16 python-110 dhcpd: DHCPOFFER on 192.168.2.210 to 00:0c:29:44:72:a0 via ens33:0
+Dec  1 10:35:16 python-110 dhcpd: DHCPDISCOVER from 00:0c:29:44:72:a0 via ens33
+Dec  1 10:35:16 python-110 dhcpd: DHCPOFFER on 192.168.2.210 to 00:0c:29:44:72:a0 via ens33
+Dec  1 10:35:16 python-110 dhcpd: Dynamic and static leases present for 192.168.2.210.
+Dec  1 10:35:16 python-110 dhcpd: Remove host declaration other01 or remove 192.168.2.210
+Dec  1 10:35:16 python-110 dhcpd: from the dynamic address pool for 2-3
+Dec  1 10:35:16 python-110 dhcpd: DHCPREQUEST for 192.168.2.210 (192.168.3.110) from 00:0c:29:44:72:a0 via ens33:0
+Dec  1 10:35:16 python-110 dhcpd: DHCPACK on 192.168.2.210 to 00:0c:29:44:72:a0 via ens33:0
+Dec  1 10:35:16 python-110 dhcpd: Dynamic and static leases present for 192.168.2.210.
+Dec  1 10:35:16 python-110 dhcpd: Remove host declaration other01 or remove 192.168.2.210
+Dec  1 10:35:16 python-110 dhcpd: from the dynamic address pool for 2-3
+Dec  1 10:35:16 python-110 dhcpd: DHCPREQUEST for 192.168.2.210 (192.168.3.110) from 00:0c:29:44:72:a0 via ens33
+Dec  1 10:35:16 python-110 dhcpd: DHCPACK on 192.168.2.210 to 00:0c:29:44:72:a0 via ens33
+Dec  1 10:35:27 python-110 chronyd[718]: Selected source 84.16.67.12
+```
+
+### dhcp relay (failure)
+```shell script
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/dhcp-relay-agent
+~]# cp /lib/systemd/system/dhcrelay.service /etc/systemd/system/
+~]# vi /etc/systemd/system/dhcrelay.service
+
+# hdcp server
+ExecStart=/usr/sbin/dhcrelay -d --no-pid 192.168.2.210
+
+~]# systemctl --system daemon-reload
+~]# systemctl restart dhcrelay
 ```
