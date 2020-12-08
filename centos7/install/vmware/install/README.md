@@ -67,5 +67,50 @@
  ![image_text](./pictures/vmware_nat.png)
  ### host setting
  ![image_text](./pictures/host_nat.png)
+ 
+ ### add a new network adapter
+ ![image_text](./pictures/new_network_adapter.png)
+ ```shell script
+# power on the machine
+[root@localhost ~]# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.20  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::20c:29ff:fedd:a566  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:dd:a5:66  txqueuelen 1000  (Ethernet)
+        RX packets 71  bytes 8641 (8.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 81  bytes 9428 (9.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.33  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::c9ca:ce85:3ca7:c75b  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:dd:a5:70  txqueuelen 1000  (Ethernet)
+        RX packets 2  bytes 684 (684.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 12  bytes 1496 (1.4 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+# set network name to ens37, and other settings 
+[root@localhost ~]# nmtui
+[root@localhost ~]# cd /etc/sysconfig/network-scripts/
+[root@localhost network-scripts]# ls
+ifcfg-ens33  ifdown-eth   ifdown-ppp       ifdown-tunnel  ifup-ippp   ifup-post    ifup-TeamPort      network-functions-ipv6
+ifcfg-ens37  ifdown-ippp  ifdown-routes    ifup           ifup-ipv6   ifup-ppp     ifup-tunnel
+ifcfg-lo     ifdown-ipv6  ifdown-sit       ifup-aliases   ifup-isdn   ifup-routes  ifup-wireless
+ifdown       ifdown-isdn  ifdown-Team      ifup-bnep      ifup-plip   ifup-sit     init.ipv6-global
+ifdown-bnep  ifdown-post  ifdown-TeamPort  ifup-eth       ifup-plusb  ifup-Team    network-functions
+
+```
 
 

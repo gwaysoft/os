@@ -174,9 +174,21 @@ DNS Test
 [root@docker-210 ~]# nslookup 192.168.2.20
 20.2.168.192.in-addr.arpa	name = www.gwaysoft.com.
 
+
+[root@docker-210 html]# nslookup www.gwaysoft.com
+Server:		192.168.2.110
+Address:	192.168.2.110#53
+
+Name:	www.gwaysoft.com
+Address: 192.168.2.20
+
 ```
 ## master slave
 ```shell script
 https://www.bilibili.com/video/BV164411J761?p=36
 https://www.bilibili.com/video/BV164411J761?p=37
+```
+## master cache
+```shell script
+https://www.bilibili.com/video/BV164411J761?p=38
 ```
