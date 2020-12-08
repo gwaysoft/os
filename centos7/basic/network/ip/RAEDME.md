@@ -1,11 +1,11 @@
 ### set static ip
 ```shell script
 # vmnet8 nat
-[root@docker-210 network-scripts]# cat ifcfg-ens33 
+[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-ens33 
 TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
-BOOTPROTO=none
+BOOTPROTO=static
 DEFROUTE=yes
 IPV4_FAILURE_FATAL=no
 #IPV6INIT=yes
@@ -14,17 +14,21 @@ IPV4_FAILURE_FATAL=no
 #IPV6_FAILURE_FATAL=no
 #IPV6_ADDR_GEN_MODE=stable-privacy
 NAME=ens33
-UUID=1015b790-b807-4354-8bf5-a9bee5f7b70f
+UUID=f8fc6093-6f9b-4f4c-b3ce-5e0979202906
 DEVICE=ens33
 ONBOOT=yes
 
-DNS1=8.8.8.8
-DNS2=114.114.114.114
-IPV6INIT=no
-IPADDR=192.168.2.210
+IPADDR=192.168.2.20
+#host gw
+GATEWAY=192.168.2.2
+#ebaotech dns
+DNS1=172.16.30.2
+DNS2=172.16.30.4
+#public
+DNS3=114.114.114.114
+#or NETMASK=255.255.255.0
 PREFIX=24
-# access dns server, set GATEWAY
-GATEWAY=192.168.2.2 
+IPV6INIT=no
 ```
 
 ```shell script
@@ -107,7 +111,7 @@ PING 192.168.3.110 (192.168.3.110) 56(84) bytes of data.
 64 bytes from 192.168.3.110: icmp_seq=3 ttl=64 time=0.830 ms
 ```
 ```shell script
-[root@localhost ~]ip addr delete 192.168.3.33 dev ens33:0
+[root@localhost ~]ip addr delete 192.168.3.33/24 dev ens33:0
 ```
 ### virtual router
 ```shell script

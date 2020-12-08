@@ -1376,14 +1376,24 @@
 </node>
 <node CREATED="1606893437764" ID="ID_924571923" MODIFIED="1606895279709" POSITION="right" TEXT="dns">
 <node CREATED="1606893483097" ID="ID_814446528" MODIFIED="1606893487620" TEXT="introduce">
+<node CREATED="1606977359325" ID="ID_1059994078" MODIFIED="1606977361319" TEXT="https://www.bilibili.com/video/BV164411J761?p=32"/>
 <node CREATED="1606894310790" ID="ID_1574961116" MODIFIED="1606894317980" TEXT="domain name system">
 <node CREATED="1606894582638" ID="ID_1666197916" MODIFIED="1606894611044" TEXT="dn&lt;=&gt;ip">
 <node CREATED="1606894293439" ID="ID_588722435" MODIFIED="1606894298646" TEXT="domain name"/>
 </node>
 </node>
 <node CREATED="1606894680079" ID="ID_300168886" MODIFIED="1606894687123" TEXT="dns server"/>
+<node CREATED="1607397942605" ID="ID_1910687149" MODIFIED="1607397947429" TEXT="record type">
+<node CREATED="1607397947430" ID="ID_1983528267" MODIFIED="1607397950833" TEXT="A"/>
+<node CREATED="1607397952180" ID="ID_515498236" MODIFIED="1607397954896" TEXT="CNAME"/>
+<node CREATED="1607398000002" ID="ID_1574512664" MODIFIED="1607398001746" TEXT="AAAA"/>
+<node CREATED="1607398003045" ID="ID_1733635557" MODIFIED="1607398005393" TEXT="TXT"/>
+<node CREATED="1607398009671" ID="ID_1749200301" MODIFIED="1607398011768" TEXT="NS"/>
+<node CREATED="1607398013388" ID="ID_1296490505" MODIFIED="1607398017224" TEXT="MX"/>
+<node CREATED="1607398040172" ID="ID_687712778" MODIFIED="1607398042232" TEXT="PTR"/>
 </node>
-<node CREATED="1606894827126" ID="ID_475268383" MODIFIED="1606894829979" TEXT="dn">
+</node>
+<node CREATED="1606894827126" FOLDED="true" ID="ID_475268383" MODIFIED="1607396304737" TEXT="domain name">
 <node CREATED="1606894830750" ID="ID_1493757392" MODIFIED="1606894831556" TEXT=".">
 <node CREATED="1606894832407" ID="ID_970050750" MODIFIED="1606894837403" TEXT="root domain"/>
 <node CREATED="1606894862598" ID="ID_436665466" MODIFIED="1606894876204" TEXT="13 dns root servers">
@@ -1423,11 +1433,64 @@
   <body>
     <img src="pictures/dns.png" />
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
-<node CREATED="1606895472190" ID="ID_833541487" MODIFIED="1606895520181" TEXT="domain name resolution"/>
+<node CREATED="1606895472190" FOLDED="true" ID="ID_833541487" MODIFIED="1607396297474" TEXT="domain name resolution">
+<node CREATED="1606977572509" ID="ID_824788426" MODIFIED="1606977580858">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="pictures/dns_resolution.png" />
+  </body>
+</html></richcontent>
+</node>
+<node CREATED="1606979268694" ID="ID_1173232124" MODIFIED="1606979272628">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="pictures/dns_resolution_practice.png" />
+  </body>
+</html></richcontent>
+<node CREATED="1606979902439" ID="ID_292929453" MODIFIED="1606979973569">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      &#36882;&#24402;&#26597;&#35810;&#65306;&#23458;&#25143;&#26426;&lt;=&gt; local dns server
+    </p>
+    <p>
+      &#36845;&#20195;&#26597;&#35810;&#65306;local dns server &lt;=&gt; remote dns server
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+</node>
+<node CREATED="1606981011663" FOLDED="true" ID="ID_40560306" MODIFIED="1607396294882" TEXT="distributed dns server">
+<node CREATED="1606981028575" ID="ID_867380376" MODIFIED="1606981033736">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <img src="pictures/distributed_dns_server.png" />
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node CREATED="1607396311447" ID="ID_1629015745" MODIFIED="1607396319818" TEXT="yum install bind">
+<node CREATED="1607396319819" ID="ID_1823119164" MODIFIED="1607396323546" TEXT="named">
+<node CREATED="1607396325958" ID="ID_291283384" MODIFIED="1607396331248" TEXT="udp 53"/>
+<node CREATED="1607396332365" ID="ID_1041367961" MODIFIED="1607396343134" TEXT="tcp 53"/>
+</node>
+</node>
 </node>
 </node>
 </map>

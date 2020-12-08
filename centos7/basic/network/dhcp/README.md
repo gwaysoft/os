@@ -423,6 +423,7 @@ shared-network 2-3 {
   }
 }
 
+
 [root@docker-30 network-scripts]# ping 192.168.2.210
 PING 192.168.2.210 (192.168.2.210) 56(84) bytes of data.
 64 bytes from 192.168.2.210: icmp_seq=22 ttl=63 time=2.49 ms

@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1588039771152" ID="ID_1986969131" MODIFIED="1602232922901" TEXT="linux">
+<node CREATED="1588039771152" ID="ID_1986969131" MODIFIED="1607311718618" TEXT="linux">
 <node CREATED="1551771403043" ID="ID_762738337" MODIFIED="1603423270052" POSITION="right" TEXT="CentOS7">
 <richcontent TYPE="NOTE"><html>
   <head>
@@ -176,8 +176,7 @@
       mariadb-libs-5.5.65-1.el7.x86_64
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -208,8 +207,7 @@
       iptables-1.4.21-34.el7.x86_64
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1606120723553" ID="ID_1633292626" MODIFIED="1606120738774" TEXT="7, stop firewalld, use iptables"/>
 </node>
 </node>
@@ -270,8 +268,7 @@
       Mon Nov 23 16:52:23 CST 2020
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -297,8 +294,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;X11 Layout: us
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -348,8 +344,7 @@
       &#160;&#160;&#160;&#160;&#160;&#160;Architecture: x86-64
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -384,8 +379,7 @@
       Unit iptables.service could not be found.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -415,8 +409,7 @@
       BOOTPROTO=static
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 <node CREATED="1606125673569" ID="ID_492243935" MODIFIED="1606125698637" TEXT="7, PREFIX=24">
 <node CREATED="1606125700504" ID="ID_1659579499" MODIFIED="1606125720133" TEXT="NETMASK=255.255.255.0"/>
 </node>
@@ -450,8 +443,7 @@
       NetworkManager-tui-1.18.4-3.el7.x86_64
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -574,8 +566,7 @@
       Hint: Some lines were ellipsized, use -l to show in full.
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 </node>
 </node>
@@ -2330,8 +2321,7 @@
       yum -y install gcc-c++
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node CREATED="1559721071299" ID="ID_849317202" MODIFIED="1600137539397" TEXT="redis">
 <richcontent TYPE="NOTE"><html>
