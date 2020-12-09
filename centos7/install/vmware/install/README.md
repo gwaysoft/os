@@ -55,7 +55,7 @@
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=1 ttl=128 time=33.0 ms
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=2 ttl=128 time=32.7 ms
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=3 ttl=128 time=33.2 ms
- ## mvware nat
+ ## NAT
  ```text
  192.168.2.0                # subnet
  192.168.2.1                # host ip
@@ -64,11 +64,22 @@
  192.168.2.3 192.168.2.254  # available ip
 ```
  ### vmware nat
+ ```text
+vmware, Edit -> Virtual Network Editor
+```
  ![image_text](./pictures/vmware_nat.png)
+ ```text
+host
+```
  ### host setting
  ![image_text](./pictures/host_nat.png)
+ ### vm setting
+ ```text
+vm setting
+```
+ ![image_text](./pictures/vm_nat.png)
  
- ### add a new network adapter
+  ### add a new network adapter
  ![image_text](./pictures/new_network_adapter.png)
  ```shell script
 # power on the machine
@@ -99,17 +110,43 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 0  bytes 0 (0.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-
+```
+ ## Host-only
+ ### vmware
+ ![image_text](./pictures/host-only_vmware.png)
+ ### host
+ ![image_text](./pictures/host-only_vmnet1.png)
+ 
+ ![image_text](./pictures/host-only_host_sharing.png)
+ 
+ ![image_text](./pictures/host-only_vm.png)
+ ```shell script
 # set network name to ens37, and other settings 
 [root@localhost ~]# nmtui
 [root@localhost ~]# cd /etc/sysconfig/network-scripts/
-[root@localhost network-scripts]# ls
-ifcfg-ens33  ifdown-eth   ifdown-ppp       ifdown-tunnel  ifup-ippp   ifup-post    ifup-TeamPort      network-functions-ipv6
-ifcfg-ens37  ifdown-ippp  ifdown-routes    ifup           ifup-ipv6   ifup-ppp     ifup-tunnel
-ifcfg-lo     ifdown-ipv6  ifdown-sit       ifup-aliases   ifup-isdn   ifup-routes  ifup-wireless
-ifdown       ifdown-isdn  ifdown-Team      ifup-bnep      ifup-plip   ifup-sit     init.ipv6-global
-ifdown-bnep  ifdown-post  ifdown-TeamPort  ifup-eth       ifup-plusb  ifup-Team    network-functions
+```shell script
+[root@docker-210 ~]# cat /etc/sysconfig/network-scripts/ifcfg-ens33 
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+#IPV6INIT=yes
+#IPV6_AUTOCONF=yes
+#IPV6_DEFROUTE=yes
+#IPV6_FAILURE_FATAL=no
+#IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=1015b790-b807-4354-8bf5-a9bee5f7b70f
+DEVICE=ens33
+ONBOOT=yes
+
+DNS1=192.168.137.1
+IPV6INIT=no
+IPADDR=192.168.137.128
+PREFIX=24
+GATEWAY=192.168.137.1
 
 ```
 
