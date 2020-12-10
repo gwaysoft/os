@@ -432,8 +432,6 @@ tmpfs                     98M     0   98M   0% /run/user/0
 
 
 [root@docker-210 ~]# vi /etc/fstab 
-
-
 #
 
 #
@@ -461,4 +459,49 @@ tmpfs                         487M     0  487M   0% /sys/fs/cgroup
 tmpfs                          98M     0   98M   0% /run/user/0
 192.168.2.110:/home/zhangsan   17G  3.2G   14G  19% /var/www/html
 
+```
+
+```shell script
+[root@python-110 zhangsan]# rpcinfo -p
+   program vers proto   port  service
+    100000    4   tcp    111  portmapper
+    100000    3   tcp    111  portmapper
+    100000    2   tcp    111  portmapper
+    100000    4   udp    111  portmapper
+    100000    3   udp    111  portmapper
+    100000    2   udp    111  portmapper
+    100024    1   udp  37312  status
+    100024    1   tcp  50423  status
+    100005    1   udp  20048  mountd
+    100005    1   tcp  20048  mountd
+    100005    2   udp  20048  mountd
+    100005    2   tcp  20048  mountd
+    100005    3   udp  20048  mountd
+    100005    3   tcp  20048  mountd
+    100003    3   tcp   2049  nfs
+    100003    4   tcp   2049  nfs
+    100227    3   tcp   2049  nfs_acl
+    100003    3   udp   2049  nfs
+    100003    4   udp   2049  nfs
+    100227    3   udp   2049  nfs_acl
+    100021    1   udp  32869  nlockmgr
+    100021    3   udp  32869  nlockmgr
+    100021    4   udp  32869  nlockmgr
+    100021    1   tcp  43181  nlockmgr
+    100021    3   tcp  43181  nlockmgr
+    100021    4   tcp  43181  nlockmgr
+
+```
+
+```shell script
+[root@python-110 zhangsan]# systemctl list-unit-files | egrep "(nfs.service|dhcpd.|named.|rpcbind.)"
+dhcpd.service                                 enabled 
+dhcpd6.service                                disabled
+named-setup-rndc.service                      static  
+named.service                                 enabled 
+nfs.service                                   enabled 
+rpcbind.service                               enabled 
+systemd-hostnamed.service                     static  
+rpcbind.socket                                enabled 
+rpcbind.target                                static 
 ```

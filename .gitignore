@@ -3,6 +3,8 @@
 *.gz
 *.iso
 *.exe
+*.rpm
+*.bz2
 tools
 workstation
 

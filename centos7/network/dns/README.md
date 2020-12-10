@@ -2,6 +2,8 @@
 ```text
 https://www.bilibili.com/video/BV164411J761?p=34
 https://www.bilibili.com/video/BV164411J761?p=35
+
+C:\Windows\System32\drivers\etc\hosts
 ```
 
 ## prerequisite
