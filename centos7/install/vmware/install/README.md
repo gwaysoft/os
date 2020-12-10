@@ -55,6 +55,7 @@
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=1 ttl=128 time=33.0 ms
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=2 ttl=128 time=32.7 ms
     64 bytes from 61.135.169.121 (61.135.169.121): icmp_seq=3 ttl=128 time=33.2 ms
+ # mutual exclusion between NAT and Host-only to access internet
  ## NAT
  ```text
  192.168.2.0                # subnet
