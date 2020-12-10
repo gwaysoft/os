@@ -271,3 +271,194 @@ Enforcing
 [root@test-2-3-21 html]# getenforce
 Permissive
 ```
+
+## all
+```shell script
+[root@python-110 /]# useradd nfstest
+[root@python-110 /]# id nfstest
+uid=1001(nfstest) gid=1001(nfstest) groups=1001(nfstest)
+
+[root@python-110 /]# vi /etc/exports
+/home/zhangsan 192.168.2.*(rw,all_squash,anonuid=1001,anongid=1001)
+
+
+```
+
+```shell script
+[root@docker-210 html]# touch nf.txt
+[root@docker-210 html]# ls -l
+total 12
+-rw-r--r-- 1 nfsnobody nfsnobody 12 Dec 10 11:05 aa.html
+-rw-r--r-- 1 nfsnobody nfsnobody 11 Dec 10 10:39 ct.html
+-rw-r--r-- 1 nfsnobody nfsnobody 40 Dec 10 11:06 index.html
+-rw-r--r-- 1      1001      1001  0 Dec 10 11:36 nf.txt
+
+
+[root@python-110 zhangsan]# ls -l
+total 12
+-rw-r--r-- 1 nfsnobody nfsnobody 12 Dec 10 11:05 aa.html
+-rw-r--r-- 1 nfsnobody nfsnobody 11 Dec 10 10:39 ct.html
+-rw-r--r-- 1 nfsnobody nfsnobody 40 Dec 10 11:06 index.html
+-rw-r--r-- 1 nfstest   nfstest    0 Dec 10 11:36 nf.txt
+
+```
+
+```shell script
+[root@docker-210 html]# useradd wangwu
+[root@docker-210 html]# id wangwu
+uid=1001(wangwu) gid=1001(wangwu) groups=1001(wangwu)
+[root@docker-210 html]# su wangwu
+[wangwu@docker-210 html]$ touch wangwu.txt
+[wangwu@docker-210 html]$ ls -l
+total 12
+-rw-r--r-- 1 nfsnobody nfsnobody 12 Dec 10 11:05 aa.html
+-rw-r--r-- 1 nfsnobody nfsnobody 11 Dec 10 10:39 ct.html
+-rw-r--r-- 1 nfsnobody nfsnobody 40 Dec 10 11:06 index.html
+-rw-r--r-- 1 wangwu    wangwu     0 Dec 10 11:36 nf.txt
+-rw-rw-r-- 1 wangwu    wangwu     0 Dec 10 11:37 wangwu.txt
+
+
+[root@python-110 zhangsan]# ls -l
+total 12
+-rw-r--r-- 1 nfsnobody nfsnobody 12 Dec 10 11:05 aa.html
+-rw-r--r-- 1 nfsnobody nfsnobody 11 Dec 10 10:39 ct.html
+-rw-r--r-- 1 nfsnobody nfsnobody 40 Dec 10 11:06 index.html
+-rw-r--r-- 1 nfstest   nfstest    0 Dec 10 11:36 nf.txt
+-rw-rw-r-- 1 nfstest   nfstest    0 Dec 10 11:37 wangwu.txt
+
+```
+
+#### nfs server umount
+```shell script
+[root@python-110 zhangsan]# exportfs -ua
+[root@docker-210 html]# ls
+ls: cannot open directory .: Stale file handle
+
+[root@python-110 zhangsan]# exportfs -ra
+[root@docker-210 html]# ls
+aa.html  ct.html  index.html  lisi.txt  nf.txt  wangwu.txt
+
+```
+
+#### nfs client mount umount
+```shell script
+[root@docker-210 html]# df -h
+Filesystem                    Size  Used Avail Use% Mounted on
+devtmpfs                      475M     0  475M   0% /dev
+tmpfs                         487M     0  487M   0% /dev/shm
+tmpfs                         487M   14M  473M   3% /run
+tmpfs                         487M     0  487M   0% /sys/fs/cgroup
+/dev/mapper/centos-root        17G  7.0G   11G  41% /
+/dev/sda1                    1014M  168M  847M  17% /boot
+tmpfs                          98M     0   98M   0% /run/user/0
+192.168.2.110:/home/zhangsan   17G  3.2G   14G  19% /var/www/html
+
+
+
+[root@docker-210 html]# umount /var/www/html/
+umount.nfs: /var/www/html: device is busy
+[root@docker-210 html]# fuser -m -v /var/www/html/
+bash: fuser: command not found
+[root@docker-210 html]# yum install -y psmisc
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                                                                       | 5.7 kB  00:00:00     
+ * base: ftp.sjtu.edu.cn
+ * epel: ftp.iij.ad.jp
+ * extras: ftp.sjtu.edu.cn
+ * updates: ftp.sjtu.edu.cn
+base                                                                                                       | 3.6 kB  00:00:00     
+docker-ce-stable                                                                                           | 3.5 kB  00:00:00     
+epel                                                                                                       | 4.7 kB  00:00:00     
+extras                                                                                                     | 2.9 kB  00:00:00     
+updates                                                                                                    | 2.9 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package psmisc.x86_64 0:22.20-17.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+==================================================================================================================================
+ Package                      Arch                         Version                               Repository                  Size
+==================================================================================================================================
+Installing:
+ psmisc                       x86_64                       22.20-17.el7                          base                       141 k
+
+Transaction Summary
+==================================================================================================================================
+Install  1 Package
+
+Total download size: 141 k
+Installed size: 475 k
+Downloading packages:
+psmisc-22.20-17.el7.x86_64.rpm                                                                             | 141 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : psmisc-22.20-17.el7.x86_64                                                                                     1/1 
+  Verifying  : psmisc-22.20-17.el7.x86_64                                                                                     1/1 
+
+Installed:
+  psmisc.x86_64 0:22.20-17.el7                                                                                                    
+
+Complete!
+[root@docker-210 html]# fuser -m -v /var/www/html/
+                     USER        PID ACCESS COMMAND
+/var/www/html:       root     kernel mount /var/www/html
+                     root       1467 ..c.. bash
+                     wangwu     7992 ..c.. bash
+                     lisi       8009 ..c.. bash
+                     root       8015 ..c.. bash
+[root@docker-210 html]# kill -9 7992 8009
+[root@docker-210 html]# Killed
+Killed
+
+
+[root@docker-210 ~]# fuser -m -v /var/www/html/
+                     USER        PID ACCESS COMMAND
+/var/www/html:       root     kernel mount /var/www/html
+[root@docker-210 ~]# umount -f /var/www/html/
+[root@docker-210 ~]# df -h
+Filesystem               Size  Used Avail Use% Mounted on
+devtmpfs                 475M     0  475M   0% /dev
+tmpfs                    487M     0  487M   0% /dev/shm
+tmpfs                    487M   14M  473M   3% /run
+tmpfs                    487M     0  487M   0% /sys/fs/cgroup
+/dev/mapper/centos-root   17G  7.0G   11G  41% /
+/dev/sda1               1014M  168M  847M  17% /boot
+tmpfs                     98M     0   98M   0% /run/user/0
+
+
+[root@docker-210 ~]# vi /etc/fstab 
+
+
+#
+
+#
+# /etc/fstab
+# Created by anaconda on Tue Jun 30 09:03:23 2020
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/centos-root /                       xfs     defaults        0 0
+UUID=680b424d-958b-4978-af40-364e698abf1b /boot                   xfs     defaults        0 0
+192.168.2.110:/home/zhangsan    /var/www/html   nfs     defaults,vers=3 0 0
+/dev/mapper/centos-swap swap                    swap    defaults        0 0
+
+
+[root@docker-210 ~]# mount -a
+[root@docker-210 ~]# df -h
+Filesystem                    Size  Used Avail Use% Mounted on
+devtmpfs                      475M     0  475M   0% /dev
+tmpfs                         487M     0  487M   0% /dev/shm
+tmpfs                         487M   14M  473M   3% /run
+tmpfs                         487M     0  487M   0% /sys/fs/cgroup
+/dev/mapper/centos-root        17G  7.0G   11G  41% /
+/dev/sda1                    1014M  168M  847M  17% /boot
+tmpfs                          98M     0   98M   0% /run/user/0
+192.168.2.110:/home/zhangsan   17G  3.2G   14G  19% /var/www/html
+
+```
