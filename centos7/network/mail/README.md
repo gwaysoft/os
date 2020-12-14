@@ -1,3 +1,6 @@
+```shell script
+https://blog.csdn.net/y85775252/article/details/109726337
+```
 ## prerequisite
 ### dns
 
@@ -60,6 +63,23 @@ ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib
 [root@python-110 ~]# systemctl start mysqld
 [root@python-110 ~]# mysql
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+```
+
+```shell script
+[root@python-110 mail]# tar -xf extmail-1.2.tar.gz 
+[root@python-110 mail]# tar -xf extman-1.1.tar.gz 
+[root@python-110 mail]# ls -l
+total 7720
+drwxr-xr-x  7  500  500    4096 Dec 25  2009 extmail-1.2
+drwxr-xr-x 11  500  500     240 Dec 24  2009 extman-1.1
+
+
+[root@python-110 mail]# mv extman-1.1 /var/www/extsuite/extman
+[root@python-110 mail]# mv extmail-1.2 /var/www/extsuite/extmail
+[root@python-110 mail]# cd /var/www/extsuite/
+[root@python-110 extsuite]# ls
+extmail  extman
 
 ```
 
