@@ -172,4 +172,11 @@ export XMODIFIERS="@im=fcitx"
 
 ```
 
+### set chrome as default browser
+```shell
+# delete default browser firefox
+[david@david-portegem800 ~]$ sudo pacman -R firefox 
+
+```
+
 
