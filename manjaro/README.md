@@ -67,119 +67,16 @@ david ALL=(ALL) ALL
 
 
 # add  
+# Keng, must delete [SigLevel = Optional TrustAll]
 [david@david-portegem800 manjaro]$ sudo nano /etc/pacman.conf
 # ^ : ctrl M : alt
 [archlinuxcn]
 # The Chinese Arch Linux communities packages.
-SigLevel = Optional TrustAll
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
 
 # update
 [david@david-portegem800 manjaro]$ sudo pacman -Syu
-[sudo] password for david: 
-Sorry, try again.
-[sudo] password for david: 
-:: Synchronizing package databases...
- core is up to date
- extra is up to date
- community is up to date
- multilib is up to date
- archlinuxcn is up to date
-:: Starting full system upgrade...
-resolving dependencies...
-looking for conflicting packages...
-
-Packages (1) pycharm-professional-2020.3-5
-
-Total Installed Size:  1253.86 MiB
-Net Upgrade Size:        -0.01 MiB
-
-:: Proceed with installation? [Y/n] y
-(1/1) checking keys in keyring                                            [##########################################] 100%
-downloading required keys...
-:: Import PGP key F9F9FA97A403F63E, "lilac (on behalf of Butui Hu) <hot123tea123@gmail.com>"? [Y/n] n
-error: required key missing from keyring
-error: failed to commit transaction (unexpected error)
-Errors occurred, no packages were upgraded.
-
-
-# install archlinuxcn-keyring for above error
-[david@david-portegem800 manjaro]$ sudo pacman -S archlinuxcn-keyring
-resolving dependencies...
-looking for conflicting packages...
-
-Packages (1) archlinuxcn-keyring-20201201-1
-
-Total Download Size:   0.28 MiB
-Total Installed Size:  0.38 MiB
-
-:: Proceed with installation? [Y/n] y
-:: Retrieving packages...
-
-[sudo] password for david: 
-:: Synchronizing package databases...
- core is up to date
- extra is up to date
- community is up to date
- multilib is up to date
- archlinuxcn                                 1448.0 KiB  1027 KiB/s 00:01 [##########################################] 100%
-:: Starting full system upgrade...
-resolving dependencies...
-looking for conflicting packages...
-
-==> Updating trust database...
-gpg: marginals needed: 3  completes needed: 1  trust model: pgp
-gpg: public key CF66D153D884358F is 16 seconds newer than the signature
-gpg: depth: 0  valid:   1  signed:  70  trust: 0-, 0q, 0n, 0m, 0f, 1u
-gpg: depth: 1  valid:  70  signed:  79  trust: 0-, 0q, 0n, 70m, 0f, 0u
-gpg: depth: 2  valid:  74  signed:  25  trust: 74-, 0q, 0n, 0m, 0f, 0u
-gpg: next trustdb check due at 2021-01-01
-==> ERROR: Please remove the SigLevel= line of [archlinuxcn] from "/etc/pacman.conf" to use the default setting
-==> ERROR: 请删除 /etc/pacman.conf 中 [archlinuxcn] 下的 SigLevel= 行，以使用默认设置
-:: Running post-transaction hooks...
-(1/1) Arming ConditionNeedsUpdate...
-
-
-# not remove the SigLevel= line of [archlinuxcn] from "/etc/pacman.conf" to use the default setting
-# execute [sudo pacman -Syu] directly        
-[david@david-portegem800 manjaro]$ sudo pacman -Syu
-:: Synchronizing package databases...
- core is up to date
- extra is up to date
- community is up to date
- multilib is up to date
- archlinuxcn is up to date
-:: Starting full system upgrade...
-resolving dependencies...
-looking for conflicting packages...
-
-Packages (1) pycharm-professional-2020.3-5
-
-Total Installed Size:  1253.86 MiB
-Net Upgrade Size:        -0.01 MiB
-
-:: Proceed with installation? [Y/n] y
-(1/1) checking keys in keyring                                            [##########################################] 100%
-(1/1) checking package integrity                                          [##########################################] 100%
-(1/1) loading package files                                               [##########################################] 100%
-(1/1) checking for file conflicts                                         [##########################################] 100%
-(1/1) checking available disk space                                       [##########################################] 100%
-:: Processing package changes...
-(1/1) upgrading pycharm-professional                                      [##########################################] 100%
-:: Running post-transaction hooks...
-(1/2) Arming ConditionNeedsUpdate...
-(2/2) Updating the desktop file MIME type cache...
-[david@david-portegem800 manjaro]$ sudo pacman -Syu
-:: Synchronizing package databases...
- core is up to date
- extra is up to date
- community is up to date
- multilib is up to date
- archlinuxcn is up to date
-:: Starting full system upgrade...
- there is nothing to do
-[david@david-portegem800 manjaro]$ 
 
 
 ```
@@ -205,8 +102,8 @@ error: failed to synchronize all databases
 
 ```
 
-
-```text
+### chinese
+```shell
 [david@david-portegem800 manjaro]$ sudo pacman -Q | grep fcitx
 fcitx 4.2.9.8-1
 fcitx-qt5 1.2.5-3
@@ -274,3 +171,5 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 
 ```
+
+
