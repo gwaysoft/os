@@ -1,8 +1,30 @@
-### install
+### install 为
 ![image_text](./pictures/application_setting.png)
 
 ```text
+# install kde
+MBR
+fat32		boot 		/boot
+linuxswap 			/swap
+ext4 		/
+```
+
+
+
+```text
 https://www.bilibili.com/video/av94460704
+```
+
+```shell
+# su root
+[david@david-portegem800 ~]$ sudo passwd root
+[david@david-portegem800 ~]$ su
+
+[david@david-portegem800 ~]$ sudo EDITOR=vim visudo
+##
+root ALL=(ALL) ALL
+david ALL=(ALL) ALL
+
 
 # issue-with-pacman-error-failed-to-prepare-transaction
 [david@david-portegem800 ~]$ sudo pacman -Syu
