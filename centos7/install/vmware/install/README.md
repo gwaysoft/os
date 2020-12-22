@@ -11,7 +11,17 @@
     set root | root
     
 ## set network
-### vi /etc/sysconfig/network-scripts/ifcfg-ens33
+
+### nmtui
+```shell script
+[root@test-2-3-21 ~]# nmtui
+```
+![image_text](./pictures/nmtui.png)
+```shell script
+Device 'ens33' successfully disconnected.
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/3)
+```
+### cat /etc/sysconfig/network-scripts/ifcfg-ens33
     TYPE=Ethernet
     PROXY_METHOD=none
     BROWSER_ONLY=no

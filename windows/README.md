@@ -1,3 +1,8 @@
+## download
+```text
+https://msdn.itellyou.cn/
+```
+
 ### format usb disk
 ```shell script
 $ diskpart

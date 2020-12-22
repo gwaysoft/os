@@ -1,7 +1,7 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1605769530799" ID="ID_1233702988" MODIFIED="1607494640001" TEXT="network">
-<node CREATED="1551771830995" FOLDED="true" ID="ID_358553747" MODIFIED="1607494604163" POSITION="right" TEXT="command">
+<node CREATED="1551771830995" ID="ID_358553747" MODIFIED="1607584697223" POSITION="right" TEXT="command">
 <node CREATED="1593575394431" ID="ID_362380896" MODIFIED="1593575424387" TEXT="cd /etc/sysconfig/network-scripts">
 <node CREATED="1600855282753" ID="ID_1825257673" MODIFIED="1600855283490" TEXT="systemctl restart network"/>
 </node>
