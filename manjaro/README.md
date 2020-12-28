@@ -1,4 +1,9 @@
-### install 为
+##
+```text
+https://manjaro.org/
+```
+
+### install 
 ![image_text](./pictures/application_setting.png)
 
 ```text
