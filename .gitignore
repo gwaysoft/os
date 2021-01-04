@@ -5,8 +5,7 @@
 *.exe
 *.rpm
 *.bz2
-tools
-workstation
+backup
 
 # Logs
 logs
