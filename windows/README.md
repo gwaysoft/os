@@ -6,6 +6,7 @@ https://msdn.itellyou.cn/
 ### format usb disk
 ```shell script
 # http://www.360doc.com/content/20/0502/01/56395733_909706356.shtml
+# Run as administrator
 david.wei@CN01L0201000758 MINGW64 ~
 $ diskpart
 
